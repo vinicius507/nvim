@@ -1,2 +1,4 @@
-vim.cmd('set termguicolors')
-vim.cmd('colorscheme onedark')
+local cmd = vim.cmd
+
+cmd('set termguicolors')
+cmd('colorscheme onedark')

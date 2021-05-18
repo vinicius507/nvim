@@ -2,7 +2,7 @@ require('bufferline').setup{
 	options = {
 		view = "default",
 		numbers =  "ordinal",
-		number_style = "" , 
+		number_style = "" ,
 		mappings = true,
 		buffer_close_icon= '',
 		modified_icon = '●',
@@ -31,7 +31,7 @@ require('bufferline').setup{
 		show_buffer_close_icons = true,
 		show_close_icon = true,
 		show_tab_indicators = true,
-		persist_buffer_sort = true, 
+		persist_buffer_sort = true,
 		separator_style =  "thick",
 		enforce_regular_tabs = true,
 		always_show_bufferline = true,

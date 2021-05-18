@@ -5,5 +5,5 @@ lint.linters.norme = norme
 
 require('lint').linters_by_ft = {
 	c = { 'norme', },
-	cpp = { 'norme', }, -- for header and C++ files
+	cpp = { 'norme', }, -- for header files
 }
