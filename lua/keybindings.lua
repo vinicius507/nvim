@@ -23,12 +23,12 @@ map('n', '<C-p>', '<cmd>lua vim.lsp.buf.goto_prev()<CR>', {silent = true, norema
 map('n', '<C-d>', '<cmd>lua vim.lsp.buf.show_line_diagnostics()<CR>', {silent = true, noremap = true})
 
 -- LSP Trouble Keys
-map('n', '<leader>xx', '<cmd>LspTroubleToggle<cr>', {silent = true, noremap = true})
-map('n', '<leader>xw', '<cmd>LspTroubleToggle lsp_workspace_diagnostics<cr>', {silent = true, noremap = true})
-map('n', '<leader>xd', '<cmd>LspTroubleToggle lsp_document_diagnostics<cr>', {silent = true, noremap = true})
-map('n', '<leader>xl', '<cmd>LspTroubleToggle loclist<cr>', {silent = true, noremap = true})
-map('n', '<leader>xq', '<cmd>LspTroubleToggle quickfix<cr>', {silent = true, noremap = true})
-map('n', '<Leader>gr', '<cmd>LspTrouble lsp_references<cr>', {silent = true, noremap = true})
+map('n', '<leader>xx', '<cmd>LspTroubleToggle<CR>', {silent = true, noremap = true})
+map('n', '<leader>xw', '<cmd>LspTroubleToggle lsp_workspace_diagnostics<CR>', {silent = true, noremap = true})
+map('n', '<leader>xd', '<cmd>LspTroubleToggle lsp_document_diagnostics<CR>', {silent = true, noremap = true})
+map('n', '<leader>xl', '<cmd>LspTroubleToggle loclist<CR>', {silent = true, noremap = true})
+map('n', '<leader>xq', '<cmd>LspTroubleToggle quickfix<CR>', {silent = true, noremap = true})
+map('n', '<Leader>gr', '<cmd>LspTrouble lsp_references<CR>', {silent = true, noremap = true})
 
 -- Compe Keys
 map('i', '<Tab>', 'v:lua.tab_complete()', {expr = true, noremap = true})

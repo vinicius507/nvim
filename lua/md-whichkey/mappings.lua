@@ -36,7 +36,7 @@ local leader = {
 		D = { '<cmd>lua vim.lsp.buf.declaration()<CR>', 'declaration' },
 		h = { '<cmd>lua vim.lsp.buf.hover()<CR>', 'hover' },
 		i = { '<cmd>lua vim.lsp.buf.implementation()<CR>', 'implementation' },
-		r = { '<cmd>LspTrouble lsp_references<cr>', 'references' },
+		r = { '<cmd>LspTrouble lsp_references<CR>', 'references' },
 		s = { '<cmd>lua vim.lsp.buf.signature_help()<CR>', 'signature help' },
 	},
 	n = {
