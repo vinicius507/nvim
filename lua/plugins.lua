@@ -77,6 +77,9 @@ return require('packer').startup(function (use)
 	-- DiffView
 	use { 'sindrets/diffview.nvim', requires = { 'kyazdani42/nvim-web-devicons'} }
 
+	-- Gitsigns
+	use { 'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' }	}
+
 	-- Norme.nvim
 	use { 'vinicius507/norme.nvim', requires = { 'mfussenegger/nvim-lint' } }
 
