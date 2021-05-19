@@ -20,6 +20,7 @@ end
 options['buffer'] = {
 	shiftwidth = 4,
 	tabstop = 4,
+	cinoptions = '(1s',
 }
 
 options['window'] = {
