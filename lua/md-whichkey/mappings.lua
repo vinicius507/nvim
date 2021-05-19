@@ -12,12 +12,12 @@ local leader = {
 	['9'] = 'which_key_ignore',
 	['<Tab>'] = { '<cmd>NvimTreeToggle<CR>', 'file explorer' },
 	f = {
-		name = '+telescope',
+		name = 'telescope',
 		f = {"<cmd>lua require('telescope.builtin').find_files()<CR>", 'files'},
 		g = {"<cmd>lua require('telescope.builtin').live_grep()<CR>", 'grep'},
 		h = {"<cmd>lua require('telescope.builtin').help_tags()<CR>", 'help tags'},
 		G = {
-			name = '+git',
+			name = 'git',
 			g = {"<cmd>lua require('telescope.builtin').git_commits()<CR>", 'commits'},
 			c = {"<cmd>lua require('telescope.builtin').git_bcommits()<CR>", 'bcommits'},
 			b = {"<cmd>lua require('telescope.builtin').git_branches()<CR>", 'branches'},
@@ -25,7 +25,7 @@ local leader = {
 		},
 	},
 	g = {
-		name = '+lsp',
+		name = 'lsp',
 		d = { '<cmd>lua vim.lsp.buf.definition()<CR>', 'definition' },
 		D = { '<cmd>lua vim.lsp.buf.declaration()<CR>', 'declaration' },
 		h = { '<cmd>lua vim.lsp.buf.hover()<CR>', 'hover'},
@@ -34,14 +34,14 @@ local leader = {
 		s = { '<cmd>lua vim.lsp.buf.signature_help()<CR>', 'signature help' },
 	},
 	n = {
-		name = '+nvim-tree',
+		name = 'nvim-tree',
 		r = { '<cmd>NvimTreeRefresh<CR>', 'refresh' },
 		f = { '<cmd>NvimTreeFindFile<CR>', 'find' },
 	},
 	q = { '<cmd>bdelete!<CR>', 'kill buffer' },
 	t = { '<cmd>TodoTrouble<CR>', 'todo' },
 	x = {
-		name = '+trouble',
+		name = 'trouble',
 		d = { '<cmd>LspTroubleToggle lsp_document_diagnostics<CR>', 'document' },
 		l = { '<cmd>LspTroubleToggle loclist<CR>', 'loclist' },
 		q = { '<cmd>LspTroubleToggle quickfix<CR>', 'quickfix' },

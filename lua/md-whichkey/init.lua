@@ -19,7 +19,10 @@ whichkey.setup {
 		},
 	},
 	operators = { gc = 'Comments' },
-	key_labels = {},
+	key_labels = {
+		['<leader>'] = 'SPC',
+		['<Tab>'] = 'TAB',
+	},
 	icons = {
 		breadcrumb = '»',
 		separator = '➜',
