@@ -1,4 +1,5 @@
 local map = vim.api.nvim_set_keymap
+local bmap = vim.api.nvim_buf_set_keymap
 
 -- Leader
 vim.g.mapleader = " "
@@ -50,6 +51,11 @@ map('n', '<Leader>fGs', "<cmd>lua require('telescope.builtin').git_status()<CR>"
 map('n', '<Leader><Tab>', '<cmd>NvimTreeToggle<CR>', { noremap = true })
 map('n', '<Leader>nr', '<cmd>NvimTreeRefresh<CR>', { noremap = true })
 map('n', '<Leader>nf', '<cmd>NvimTreeFindFile<CR>', { noremap = true })
+
+-- Diffview
+map('n', '<Leader>do', '<cmd>DiffviewOpen<CR>', { noremap = true })
+map('n', '<Leader>dq', '<cmd>DiffviewClose<CR>', { noremap = true })
+map('n', '<Leader>dr', '<cmd>DiffviewRefresh<CR>', { noremap = true })
 
 -- TODO Comments Keys
 map('n', '<Leader>t', '<cmd>TodoTrouble<CR>', { silent = true, noremap = true })

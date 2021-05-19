@@ -69,6 +69,12 @@ return require('packer').startup(function (use)
 	-- Nvim-tree
 	use { 'kyazdani42/nvim-tree.lua', requires = { 'kyazdani42/nvim-web-devicons' } }
 
+	-- Indent Blank Lines
+	use { 'lukas-reineke/indent-blankline.nvim', branch = 'lua' }
+
+	-- DiffView
+	use { 'sindrets/diffview.nvim', requires = { 'kyazdani42/nvim-web-devicons'} }
+
 	-- Norme.nvim
 	use { 'vinicius507/norme.nvim', requires = { 'mfussenegger/nvim-lint' } }
 
