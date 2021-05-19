@@ -2,7 +2,12 @@ local filename = function()
 	local ok, devicons = pcall(require, 'nvim-web-devicons')
 	if ok then
 		local f_name, f_extension = vim.fn.expand('%:t'), vim.fn.expand('%:e')
-		return devicons.get_icon(f_name, f_extension) .. ' ' .. vim.fn.expand('%:t')
+		icon = devicons.get_icon(f_name, f_extension)
+		if icon then
+			return icon .. f_name
+		else
+			return f_name
+		end
 	else
 		ok = vim.fn.exists('*WebDevIconsGetFileTypeSymbol')
 		if ok ~= 0 then return vim.fn.WebDevIconsGetFileTypeSymbol() end
