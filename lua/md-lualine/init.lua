@@ -2,12 +2,14 @@ local filename = function()
 	local ok, devicons = pcall(require, 'nvim-web-devicons')
 	if ok then
 		local f_name, f_extension = vim.fn.expand('%:t'), vim.fn.expand('%:e')
-		icon = devicons.get_icon(f_name, f_extension)
-		if icon then
-			return icon .. f_name
+		local icon = devicons.get_icon(f_name, f_extension) or ''
+		local title = ' '
+		if f_name == '' then
+			title = title .. '[No Name]'
 		else
-			return f_name
+			title = title .. f_name
 		end
+		return icon .. title
 	else
 		ok = vim.fn.exists('*WebDevIconsGetFileTypeSymbol')
 		if ok ~= 0 then return vim.fn.WebDevIconsGetFileTypeSymbol() end
@@ -17,9 +19,9 @@ end
 require('lualine').setup{
 	options = {
 		theme = 'onedark',
-		section_separators = {'', ''},
-		component_separators = {'', ''},
-		disabled_filetypes = {},
+		section_separators = { '', '' },
+		component_separators = { '', '' },
+		disabled_filetypes = { 'NvimTree' },
 		icons_enabled = true,
 	},
 	sections = {
