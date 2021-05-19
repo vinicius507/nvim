@@ -1,6 +1,6 @@
-local wk = require('whichkey_setup')
+local whichkey = require('which-key')
 
-local keymap = {
+local leader = {
 	['1'] = 'which_key_ignore',
 	['2'] = 'which_key_ignore',
 	['3'] = 'which_key_ignore',
@@ -10,7 +10,7 @@ local keymap = {
 	['7'] = 'which_key_ignore',
 	['8'] = 'which_key_ignore',
 	['9'] = 'which_key_ignore',
-	['<Tab>'] = { '<cmd>NvimTreeToggle<CR>', 'nvim-tree toggle' },
+	['<Tab>'] = { '<cmd>NvimTreeToggle<CR>', 'file explorer' },
 	f = {
 		name = '+telescope',
 		f = {"<cmd>lua require('telescope.builtin').find_files()<CR>", 'files'},
@@ -50,13 +50,4 @@ local keymap = {
 	},
 }
 
-require("whichkey_setup").config{
-	hide_statusline = false,
-	default_keymap_settings = {
-		silent=true,
-		noremap=true,
-	},
-	default_mode = 'n',
-}
-
-wk.register_keymap('leader', keymap)
+whichkey.register(leader, { prefix = '<Leader>' })
