@@ -1,3 +1,14 @@
+local filename = function()
+	local ok, devicons = pcall(require, 'nvim-web-devicons')
+	if ok then
+		local f_name, f_extension = vim.fn.expand('%:t'), vim.fn.expand('%:e')
+		return devicons.get_icon(f_name, f_extension) .. ' ' .. vim.fn.expand('%:t')
+	else
+		ok = vim.fn.exists('*WebDevIconsGetFileTypeSymbol')
+		if ok ~= 0 then return vim.fn.WebDevIconsGetFileTypeSymbol() end
+	end
+end
+
 require('lualine').setup{
 	options = {
 		theme = 'onedark',
@@ -9,10 +20,7 @@ require('lualine').setup{
 	sections = {
 		lualine_a = { {'mode', upper = true} },
 		lualine_b = {
-			{
-				'filename',
-				file_status = false,
-			},
+			filename,
 			{
 				'diagnostics',
 				sources = { 'nvim_lsp' },
@@ -28,7 +36,6 @@ require('lualine').setup{
 				'branch',
 				icon = ''
 			},
-			'filetype',
 		},
 		lualine_z = { 'progress' },
 	},
