@@ -39,9 +39,3 @@ options['global'] = {
 set_globals(options)
 set_options(BUFFER, options['buffer'])
 set_options(WINDOW, options['window'])
-
--- Norme.nvim options
-vim.cmd "autocmd BufEnter,BufRead *.c,*.h lua require('norme').lint()"
-vim.cmd "autocmd BufWritePost *.c,*.h lua require('norme').lint()"
-vim.cmd "autocmd InsertLeave *.c,*.h lua require('norme').lint()"
-vim.cmd "autocmd TextChanged *.c,*.h lua require('norme').lint()"

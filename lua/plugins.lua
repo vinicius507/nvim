@@ -37,8 +37,10 @@ return require('packer').startup(function (use)
 	use { 'hoob3rt/lualine.nvim', requires = { 'kyazdani42/nvim-web-devicons' } }
 	use { 'akinsho/nvim-bufferline.lua', requires = { 'kyazdani42/nvim-web-devicons'} }
 
-	-- T-pope
-	use 'tpope/vim-surround'
+	-- Surround
+	use 'blackCauldron7/surround.nvim'
+
+	-- Commentary
 	use 'tpope/vim-commentary'
 
 	-- LSP
