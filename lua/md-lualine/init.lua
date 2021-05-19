@@ -1,3 +1,5 @@
+local lualine = require('lualine')
+
 local filename = function()
 	local ok, devicons = pcall(require, 'nvim-web-devicons')
 	if ok then
@@ -16,12 +18,12 @@ local filename = function()
 	end
 end
 
-require('lualine').setup{
+lualine.setup{
 	options = {
 		theme = 'onedark',
 		section_separators = { '', '' },
 		component_separators = { '', '' },
-		disabled_filetypes = { 'NvimTree' },
+		disabled_filetypes = { },
 		icons_enabled = true,
 	},
 	sections = {
@@ -47,12 +49,12 @@ require('lualine').setup{
 		lualine_z = { 'progress' },
 	},
 	inactive_sections = {
-		lualine_a = {},
+		lualine_a = { filename },
 		lualine_b = {},
 		lualine_c = {},
 		lualine_x = {},
 		lualine_y = {},
 		lualine_z = {}
 	},
-	extensions = {}
+	extensions = { 'nvim-tree' }
 }
