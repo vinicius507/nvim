@@ -1,10 +1,9 @@
-local actions = require('telescope.actions')
 local trouble = require("trouble.providers.telescope")
 
 require('telescope').setup {
 	defaults = {
 		file_sorter = require('telescope.sorters').get_fzy_sorter,
-		prompt_prefix = ' >',
+		prompt_prefix = '> ',
 		color_devicons = true,
 
 		file_previewer   = require('telescope.previewers').vim_buffer_cat.new,

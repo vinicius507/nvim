@@ -1,6 +1,6 @@
-local whichkey = require('which-key')
+local M = {}
 
-local leader = {
+M.map = {
 	['1'] = 'which_key_ignore',
 	['2'] = 'which_key_ignore',
 	['3'] = 'which_key_ignore',
@@ -56,4 +56,6 @@ local leader = {
 	},
 }
 
-whichkey.register(leader, { prefix = '<Leader>' })
+M.prefix = '<Leader>'
+
+return M

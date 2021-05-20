@@ -1,6 +1,6 @@
-local cb = require'diffview.config'.diffview_callback
+local cb = require('diffview.config').diffview_callback
 
-require'diffview'.setup {
+require('diffview').setup {
 	diff_binaries = false,
 	file_panel = {
 		width = 35,

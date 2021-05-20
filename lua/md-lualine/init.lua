@@ -37,7 +37,12 @@ lualine.setup{
 	},
 	inactive_sections = {
 		lualine_a = { components.filetype },
-		lualine_b = {},
+		lualine_b = {
+			{
+				'filename',
+				file_status = false,
+			},
+		},
 		lualine_c = {},
 		lualine_x = {},
 		lualine_y = {},
