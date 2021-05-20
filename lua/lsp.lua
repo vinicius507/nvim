@@ -1,5 +1,6 @@
 local lspinstall = require('lspinstall')
 local lspconfig = require('lspconfig')
+local lsp_signature = require('lsp_signature')
 
 local config = {
 	clangd = {
@@ -39,6 +40,19 @@ local function setup_servers()
 end
 
 setup_servers()
+lsp_signature.on_attach({
+	bind = true,
+	doc_lines = 10,
+	hint_enable = false,
+	hint_prefix = "",
+	hint_scheme = "String",
+	use_lspsaga = false,
+	handler_opts = {
+		border = "single"
+	},
+	decorator = {"**", "**"}
+
+})
 
 lspinstall.post_install_hook = function ()
 	setup_servers()

@@ -48,6 +48,7 @@ return require('packer').startup(function (use)
 	use 'kabouzeid/nvim-lspinstall'
 	use 'folke/lsp-colors.nvim'
 	use 'folke/lsp-trouble.nvim'
+	use 'ray-x/lsp_signature.nvim'
 
 	-- Treesitter
 	use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
