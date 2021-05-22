@@ -57,6 +57,9 @@ map('n', '<Leader>do', '<cmd>DiffviewOpen<CR>', { noremap = true })
 map('n', '<Leader>dq', '<cmd>DiffviewClose<CR>', { noremap = true })
 map('n', '<Leader>dr', '<cmd>DiffviewRefresh<CR>', { noremap = true })
 
+-- Neogit
+map('n', '<Leader>G', '<cmd>Neogit<CR>', { noremap = true })
+
 -- TODO Comments Keys
 map('n', '<Leader>t', '<cmd>TodoTrouble<CR>', { silent = true, noremap = true })
 

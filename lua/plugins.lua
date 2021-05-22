@@ -81,6 +81,12 @@ return require('packer').startup(function (use)
 	-- Gitsigns
 	use { 'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' }	}
 
+	-- Neogit
+	use { 'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim' }
+
+	-- Lsp-rooter.nvim
+	use { "ahmedkhalf/lsp-rooter.nvim" }
+
 	-- Norme.nvim
 	use { 'vinicius507/norme.nvim', requires = { 'mfussenegger/nvim-lint' } }
 

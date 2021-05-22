@@ -39,6 +39,7 @@ M.map = {
 		r = { '<cmd>LspTrouble lsp_references<CR>', 'references' },
 		s = { '<cmd>lua vim.lsp.buf.signature_help()<CR>', 'signature help' },
 	},
+	G = { '<cmd>Neogit<CR>', 'neogit' },
 	n = {
 		name = 'nvim-tree',
 		r = { '<cmd>NvimTreeRefresh<CR>', 'refresh' },
