@@ -1,4 +1,4 @@
-vim.cmd "autocmd BufWritePost plugins.lua PackerCompile" -- Auto Compile when there are changes in plugins.lua
+	vim.cmd "autocmd BufWritePost plugins.lua PackerCompile" -- Auto Compile when there are changes in plugins.lua
 
 local execute = vim.api.nvim_command
 local fn = vim.fn
@@ -37,11 +37,9 @@ return require('packer').startup(function (use)
 	use { 'hoob3rt/lualine.nvim', requires = { 'kyazdani42/nvim-web-devicons' } }
 	use { 'akinsho/nvim-bufferline.lua', requires = { 'kyazdani42/nvim-web-devicons'} }
 
-	-- Surround
-	use 'blackCauldron7/surround.nvim'
-
-	-- Commentary
+	-- Tpope
 	use 'tpope/vim-commentary'
+	use 'tpope/vim-surround'
 
 	-- LSP
 	use 'neovim/nvim-lspconfig'
