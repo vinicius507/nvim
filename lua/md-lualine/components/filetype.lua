@@ -4,11 +4,10 @@ local component = function()
 		local f_name, f_extension = vim.fn.expand('%:t'), vim.fn.expand('%:e')
 		local icon = devicons.get_icon(f_name, f_extension) or ''
 		local title = ''
-		if f_extension and f_extension ~= '' then
-			title = icon .. ' ' .. string.upper(f_extension)
-		elseif f_name and f_name ~= '' then
-			local type = vim.bo.filetype
-			title = icon .. ' ' .. string.upper(type)
+		if f_name and f_name ~= '' then
+			title = icon .. ' ' .. f_name
+		else
+			title = icon .. ' [No Name]'
 		end
 		return title
 	else

@@ -12,16 +12,9 @@ lualine.setup{
 	sections = {
 		lualine_a = { {'mode', upper = true} },
 		lualine_b = {
-			{
-				'branch',
-				icon = ''
-			},
+			components.filetype,
 		},
 		lualine_c = {
-			{
-				'filename',
-				file_status = false,
-			},
 			{
 				'diagnostics',
 				sources = { 'nvim_lsp' },
@@ -29,9 +22,12 @@ lualine.setup{
 				symbols = { error = ' ', warn = ' ', info= ' ' },
 			},
 		},
-		lualine_x = {  },
+		lualine_x = {},
 		lualine_y = {
-			components.filetype,
+			{
+				'branch',
+				icon = ''
+			},
 		},
 		lualine_z = { 'progress' },
 	},
@@ -39,8 +35,8 @@ lualine.setup{
 		lualine_a = { components.filetype },
 		lualine_b = {
 			{
-				'filename',
-				file_status = false,
+				'branch',
+				icon = ''
 			},
 		},
 		lualine_c = {},
