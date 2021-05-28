@@ -1,34 +1,11 @@
-local GLOBAL = vim.o
-local BUFFER = vim.bo
-local WINDOW = vim.wo
-local options = {}
+local setopt = vim.opt
 
-local set_options = function(locality, opt)
-	for key, value in pairs(opt) do
-		locality[key] = value
-	end
-end
-
-local set_globals = function(opt)
-	for _, value in pairs(opt) do
-		for key, val in pairs(value) do
-			GLOBAL[key] = val
-		end
-	end
-end
-
-options['buffer'] = {
+local options = {
 	shiftwidth = 4,
 	tabstop = 4,
 	cinoptions = '(1s',
-}
-
-options['window'] = {
 	number = true,
 	cursorline = true,
-}
-
-options['global'] = {
 	showmode = false,
 	hidden = true,
 	hlsearch = false,
@@ -36,6 +13,10 @@ options['global'] = {
 	splitright = true,
 }
 
-set_globals(options)
-set_options(BUFFER, options['buffer'])
-set_options(WINDOW, options['window'])
+local set_options = function(opt)
+	for option, value in pairs(opt) do
+		setopt[option] = value
+	end
+end
+
+set_options(options)
