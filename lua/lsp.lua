@@ -50,7 +50,7 @@ lsp_signature.on_attach({
 	handler_opts = {
 		border = "single"
 	},
-	decorator = {"**", "**"}
+	decorator = {"`", "`"}
 
 })
 
