@@ -40,6 +40,7 @@ return require('packer').startup(function (use)
 	-- Tpope
 	use 'tpope/vim-commentary'
 	use 'tpope/vim-surround'
+	use 'tpope/vim-repeat'
 
 	-- LSP
 	use 'neovim/nvim-lspconfig'
