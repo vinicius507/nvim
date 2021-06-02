@@ -50,8 +50,6 @@ lsp_signature.on_attach({
 	handler_opts = {
 		border = "single"
 	},
-	decorator = {"`", "`"}
-
 })
 
 lspinstall.post_install_hook = function ()
