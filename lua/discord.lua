@@ -3,7 +3,7 @@ local discord = require('presence')
 discord:setup({
 	auto_update         = true,
 	neovim_image_text   = "The One True Text Editor",
-	main_image          = "neovim",
+	main_image          = "file",
 	log_level           = nil,
 	debounce_timeout    = 10,
 	enable_line_number  = false,
