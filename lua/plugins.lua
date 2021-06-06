@@ -1,4 +1,4 @@
-	vim.cmd "autocmd BufWritePost plugins.lua PackerCompile" -- Auto Compile when there are changes in plugins.lua
+vim.cmd "autocmd BufWritePost plugins.lua PackerCompile" -- Auto Compile when there are changes in plugins.lua
 
 local execute = vim.api.nvim_command
 local fn = vim.fn
@@ -8,24 +8,6 @@ local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
 if fn.empty(fn.glob(install_path)) > 0 then
 	execute("!git clone https://github.com/wbthomason/packer.nvim " .. install_path)
 	execute "packadd packer.nvim"
-end
-
--- Function for opt plugins
-local require_plugin = function(plugin)
-	local plugin_prefix = fn.stdpath("data") .. "/site/pack/packer/opt/"
-
-	local plugin_path = plugin_prefix .. plugin .. "/"
-	local ok, err, code = os.rename(plugin_path, plugin_path)
-	if not ok then
-		if code == 13 then
-			-- Permission denied, but it exists
-			return true
-		end
-	end
-	if ok then
-		vim.cmd("packadd " .. plugin)
-	end
-	return ok, err, code
 end
 
 return require('packer').startup(function (use)
@@ -51,6 +33,7 @@ return require('packer').startup(function (use)
 	use 'folke/lsp-colors.nvim'
 	use 'folke/lsp-trouble.nvim'
 	use 'ray-x/lsp_signature.nvim'
+	use { "ahmedkhalf/lsp-rooter.nvim" }
 
 	-- Treesitter
 	use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
@@ -58,9 +41,13 @@ return require('packer').startup(function (use)
 	-- Compe
 	use 'hrsh7th/nvim-compe'
 
+	-- Dap
+	use 'mfussenegger/nvim-dap'
+
 	-- Telescope
 	use { 'nvim-telescope/telescope.nvim', requires = { 'nvim-lua/popup.nvim', 'nvim-lua/plenary.nvim' } }
 	use 'nvim-telescope/telescope-fzy-native.nvim'
+	use 'nvim-telescope/telescope-dap.nvim'
 
 	-- Which Key
 	use { 'folke/which-key.nvim' }
@@ -86,8 +73,8 @@ return require('packer').startup(function (use)
 	-- Neogit
 	use { 'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim' }
 
-	-- Lsp-rooter.nvim
-	use { "ahmedkhalf/lsp-rooter.nvim" }
+	-- Colorizer
+	use 'norcalli/nvim-colorizer.lua'
 
 	-- Norme.nvim
 	use { 'vinicius507/norme.nvim', requires = { 'mfussenegger/nvim-lint' } }
