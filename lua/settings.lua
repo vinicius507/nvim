@@ -1,4 +1,5 @@
 local setopt = vim.opt
+local cmd = vim.cmd
 
 local options = {
 	shiftwidth = 4,
@@ -11,6 +12,7 @@ local options = {
 	hlsearch = false,
 	shortmess = "filnxToOFc",
 	splitright = true,
+	completeopt = "menuone,noselect",
 }
 
 local set_options = function(opt)
@@ -20,3 +22,6 @@ local set_options = function(opt)
 end
 
 set_options(options)
+
+cmd([[ command! -complete=file -nargs=* DebugC lua require("md-dap.c").start({<f-args>}, "gdb") ]])
+cmd([[ command! -complete=file -nargs=* DebugRust lua require("md-dap.c").c.start({<f-args>}, "gdb", "rust-gdb") ]])
