@@ -10,7 +10,7 @@ require('keybindings')
 -- Load Plugins Configuration
 require('md-bufferline')
 require('md-lualine')
-require('lsp')
+require('md-lsp')
 require('lsp-trouble')
 require('treesitter')
 require('md-whichkey')
