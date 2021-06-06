@@ -33,7 +33,8 @@ return require('packer').startup(function (use)
 	use 'folke/lsp-colors.nvim'
 	use 'folke/lsp-trouble.nvim'
 	use 'ray-x/lsp_signature.nvim'
-	use { "ahmedkhalf/lsp-rooter.nvim" }
+	use 'glepnir/lspsaga.nvim'
+	use 'ahmedkhalf/lsp-rooter.nvim'
 
 	-- Treesitter
 	use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }

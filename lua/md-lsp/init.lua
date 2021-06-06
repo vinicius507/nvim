@@ -1,9 +1,16 @@
+-- Config
 local lspinstall = require('lspinstall')
 local lspconfig = require('lspconfig')
-local lsp_signature = require('lsp_signature')
 local servers = require('md-lsp/servers')
+-- Signature
+local lspsignature = require('lsp_signature')
+local signature = require('md-lsp/signature')
+-- Saga
+local lspsaga = require('lspsaga')
+local saga = require('md-lsp/saga')
 
-local function setup_servers()
+
+local setup_servers = function()
 	lspinstall.setup()
 	local installed = lspinstall.installed_servers()
 	for _, server in pairs(installed) do
@@ -13,23 +20,11 @@ end
 
 setup_servers()
 
-lsp_signature.on_attach({
-	bind = true,
-	doc_lines = 2,
-	floating_window = true,
-	hint_enable = false,
-	hint_prefix = "",
-	hint_scheme = "String",
-	use_lspsaga = false,
-	hi_parameter = "Search",
-	max_height = 12,
-	max_width = 120,
-	handler_opts = {
-		border = "single"
-	},
-})
-
-lspinstall.post_install_hook = function ()
+lspinstall.post_install_hook = function()
 	setup_servers()
 	vim.cmd("bufdo e")
 end
+
+lspsignature.on_attach(signature.config)
+
+lspsaga.init_lsp_saga(saga.config)
