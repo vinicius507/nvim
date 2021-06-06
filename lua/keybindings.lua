@@ -1,8 +1,9 @@
+local vimg = vim.g
 local map = vim.api.nvim_set_keymap
-local bmap = vim.api.nvim_buf_set_keymap
+-- local bmap = vim.api.nvim_buf_set_keymap -- should I ever need it
 
 -- Leader
-vim.g.mapleader = " "
+vimg.mapleader = " "
 
 -- Buffer Keys
 map('n', '<C-h>', ':wincmd h<CR>', {silent = true, noremap = true})
@@ -15,7 +16,6 @@ map('n', '<Leader>q', '<cmd>bdelete!<CR>', {silent = true, noremap = true})
 -- LSP Keys
 map('n', '<Leader>gd', '<cmd>lua vim.lsp.buf.definition()<CR>', {silent = true, noremap = true})
 map('n', '<Leader>gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', {silent = true, noremap = true})
-map('n', '<Leader>gh', '<cmd>lua vim.lsp.buf.hover()<CR>', {silent = true, noremap = true})
 map('n', '<Leader>gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', {silent = true, noremap = true})
 map('n', '<Leader>gs', '<cmd>lua vim.lsp.buf.signature_help()<CR>', {silent = true, noremap = true})
 map('n', '<C-n>', '<cmd>lua vim.lsp.buf.goto_next()<CR>', {silent = true, noremap = true})
@@ -29,6 +29,11 @@ map('n', '<leader>xd', '<cmd>LspTroubleToggle lsp_document_diagnostics<CR>', {si
 map('n', '<leader>xl', '<cmd>LspTroubleToggle loclist<CR>', {silent = true, noremap = true})
 map('n', '<leader>xq', '<cmd>LspTroubleToggle quickfix<CR>', {silent = true, noremap = true})
 map('n', '<Leader>gr', '<cmd>LspTrouble lsp_references<CR>', {silent = true, noremap = true})
+
+-- LSP Saga
+map('n', '<leader>gh', '<cmd>Lspsaga hover_doc<CR>', {silent = true, noremap = true})
+map('n', '<leader>sa', '<cmd>Lspsaga code_action<CR>', {silent = true, noremap = true})
+map('n', '<leader>sr', '<cmd>Lspsaga rename<CR>', {silent = true, noremap = true})
 
 -- Compe Keys
 map('i', '<Tab>', 'v:lua.tab_complete()', {expr = true, noremap = true})
@@ -60,7 +65,7 @@ map('n', '<Leader>dr', '<cmd>DiffviewRefresh<CR>', { noremap = true })
 -- Neogit
 map('n', '<Leader>G', '<cmd>Neogit<CR>', { noremap = true })
 
--- TODO Comments Keys
+-- TODO: Comments Keys
 map('n', '<Leader>t', '<cmd>TodoTrouble<CR>', { silent = true, noremap = true })
 
 -- 42 Header

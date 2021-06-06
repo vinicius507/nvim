@@ -34,7 +34,7 @@ M.map = {
 		name = 'lsp',
 		d = { '<cmd>lua vim.lsp.buf.definition()<CR>', 'definition' },
 		D = { '<cmd>lua vim.lsp.buf.declaration()<CR>', 'declaration' },
-		h = { '<cmd>lua vim.lsp.buf.hover()<CR>', 'hover' },
+		h = { '<cmd>Lspsaga hover_doc<CR>', 'info' },
 		i = { '<cmd>lua vim.lsp.buf.implementation()<CR>', 'implementation' },
 		r = { '<cmd>LspTrouble lsp_references<CR>', 'references' },
 		s = { '<cmd>lua vim.lsp.buf.signature_help()<CR>', 'signature help' },
@@ -46,6 +46,11 @@ M.map = {
 		f = { '<cmd>NvimTreeFindFile<CR>', 'find' },
 	},
 	q = { '<cmd>bdelete!<CR>', 'kill buffer' },
+	s = {
+		name = 'saga',
+		a = { '<cmd>Lspsaga code_action<CR>', 'code actions' },
+		r = { '<cmd>Lspsaga rename<CR>', 'rename' },
+	},
 	t = { '<cmd>TodoTrouble<CR>', 'todo' },
 	x = {
 		name = 'trouble',
