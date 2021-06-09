@@ -12,6 +12,7 @@ local options = {
 	hlsearch = false,
 	shortmess = "filnxToOFc",
 	splitright = true,
+	splitbelow = true,
 	completeopt = "menuone,noselect",
 }
 
