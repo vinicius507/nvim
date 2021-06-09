@@ -19,12 +19,12 @@ M.start = function(args, mi_mode, mi_debugger_path)
 	end
 
 	if not config then
-		print('No binaryto debug set! Use ":DebugC <binary> <args>" or ":DebugRust <binary> <args>"')
+		print('No binary to debug set! Use ":DebugC <binary> <args>" or ":DebugRust <binary> <args>"')
 		return
 	end
 
 	dap.run(config)
-	dap.repl.open({}, 'vsp')
+	dap.repl.open({ height = 15 }, 'sp')
 end
 
 return M

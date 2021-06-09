@@ -30,6 +30,9 @@ map('n', '<leader>xl', '<cmd>LspTroubleToggle loclist<CR>', {silent = true, nore
 map('n', '<leader>xq', '<cmd>LspTroubleToggle quickfix<CR>', {silent = true, noremap = true})
 map('n', '<Leader>gr', '<cmd>LspTrouble lsp_references<CR>', {silent = true, noremap = true})
 
+-- TODO: Comments Keys
+map('n', '<Leader>xt', '<cmd>TodoTrouble<CR>', { silent = true, noremap = true })
+
 -- LSP Saga
 map('n', '<leader>gh', '<cmd>Lspsaga hover_doc<CR>', {silent = true, noremap = true})
 map('n', '<leader>sa', '<cmd>Lspsaga code_action<CR>', {silent = true, noremap = true})
@@ -57,6 +60,12 @@ map('n', '<Leader><Tab>', '<cmd>NvimTreeToggle<CR>', { noremap = true })
 map('n', '<Leader>nr', '<cmd>NvimTreeRefresh<CR>', { noremap = true })
 map('n', '<Leader>nf', '<cmd>NvimTreeFindFile<CR>', { noremap = true })
 
+-- Dap
+map('n', '<Leader>tb', "<cmd>lua require('dap').toggle_breakpoint()<CR>", { noremap = true })
+map('n', '<Leader>tB', "<cmd>lua require('dap').set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>", { noremap = true })
+map('n', '<Leader>tc', ":DebugC ", { noremap = true })
+map('n', '<Leader>tr', ":DebugRust ", { noremap = true })
+
 -- Diffview
 map('n', '<Leader>do', '<cmd>DiffviewOpen<CR>', { noremap = true })
 map('n', '<Leader>dq', '<cmd>DiffviewClose<CR>', { noremap = true })
@@ -64,9 +73,6 @@ map('n', '<Leader>dr', '<cmd>DiffviewRefresh<CR>', { noremap = true })
 
 -- Neogit
 map('n', '<Leader>G', '<cmd>Neogit<CR>', { noremap = true })
-
--- TODO: Comments Keys
-map('n', '<Leader>t', '<cmd>TodoTrouble<CR>', { silent = true, noremap = true })
 
 -- 42 Header
 map('n', '<F2>', ':Stdheader<CR>', { noremap = true })
