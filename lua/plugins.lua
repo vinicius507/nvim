@@ -48,7 +48,6 @@ return require('packer').startup(function (use)
 	-- Telescope
 	use { 'nvim-telescope/telescope.nvim', requires = { 'nvim-lua/popup.nvim', 'nvim-lua/plenary.nvim' } }
 	use 'nvim-telescope/telescope-fzy-native.nvim'
-	use 'nvim-telescope/telescope-dap.nvim'
 
 	-- Which Key
 	use { 'folke/which-key.nvim' }
