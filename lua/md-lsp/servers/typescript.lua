@@ -1,7 +1,7 @@
 local M = {}
 
 M.config = {
-	on_attach = function(client)
+	on_attach = function(client, bufnr)
 		require('null-ls').setup()
 		client.resolved_capabilities.document_formatting = false
 
@@ -17,7 +17,7 @@ M.config = {
 			eslint_enable_disable_comments = true,
 			eslint_bin = 'eslint',
 			eslint_config_fallback = nil,
-			eslint_enable_diagnostics = false,
+			eslint_enable_diagnostics = true,
 
 			-- formatting
 			enable_formatting = true,
