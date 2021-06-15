@@ -8,6 +8,8 @@ local signature = require('md-lsp/signature')
 -- Saga
 local lspsaga = require('lspsaga')
 local saga = require('md-lsp/saga')
+-- Trouble
+local trouble = require('trouble')
 
 
 local setup_servers = function()
@@ -28,3 +30,5 @@ end
 lspsignature.on_attach(signature.config)
 
 lspsaga.init_lsp_saga(saga.config)
+
+trouble.setup()

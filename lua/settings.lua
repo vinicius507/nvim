@@ -32,3 +32,5 @@ cmd([[ autocmd BufEnter,BufRead *.c,*.h lua require('norme').lint() ]])
 cmd([[ autocmd BufWritePost *.c,*.h lua require('norme').lint() ]])
 cmd([[ autocmd InsertLeave *.c,*.h lua require('norme').lint() ]])
 cmd([[ autocmd TextChanged *.c,*.h lua require('norme').lint() ]])
+-- TSFormatting
+-- cmd([[ autocmd BufWritePre *.ts,*.tsx,*.js,*.jsx lua vim.lsp.buf.formatting_sync() ]])

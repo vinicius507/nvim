@@ -4,6 +4,7 @@ local servers_dir = 'md-lsp.servers.'
 local servers = {
 	'clangd',
 	'lua',
+	'tsserver',
 }
 
 M.config = {}

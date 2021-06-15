@@ -35,6 +35,7 @@ return require('packer').startup(function (use)
 	use 'ray-x/lsp_signature.nvim'
 	use 'glepnir/lspsaga.nvim'
 	use 'ahmedkhalf/lsp-rooter.nvim'
+	use 'jose-elias-alvarez/nvim-lsp-ts-utils'
 
 	-- Treesitter
 	use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
@@ -81,5 +82,8 @@ return require('packer').startup(function (use)
 
 	-- 42 Header
 	use 'eduardomosko/header42.nvim'
+
+	-- Null.ls
+	use 'jose-elias-alvarez/null-ls.nvim'
 end
 )
