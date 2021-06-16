@@ -83,7 +83,7 @@ return require('packer').startup(function (use)
 	-- 42 Header
 	use 'eduardomosko/header42.nvim'
 
-	-- Null.ls
+	-- Null-ls
 	use 'jose-elias-alvarez/null-ls.nvim'
 end
 )
