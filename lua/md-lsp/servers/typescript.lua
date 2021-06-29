@@ -12,7 +12,7 @@ M.config = {
 		ts_utils.setup {
 			debug = false,
 			disable_commands = false,
-			enable_import_on_completion = false,
+			enable_import_on_completion = true,
 
 			-- eslint
 			eslint_enable_code_actions = true,
