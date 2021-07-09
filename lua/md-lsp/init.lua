@@ -10,6 +10,8 @@ local lspsaga = require('lspsaga')
 local saga = require('md-lsp/saga')
 -- Trouble
 local trouble = require('trouble')
+-- Rooter
+local rooter = require('lsp-rooter')
 
 
 local setup_servers = function()
@@ -32,3 +34,5 @@ lspsignature.on_attach(signature.config)
 lspsaga.init_lsp_saga(saga.config)
 
 trouble.setup()
+
+rooter.setup()

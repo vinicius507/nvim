@@ -10,10 +10,11 @@ local options = {
 	showmode = false,
 	hidden = true,
 	hlsearch = false,
-	shortmess = "filnxToOFc",
+	shortmess = 'filnxToOFc',
 	splitright = true,
 	splitbelow = true,
-	completeopt = "menuone,noselect",
+	completeopt = 'menuone,noselect',
+	clipboard = 'unnamedplus',
 }
 
 local set_options = function(opt)

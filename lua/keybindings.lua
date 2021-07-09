@@ -5,6 +5,10 @@ local map = vim.api.nvim_set_keymap
 -- Leader
 vimg.mapleader = " "
 
+-- Session
+map('n', '<leader>Ss', '<cmd>SessionSave<CR>', {silent = true, noremap = true})
+map('n', '<leader>Sl', '<cmd>SessionLoad<CR>', {silent = true, noremap = true})
+
 -- Buffer Keys
 map('n', '<C-h>', ':wincmd h<CR>', {silent = true, noremap = true})
 map('n', '<C-j>', ':wincmd j<CR>', {silent = true, noremap = true})
@@ -49,7 +53,8 @@ map('i', '<CR>', 'compe#confirm("<CR>")', {expr = true, noremap = true})
 -- Telescope Keys
 map('n', '<Leader>ff', "<cmd>lua require('telescope.builtin').find_files()<CR>", { noremap = true })
 map('n', '<Leader>fg', "<cmd>lua require('telescope.builtin').live_grep()<CR>", { noremap = true })
-map('n', '<Leader>fh', "<cmd>lua require('telescope.builtin').help_tags()<CR>", { noremap = true })
+map('n', '<Leader>fh', "<cmd>lua require('telescope.builtin').oldfiles()<CR>", { noremap = true })
+map('n', '<Leader>fl', "<cmd>lua require('telescope.builtin').lsp_workspace_symbols()<CR>", { noremap = true })
 map('n', '<Leader>fGg', "<cmd>lua require('telescope.builtin').git_commits()<CR>", { noremap = true })
 map('n', '<Leader>fGc', "<cmd>lua require('telescope.builtin').git_bcommits()<CR>", { noremap = true })
 map('n', '<Leader>fGb', "<cmd>lua require('telescope.builtin').git_branches()<CR>", { noremap = true })

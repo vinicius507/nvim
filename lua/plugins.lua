@@ -19,6 +19,9 @@ return require('packer').startup(function (use)
 	use { 'hoob3rt/lualine.nvim', requires = { 'kyazdani42/nvim-web-devicons' } }
 	use { 'akinsho/nvim-bufferline.lua', requires = { 'kyazdani42/nvim-web-devicons'} }
 
+	-- Dashboard
+	use 'glepnir/dashboard-nvim'
+
 	-- Discord
 	use 'andweeb/presence.nvim'
 
@@ -39,6 +42,8 @@ return require('packer').startup(function (use)
 
 	-- Treesitter
 	use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
+	-- TODO: configure textobjects
+	use { 'nvim-treesitter/nvim-treesitter-textobjects', requires = { 'nvim-treesitter/nvim-treesitter' } }
 
 	-- Compe
 	use 'hrsh7th/nvim-compe'
@@ -63,7 +68,7 @@ return require('packer').startup(function (use)
 	use { 'kyazdani42/nvim-tree.lua', requires = { 'kyazdani42/nvim-web-devicons' } }
 
 	-- Indent Blank Lines
-	use { 'lukas-reineke/indent-blankline.nvim', branch = 'lua' }
+	use { 'lukas-reineke/indent-blankline.nvim'  }
 
 	-- DiffView
 	use { 'sindrets/diffview.nvim', requires = { 'kyazdani42/nvim-web-devicons'} }

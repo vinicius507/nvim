@@ -8,6 +8,7 @@ require('settings')
 require('keybindings')
 
 -- Load Plugins Configuration
+require('dashboard')
 require('md-bufferline')
 require('md-lualine')
 require('md-lsp')

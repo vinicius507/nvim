@@ -8,6 +8,7 @@ colorizer.setup {
 	'typescript',
 	'javascriptreact',
 	'typescriptreact',
+	'json',
 	html = {
 		mode = 'foreground',
 	}
