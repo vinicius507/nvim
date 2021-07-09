@@ -4,7 +4,7 @@ local mappings = 'md-whichkey.mappings.'
 
 local list = {
 	'leader',
-	'visual',
+	'treesitter',
 }
 
 local register_maps = function(maps)
