@@ -18,10 +18,12 @@ map('n', '<C-l>', ':wincmd l<CR>', {silent = true, noremap = true})
 map('n', '<Leader>q', '<cmd>bdelete!<CR>', {silent = true, noremap = true})
 
 -- LSP Keys
-map('n', '<Leader>gd', '<cmd>lua vim.lsp.buf.definition()<CR>', {silent = true, noremap = true})
+map('n', '<Leader>gd', '<cmd>lua require("nvim-treesitter-refactor.navigation").goto_definition_lsp_fallback(0)<CR>', {silent = true, noremap = true})
 map('n', '<Leader>gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', {silent = true, noremap = true})
 map('n', '<Leader>gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', {silent = true, noremap = true})
 map('n', '<Leader>gs', '<cmd>lua vim.lsp.buf.signature_help()<CR>', {silent = true, noremap = true})
+map('n', '<Leader>gl', '<cmd>lua require("nvim-treesitter-refactor.navigation").list_definitions(0)<CR>', {silent = true, noremap = true})
+map('n', '<Leader>gO', '<cmd>lua require("nvim-treesitter-refactor.navigation").list_definitions_toc(0)<CR>', {silent = true, noremap = true})
 map('n', '<C-n>', '<cmd>lua vim.lsp.buf.goto_next()<CR>', {silent = true, noremap = true})
 map('n', '<C-p>', '<cmd>lua vim.lsp.buf.goto_prev()<CR>', {silent = true, noremap = true})
 map('n', '<C-d>', '<cmd>lua vim.lsp.buf.show_line_diagnostics()<CR>', {silent = true, noremap = true})
@@ -72,7 +74,7 @@ map('n', '<Leader>tc', ":DebugC ", { noremap = true })
 map('n', '<Leader>tr', ":DebugRust ", { noremap = true })
 
 -- Diffview
-map('n', '<Leader>do', '<cmd>DiffviewOpen<CR>', { noremap = true })
+map('n', '<Leader>do', '<cmd>DiffviewOpen -uno<CR>', { noremap = true })
 map('n', '<Leader>dq', '<cmd>DiffviewClose<CR>', { noremap = true })
 map('n', '<Leader>dr', '<cmd>DiffviewRefresh<CR>', { noremap = true })
 

@@ -36,10 +36,12 @@ M.map = {
 	g = {
 		name = 'lsp',
 		c = { '<cmd>TSTextobjectPeekDefinitionCode @function.outer<CR>', 'peek definition code' },
-		d = { '<cmd>lua vim.lsp.buf.definition()<CR>', 'definition' },
+		d = { '<cmd>lua require("nvim-treesitter-refactor.navigation").goto_definition_lsp_fallback(0)<CR>', 'definition' },
 		D = { '<cmd>lua vim.lsp.buf.declaration()<CR>', 'declaration' },
+		O = { '<cmd>lua require("nvim-treesitter-refactor.navigation").list_definitions_toc(0)<CR>', 'list definitions in table' },
 		h = { '<cmd>Lspsaga hover_doc<CR>', 'info' },
 		i = { '<cmd>lua vim.lsp.buf.implementation()<CR>', 'implementation' },
+		l = { '<cmd>lua require("nvim-treesitter-refactor.navigation").list_definitions(0)<CR>', 'list definitions' },
 		r = { '<cmd>LspTrouble lsp_references<CR>', 'references' },
 		s = { '<cmd>lua vim.lsp.buf.signature_help()<CR>', 'signature help' },
 	},

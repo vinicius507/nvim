@@ -22,6 +22,10 @@ return require('packer').startup(function (use)
 	-- Dashboard
 	use 'glepnir/dashboard-nvim'
 
+	-- Org Mode
+	use 'kristijanhusak/orgmode.nvim'
+	use 'akinsho/org-bullets.nvim'
+
 	-- Discord
 	use 'andweeb/presence.nvim'
 
@@ -42,8 +46,8 @@ return require('packer').startup(function (use)
 
 	-- Treesitter
 	use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
-	-- TODO: configure textobjects
 	use { 'nvim-treesitter/nvim-treesitter-textobjects', requires = { 'nvim-treesitter/nvim-treesitter' } }
+	use { 'nvim-treesitter/nvim-treesitter-refactor', requires = { 'nvim-treesitter/nvim-treesitter' } }
 
 	-- Compe
 	use 'hrsh7th/nvim-compe'

@@ -3,9 +3,6 @@ require('nvim-treesitter.configs').setup {
 	highlight = {
 		enable = true,
 	},
-	indent = {
-		enable = true,
-	},
 	textobjects = {
 		select = {
 			enable = true,
@@ -40,5 +37,20 @@ require('nvim-treesitter.configs').setup {
 				['<leader>gD'] = '@function.outer',
 			},
 		},
+	},
+	refactor = {
+		highlight_definitions = { enable = true },
+		highlight_current_scope = { enable = false },
+		smart_rename = { enable = false },
+		navigation = {
+			enable = true,
+			keymaps = {
+				goto_definition_lsp_fallback = '<leader>gd',
+				list_definitions = '<leader>gl',
+				list_definitions_toc = '<leader>gO',
+				goto_next_usage = '<a-=>',
+				goto_previous_usage = '<a-->',
+			}
+		}
 	},
 }
