@@ -26,6 +26,9 @@ return require('packer').startup(function (use)
 	use 'kristijanhusak/orgmode.nvim'
 	use 'akinsho/org-bullets.nvim'
 
+	-- Zen mode
+	use 'folke/zen-mode.nvim'
+
 	-- Discord
 	use 'andweeb/presence.nvim'
 
@@ -87,7 +90,7 @@ return require('packer').startup(function (use)
 	use 'norcalli/nvim-colorizer.lua'
 
 	-- Norme.nvim
-	use { 'vinicius507/norme.nvim', requires = { 'mfussenegger/nvim-lint' } }
+	use { 'vinicius507/norme.nvim', requires = { 'mfussenegger/nvim-lint' }, branch = 'dev' }
 
 	-- 42 Header
 	use 'eduardomosko/header42.nvim'

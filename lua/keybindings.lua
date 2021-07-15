@@ -19,6 +19,7 @@ map('n', '<Leader>q', '<cmd>bdelete!<CR>', {silent = true, noremap = true})
 
 -- LSP Keys
 map('n', '<Leader>gd', '<cmd>lua require("nvim-treesitter-refactor.navigation").goto_definition_lsp_fallback(0)<CR>', {silent = true, noremap = true})
+map('n', '<Leader>gc', '<cmd>TSTextobjectPeekDefinitionCode @function.outer<CR>', {silent = true, noremap = true})
 map('n', '<Leader>gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', {silent = true, noremap = true})
 map('n', '<Leader>gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', {silent = true, noremap = true})
 map('n', '<Leader>gs', '<cmd>lua vim.lsp.buf.signature_help()<CR>', {silent = true, noremap = true})

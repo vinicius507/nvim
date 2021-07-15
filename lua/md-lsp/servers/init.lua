@@ -2,7 +2,7 @@ local M = {}
 local servers_dir = 'md-lsp.servers.'
 
 local servers = {
-	'clangd',
+	'cpp',
 	'lua',
 	'typescript',
 }
