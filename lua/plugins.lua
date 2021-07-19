@@ -90,7 +90,7 @@ return require('packer').startup(function (use)
 	use 'norcalli/nvim-colorizer.lua'
 
 	-- Norme.nvim
-	use { 'vinicius507/norme.nvim', requires = { 'mfussenegger/nvim-lint' }, branch = 'dev' }
+	use { 'vinicius507/norme.nvim', requires = { 'jose-elias-alvarez/null-ls.nvim' }, branch = 'dev' }
 
 	-- 42 Header
 	use 'eduardomosko/header42.nvim'
