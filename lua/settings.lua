@@ -1,20 +1,20 @@
 local setopt = vim.opt
 local cmd = vim.cmd
 
-	local options = {
-	shiftwidth	= 4,
-	tabstop		= 4,
-	cinoptions	= '(1s',
-	number		= true,
-	cursorline	= true,
-	showmode	= false,
-	hidden		= true,
-	hlsearch	= false,
-	shortmess	= 'filnxToOFc',
-	splitright	= true,
-	splitbelow	= true,
-	completeopt	= 'menuone,noselect',
-	clipboard	= 'unnamedplus',
+local options = {
+	shiftwidth = 4,
+	tabstop = 4,
+	cinoptions = '(1s',
+	number = true,
+	cursorline = true,
+	showmode = false,
+	hidden = true,
+	hlsearch = false,
+	shortmess = 'filnxToOFc',
+	splitright = true,
+	splitbelow = true,
+	completeopt = 'menuone,noselect',
+	clipboard = 'unnamedplus',
 }
 
 local set_options = function(opt)
@@ -26,7 +26,13 @@ end
 set_options(options)
 
 -- Dap
-cmd([[ command! -complete=file -nargs=* DebugC lua require("md-dap.c").start({<f-args>}, "gdb") ]])
-cmd( [[command! -complete=file -nargs=* DebugRust lua require("md-dap.c").c.start({<f-args>}, "gdb", "rust-gdb")]] )
+cmd(
+	[[ command! -complete=file -nargs=* DebugC lua require("md-dap.c").start({<f-args>}, "gdb") ]]
+)
+cmd(
+	[[command! -complete=file -nargs=* DebugRust lua require("md-dap.c").c.start({<f-args>}, "gdb", "rust-gdb")]]
+)
 -- TSFormatting
-cmd([[ autocmd BufWritePre *.ts,*.tsx,*.js,*.jsx lua vim.lsp.buf.formatting_sync() ]])
+cmd(
+	[[ autocmd BufWritePre *.ts,*.tsx,*.js,*.jsx lua vim.lsp.buf.formatting_sync() ]]
+)

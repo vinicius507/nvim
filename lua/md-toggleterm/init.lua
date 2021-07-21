@@ -1,4 +1,4 @@
-require("toggleterm").setup{
+require('toggleterm').setup({
 	size = 15,
 	open_mapping = [[<c-\>]],
 	hide_numbers = true,
@@ -16,9 +16,8 @@ require("toggleterm").setup{
 		height = 720,
 		winblend = 3,
 		highlights = {
-			border = "Normal",
-			background = "Normal",
-		}
-	}
-}
-
+			border = 'Normal',
+			background = 'Normal',
+		},
+	},
+})

@@ -3,6 +3,6 @@ require('orgmode').setup({
 	org_default_notes_file = '~/Documents/org/notes.org',
 })
 
-require('org-bullets').setup {
-	symbols = { '◉', '○', '✸', '✿' }
-}
+require('org-bullets').setup({
+	symbols = { '◉', '○', '✸', '✿' },
+})

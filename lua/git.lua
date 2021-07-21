@@ -1,13 +1,13 @@
 -- GitSigns
 local gitsigns = require('gitsigns')
 
-gitsigns.setup {}
+gitsigns.setup({})
 
 -- Neogit
 local neogit = require('neogit')
 
-neogit.setup {
+neogit.setup({
 	integrations = {
 		diffview = true,
 	},
-}
+})

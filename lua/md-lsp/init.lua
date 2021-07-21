@@ -13,7 +13,6 @@ local trouble = require('trouble')
 -- Rooter
 local rooter = require('lsp-rooter')
 
-
 local setup_servers = function()
 	lspinstall.setup()
 	local installed = lspinstall.installed_servers()
@@ -26,7 +25,7 @@ setup_servers()
 
 lspinstall.post_install_hook = function()
 	setup_servers()
-	vim.cmd("bufdo e")
+	vim.cmd('bufdo e')
 end
 
 lspsignature.on_attach(signature.config)

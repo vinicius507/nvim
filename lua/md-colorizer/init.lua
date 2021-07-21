@@ -1,6 +1,6 @@
 local colorizer = require('colorizer')
 
-colorizer.setup {
+colorizer.setup({
 	'lua',
 	'css',
 	'scss',
@@ -11,5 +11,5 @@ colorizer.setup {
 	'json',
 	html = {
 		mode = 'foreground',
-	}
-}
+	},
+})

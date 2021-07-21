@@ -18,18 +18,25 @@ M.config = {
 	finder_reference_icon = ' ',
 	max_preview_lines = 10,
 	finder_action_keys = {
-		open = 'o', vsplit = 's',split = 'i',quit = 'q',scroll_down = '<C-f>', scroll_up = '<C-b>',
+		open = 'o',
+		vsplit = 's',
+		split = 'i',
+		quit = 'q',
+		scroll_down = '<C-f>',
+		scroll_up = '<C-b>',
 	},
 	code_action_keys = {
-		quit = 'q', exec = '<CR>'
+		quit = 'q',
+		exec = '<CR>',
 	},
 	rename_action_keys = {
-		quit = '<C-c>', exec = '<CR>'
+		quit = '<C-c>',
+		exec = '<CR>',
 	},
 	definition_preview_icon = ' ',
 	border_style = 'single',
 	rename_prompt_prefix = '➤ ',
-	server_filetype_map = {}
+	server_filetype_map = {},
 }
 
 return M

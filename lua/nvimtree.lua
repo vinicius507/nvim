@@ -25,7 +25,7 @@ local config = {
 	show_icons = { git = 0, folders = 1, files = 1 },
 	icons = {
 		default = '',
-		symlink= '',
+		symlink = '',
 		git = {
 			unstaged = '✗',
 			staged = '✓',
@@ -33,7 +33,7 @@ local config = {
 			renamed = '➜',
 			untracked = '★',
 			deleted = '',
-			ignored = '◌'
+			ignored = '◌',
 		},
 		folder = {
 			default = '',
@@ -48,12 +48,12 @@ local config = {
 			info = '',
 			warning = '',
 			error = '',
-		}
-	}
+		},
+	},
 }
 
 local set_options = function(cfg)
-	for key,value in pairs(cfg) do
+	for key, value in pairs(cfg) do
 		vimg['nvim_tree_' .. key] = value
 	end
 end

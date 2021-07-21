@@ -8,7 +8,7 @@ M.config = {
 		local ts_utils = require('nvim-lsp-ts-utils')
 
 		-- defaults
-		ts_utils.setup {
+		ts_utils.setup({
 			debug = false,
 			disable_commands = false,
 			enable_import_on_completion = true,
@@ -33,11 +33,11 @@ M.config = {
 			update_imports_on_move = false,
 			require_confirmation_on_move = false,
 			watch_dir = nil,
-		}
+		})
 
 		-- required to fix code action ranges
 		ts_utils.setup_client(client)
-	end
+	end,
 }
 
 return M

@@ -1,10 +1,10 @@
-require('bufferline').setup{
+require('bufferline').setup({
 	options = {
 		view = 'default',
-		numbers =  'ordinal',
-		number_style = '' ,
+		numbers = 'ordinal',
+		number_style = '',
 		mappings = true,
-		buffer_close_icon= '',
+		buffer_close_icon = '',
 		modified_icon = '●',
 		close_icon = '',
 		left_trunc_marker = '',
@@ -17,7 +17,7 @@ require('bufferline').setup{
 			local s = ' '
 			for e, n in pairs(diagnostics_dict) do
 				local sym = e == 'error' and ' '
-				or (e == 'warning' and ' ' or '' )
+					or (e == 'warning' and ' ' or '')
 				s = s .. n .. sym
 			end
 			return s
@@ -32,11 +32,11 @@ require('bufferline').setup{
 		show_close_icon = true,
 		show_tab_indicators = true,
 		persist_buffer_sort = true,
-		separator_style =  'thick',
+		separator_style = 'thick',
 		enforce_regular_tabs = true,
 		always_show_bufferline = true,
 		sort_by = function(buffer_a, buffer_b)
 			return (buffer_a.id < buffer_b.id)
-		end
-	}
-}
+		end,
+	},
+})

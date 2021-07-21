@@ -11,8 +11,14 @@ M.map = {
 	['8'] = 'which_key_ignore',
 	['9'] = 'which_key_ignore',
 	['<Tab>'] = { '<cmd>NvimTreeToggle<CR>', 'file explorer' },
-	a = { '<cmd>TSTextobjectSwapNext @parameter.inner<CR>', 'swap next function parameter' },
-	A = { '<cmd>TSTextobjectSwapPrevious @parameter.inner<CR>', 'swap previous function parameter' },
+	a = {
+		'<cmd>TSTextobjectSwapNext @parameter.inner<CR>',
+		'swap next function parameter',
+	},
+	A = {
+		'<cmd>TSTextobjectSwapPrevious @parameter.inner<CR>',
+		'swap previous function parameter',
+	},
 	d = {
 		name = 'diffview',
 		o = { '<cmd>DiffviewOpen<CR>', 'open' },
@@ -24,24 +30,51 @@ M.map = {
 		f = { "<cmd>lua require('telescope.builtin').find_files()<CR>", 'files' },
 		g = { "<cmd>lua require('telescope.builtin').live_grep()<CR>", 'grep' },
 		h = { "<cmd>lua require('telescope.builtin').oldfiles()<CR>", 'history' },
-		l = { "<cmd>lua require('telescope.builtin').lsp_workspace_symbols()<CR>", 'lsp symbols' },
+		l = {
+			"<cmd>lua require('telescope.builtin').lsp_workspace_symbols()<CR>",
+			'lsp symbols',
+		},
 		G = {
 			name = 'git',
-			g = { "<cmd>lua require('telescope.builtin').git_commits()<CR>", 'commits' },
-			c = { "<cmd>lua require('telescope.builtin').git_bcommits()<CR>", 'bcommits' },
-			b = { "<cmd>lua require('telescope.builtin').git_branches()<CR>", 'branches' },
-			s = { "<cmd>lua require('telescope.builtin').git_status()<CR>", 'status' },
+			g = {
+				"<cmd>lua require('telescope.builtin').git_commits()<CR>",
+				'commits',
+			},
+			c = {
+				"<cmd>lua require('telescope.builtin').git_bcommits()<CR>",
+				'bcommits',
+			},
+			b = {
+				"<cmd>lua require('telescope.builtin').git_branches()<CR>",
+				'branches',
+			},
+			s = {
+				"<cmd>lua require('telescope.builtin').git_status()<CR>",
+				'status',
+			},
 		},
 	},
 	g = {
 		name = 'lsp',
-		c = { '<cmd>TSTextobjectPeekDefinitionCode @function.outer<CR>', 'peek definition code' },
-		d = { '<cmd>lua require("nvim-treesitter-refactor.navigation").goto_definition_lsp_fallback(0)<CR>', 'definition' },
+		c = {
+			'<cmd>TSTextobjectPeekDefinitionCode @function.outer<CR>',
+			'peek definition code',
+		},
+		d = {
+			'<cmd>lua require("nvim-treesitter-refactor.navigation").goto_definition_lsp_fallback(0)<CR>',
+			'definition',
+		},
 		D = { '<cmd>lua vim.lsp.buf.declaration()<CR>', 'declaration' },
-		O = { '<cmd>lua require("nvim-treesitter-refactor.navigation").list_definitions_toc(0)<CR>', 'list definitions in table' },
+		O = {
+			'<cmd>lua require("nvim-treesitter-refactor.navigation").list_definitions_toc(0)<CR>',
+			'list definitions in table',
+		},
 		h = { '<cmd>Lspsaga hover_doc<CR>', 'info' },
 		i = { '<cmd>lua vim.lsp.buf.implementation()<CR>', 'implementation' },
-		l = { '<cmd>lua require("nvim-treesitter-refactor.navigation").list_definitions(0)<CR>', 'list definitions' },
+		l = {
+			'<cmd>lua require("nvim-treesitter-refactor.navigation").list_definitions(0)<CR>',
+			'list definitions',
+		},
 		r = { '<cmd>LspTrouble lsp_references<CR>', 'references' },
 		s = { '<cmd>lua vim.lsp.buf.signature_help()<CR>', 'signature help' },
 	},
@@ -64,8 +97,14 @@ M.map = {
 	},
 	t = {
 		name = 'dap',
-		b = { "<cmd>lua require('dap').toggle_breakpoint()<CR>", 'toggle breakpoint' },
-		B = { "<cmd>lua require('dap').set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>", 'set conditional breakpoint' },
+		b = {
+			"<cmd>lua require('dap').toggle_breakpoint()<CR>",
+			'toggle breakpoint',
+		},
+		B = {
+			"<cmd>lua require('dap').set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>",
+			'set conditional breakpoint',
+		},
 		c = { ':DebugC ', 'debug c project' },
 		r = { ':DebugRust ', 'debug rust project' },
 	},

@@ -12,7 +12,9 @@ local component = function()
 		return title
 	else
 		ok = vim.fn.exists('*WebDevIconsGetFileTypeSymbol')
-		if ok ~= 0 then return vim.fn.WebDevIconsGetFileTypeSymbol() end
+		if ok ~= 0 then
+			return vim.fn.WebDevIconsGetFileTypeSymbol()
+		end
 	end
 end
 

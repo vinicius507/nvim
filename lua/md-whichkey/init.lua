@@ -1,6 +1,6 @@
 local whichkey = require('which-key')
 
-whichkey.setup {
+whichkey.setup({
 	plugins = {
 		marks = true,
 		registers = true,
@@ -40,13 +40,13 @@ whichkey.setup {
 		spacing = 3,
 	},
 	ignore_missing = false,
-	hidden = { '<silent>', '<cmd>', '<Cmd>', '<CR>', 'call', 'lua', '^:', '^ '},
+	hidden = { '<silent>', '<cmd>', '<Cmd>', '<CR>', 'call', 'lua', '^:', '^ ' },
 	show_help = true,
 	triggers = 'auto',
 	triggers_blacklist = {
 		i = { 'j', 'k' },
 		v = { 'j', 'k' },
 	},
-}
+})
 
 require('md-whichkey/mappings')

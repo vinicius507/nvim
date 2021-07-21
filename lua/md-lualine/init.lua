@@ -1,16 +1,16 @@
 local lualine = require('lualine')
 local components = require('md-lualine.components')
 
-lualine.setup{
+lualine.setup({
 	options = {
 		theme = 'tokyonight',
 		section_separators = { '', '' },
 		component_separators = { '', '' },
-		disabled_filetypes = { },
+		disabled_filetypes = {},
 		icons_enabled = true,
 	},
 	sections = {
-		lualine_a = { {'mode', upper = true} },
+		lualine_a = { { 'mode', upper = true } },
 		lualine_b = {
 			components.filetype,
 		},
@@ -19,14 +19,14 @@ lualine.setup{
 				'diagnostics',
 				sources = { 'nvim_lsp' },
 				sections = { 'error', 'warn', 'info' },
-				symbols = { error = ' ', warn = ' ', info= ' ' },
+				symbols = { error = ' ', warn = ' ', info = ' ' },
 			},
 		},
 		lualine_x = {},
 		lualine_y = {
 			{
 				'branch',
-				icon = ''
+				icon = '',
 			},
 		},
 		lualine_z = { 'progress' },
@@ -36,13 +36,13 @@ lualine.setup{
 		lualine_b = {
 			{
 				'branch',
-				icon = ''
+				icon = '',
 			},
 		},
 		lualine_c = {},
 		lualine_x = {},
 		lualine_y = {},
-		lualine_z = {}
+		lualine_z = {},
 	},
-	extensions = { 'nvim-tree' }
-}
+	extensions = { 'nvim-tree' },
+})

@@ -5,16 +5,16 @@ M.config = {
 	doc_lines = 4,
 	floating_window = true,
 	hint_enable = false,
-	hint_prefix = "",
-	hint_scheme = "String",
+	hint_prefix = '',
+	hint_scheme = 'String',
 	use_lspsaga = false,
-	hi_parameter = "Search",
+	hi_parameter = 'Search',
 	max_height = 12,
 	max_width = 120,
 	handler_opts = {
-		border = "single"
+		border = 'single',
 	},
-	extra_trigger_chars = {}
+	extra_trigger_chars = {},
 }
 
 return M
