@@ -6,7 +6,7 @@ M.config = {
 		-- '--background-index',
 		-- '--suggest-missing-includes'
 	-- },
-	on_attach = require('norme').on_attach,
+	-- on_attach = require('norme').on_attach,
 }
 
 return M

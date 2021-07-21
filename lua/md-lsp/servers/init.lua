@@ -10,7 +10,7 @@ local servers = {
 M.config = {}
 
 for _, server in ipairs(servers) do
-	M.config[server] = require(servers_dir .. server).config
+	M.config[server] = require(servers_dir .. server).config or {}
 end
 
 return M
