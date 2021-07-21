@@ -24,8 +24,6 @@ end
 
 setup_servers()
 
-require('norme').setup()
-
 lspinstall.post_install_hook = function()
 	setup_servers()
 	vim.cmd("bufdo e")
