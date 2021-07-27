@@ -6,6 +6,7 @@ local servers = {
 	'lua',
 	'typescript',
 	'null-ls',
+	'java',
 }
 
 M.config = {}
@@ -17,16 +18,12 @@ end
 local null_ls = require('null-ls')
 local norme = require('norme')
 
-local norminette_c = norme.norminette_c
-local norminette_h = norme.norminette_h
-
 null_ls.config({
 	sources = {
 		null_ls.builtins.formatting.stylua,
-		norminette_c,
-		norminette_h,
 	},
 })
+norme.setup()
 
 require('lspconfig')['null-ls'].setup(M.config['null-ls'])
 

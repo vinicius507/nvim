@@ -53,7 +53,11 @@ return require('packer').startup(function(use)
 	use('jose-elias-alvarez/nvim-lsp-ts-utils')
 
 	-- Treesitter
-	use({ 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' })
+	use({
+		'nvim-treesitter/nvim-treesitter',
+		branch = '0.5-compat',
+		run = ':TSUpdate',
+	})
 	use({
 		'nvim-treesitter/nvim-treesitter-textobjects',
 		requires = { 'nvim-treesitter/nvim-treesitter' },
@@ -95,7 +99,10 @@ return require('packer').startup(function(use)
 	use({ 'lukas-reineke/indent-blankline.nvim' })
 
 	-- DiffView
-	use({ 'sindrets/diffview.nvim', requires = { 'kyazdani42/nvim-web-devicons' } })
+	use({
+		'sindrets/diffview.nvim',
+		requires = { 'kyazdani42/nvim-web-devicons' },
+	})
 
 	-- Gitsigns
 	use({ 'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' } })
