@@ -28,7 +28,7 @@ lspinstall.post_install_hook = function()
 	vim.cmd('bufdo e')
 end
 
-lspsignature.on_attach(signature.config)
+lspsignature.setup(signature.config)
 
 lspsaga.init_lsp_saga(saga.config)
 

@@ -21,7 +21,7 @@ M.map = {
 	},
 	d = {
 		name = 'diffview',
-		o = { '<cmd>DiffviewOpen<CR>', 'open' },
+		o = { '<cmd>DiffviewOpen -uno<CR>', 'open' },
 		q = { '<cmd>DiffviewClose<CR>', 'close' },
 		r = { '<cmd>DiffviewRefresh<CR>', 'refresh' },
 	},
