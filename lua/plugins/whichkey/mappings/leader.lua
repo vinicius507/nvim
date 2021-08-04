@@ -98,6 +98,11 @@ M.map = {
 		r = { '<cmd>NvimTreeRefresh<CR>', 'refresh' },
 		f = { '<cmd>NvimTreeFindFile<CR>', 'find' },
 	},
+	o = {
+		name = 'orgmode',
+		a = { "<cmd>lua require('orgmode').action('agenda.prompt')", 'agenda' },
+		c = { "<cmd>lua require('orgmode').action('capture.prompt')", 'capture' },
+	},
 	q = { '<cmd>bdelete!<CR>', 'kill buffer' },
 	s = {
 		name = 'saga',
