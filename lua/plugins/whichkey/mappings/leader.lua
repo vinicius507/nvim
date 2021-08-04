@@ -100,8 +100,8 @@ M.map = {
 	},
 	o = {
 		name = 'orgmode',
-		a = { "<cmd>lua require('orgmode').action('agenda.prompt')", 'agenda' },
-		c = { "<cmd>lua require('orgmode').action('capture.prompt')", 'capture' },
+		a = 'agenda',
+		c = 'capture',
 	},
 	q = { '<cmd>bdelete!<CR>', 'kill buffer' },
 	s = {

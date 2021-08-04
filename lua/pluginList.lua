@@ -87,6 +87,11 @@ return packer.startup(function()
 	})
 
 	use({
+		'jose-elias-alvarez/nvim-lsp-ts-utils',
+		after = 'null-ls.nvim',
+	})
+
+	use({
 		'folke/lsp-trouble.nvim',
 		after = 'nvim-lspconfig',
 		requires = 'kyazdani42/nvim-web-devicons',
