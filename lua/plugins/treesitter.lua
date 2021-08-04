@@ -5,7 +5,21 @@ if not ok then
 end
 
 ts_config.setup({
-	ensure_installed = 'maintained',
+	ensure_installed = {
+		'c',
+		'cpp',
+		'python',
+		'typescript',
+		'javascript',
+		'lua',
+		'json',
+		'css',
+		'bash',
+		'tsx',
+		'html',
+		'dockerfile',
+		'cmake',
+	},
 	highlight = {
 		enable = true,
 	},
