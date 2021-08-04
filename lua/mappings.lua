@@ -47,8 +47,16 @@ map(
 	'<Leader>gO',
 	'<cmd>lua require("nvim-treesitter-refactor.navigation").list_definitions_toc(0)<CR>'
 )
-map('n', '<C-n>', '<cmd>lua vim.lsp.buf.goto_next()<CR>')
-map('n', '<C-p>', '<cmd>lua vim.lsp.buf.goto_prev()<CR>')
+map(
+	'n',
+	'<C-n>',
+	'<cmd>lua require("trouble").next({skip_groups = true, jump = true})<CR>'
+)
+map(
+	'n',
+	'<C-p>',
+	'<cmd>lua require("trouble").previous({skip_groups = true, jump = true})<CR>'
+)
 map('n', '<C-d>', '<cmd>lua vim.lsp.buf.show_line_diagnostics()<CR>')
 
 -- LSP Trouble Keys
