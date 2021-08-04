@@ -1,0 +1,270 @@
+local ok, _ = pcall(require, 'packerInit')
+local packer
+
+if ok then
+	packer = require('packer')
+else
+	return false
+end
+
+local cmd = vim.cmd
+
+cmd('autocmd BufWritePost pluginList.lua PackerCompile')
+
+local use = packer.use
+
+return packer.startup(function()
+	use({ 'wbthomason/packer.nvim', event = 'VimEnter' })
+	-- Appearance
+	use({
+		'folke/tokyonight.nvim',
+		after = 'packer.nvim',
+		config = function()
+			require('theme')
+		end,
+	})
+
+	use({
+		'hoob3rt/lualine.nvim',
+		after = 'tokyonight.nvim',
+		requires = { 'kyazdani42/nvim-web-devicons' },
+		config = function()
+			require('plugins.lualine')
+		end,
+	})
+
+	use({
+		'akinsho/nvim-bufferline.lua',
+		after = 'tokyonight.nvim',
+		requires = { 'kyazdani42/nvim-web-devicons' },
+		config = function()
+			require('plugins.bufferline')
+		end,
+	})
+
+	-- LSP and TS Configuration
+	use({
+		'nvim-treesitter/nvim-treesitter',
+		event = { 'BufRead', 'BufNewFile' },
+		branch = '0.5-compat',
+		run = ':TSUpdate',
+		config = function()
+			require('plugins.treesitter')
+		end,
+	})
+
+	use({
+		'nvim-treesitter/nvim-treesitter-textobjects',
+		after = 'nvim-treesitter',
+		branch = '0.5-compat',
+	})
+
+	use({
+		'nvim-treesitter/nvim-treesitter-refactor',
+		after = 'nvim-treesitter',
+	})
+
+	use({
+		'kabouzeid/nvim-lspinstall',
+		event = 'BufEnter',
+	})
+
+	use({
+		'neovim/nvim-lspconfig',
+		after = 'nvim-lspinstall',
+		config = function()
+			require('plugins.lspconfig')
+		end,
+	})
+
+	use({
+		'jose-elias-alvarez/null-ls.nvim',
+		after = 'nvim-lspconfig',
+		requires = { 'nvim-lua/plenary.nvim' },
+		config = function()
+			require('plugins.null')
+		end,
+	})
+
+	use({
+		'folke/lsp-trouble.nvim',
+		after = 'nvim-lspconfig',
+		requires = 'kyazdani42/nvim-web-devicons',
+		config = function()
+			require('plugins.others').lsptrouble()
+		end,
+	})
+
+	use({ 'folke/lsp-colors.nvim', after = 'nvim-lspconfig' })
+
+	use({
+		'ray-x/lsp_signature.nvim',
+		after = 'nvim-lspconfig',
+		config = function()
+			require('plugins.lspsignature')
+		end,
+	})
+
+	use({
+		'glepnir/lspsaga.nvim',
+		after = 'nvim-lspconfig',
+		config = function()
+			require('plugins.lspsaga')
+		end,
+	})
+
+	use({
+		'ahmedkhalf/lsp-rooter.nvim',
+		after = 'nvim-lspconfig',
+		config = function()
+			require('plugins.others').lsprooter()
+		end,
+	})
+
+	-- Presence
+	use({
+		'andweeb/presence.nvim',
+		event = 'BufEnter',
+		config = function()
+			require('plugins.discord')
+		end,
+	})
+
+	use({
+		'hrsh7th/nvim-compe',
+		event = 'InsertEnter',
+		config = function()
+			require('plugins.compe')
+		end,
+	})
+
+	-- File Navigation
+	use({
+		'kyazdani42/nvim-tree.lua',
+		cmd = { 'NvimTreeToggle', 'NvimTreeRefresh', 'NvimTreeFindFile' },
+		requires = { 'kyazdani42/nvim-web-devicons' },
+		config = function()
+			require('plugins.nvimtree')
+		end,
+	})
+
+	use({
+		'nvim-telescope/telescope-fzy-native.nvim',
+		module = 'telescope',
+	})
+
+	use({
+		'nvim-telescope/telescope.nvim',
+		cmd = 'Telescope',
+		requires = { 'nvim-lua/popup.nvim', 'nvim-lua/plenary.nvim' },
+		config = function()
+			require('plugins.telescope')
+		end,
+	})
+
+	-- Comments
+	use({
+		'folke/todo-comments.nvim',
+		after = 'lsp-trouble.nvim',
+		requires = { 'nvim-lua/plenary.nvim' },
+		config = function()
+			require('plugins.todo_comments')
+		end,
+	})
+
+	-- Git Plugins
+	use({
+		'TimUntersberger/neogit',
+		cmd = 'Neogit',
+		requires = { 'nvim-lua/plenary.nvim' },
+		config = function()
+			require('plugins.neogit')
+		end,
+	})
+
+	use({
+		'lewis6991/gitsigns.nvim',
+		event = 'BufRead',
+		requires = { 'nvim-lua/plenary.nvim' },
+		config = function()
+			require('plugins.others').gitsigns()
+		end,
+	})
+
+	use({
+		'sindrets/diffview.nvim',
+		cmd = 'DiffviewOpen',
+		requires = { 'kyazdani42/nvim-web-devicons' },
+	})
+
+	-- Org
+	use({
+		'kristijanhusak/orgmode.nvim',
+		ft = 'org',
+		keys = { '<Leader>o' },
+		config = function()
+			require('plugins.others').orgmode()
+		end,
+	})
+
+	use({
+		'akinsho/org-bullets.nvim',
+		module = 'orgmode',
+	})
+
+	-- École 42
+	use({
+		'vinicius507/norme.nvim',
+		after = 'null-ls.nvim',
+		requires = { 'nvim-lua/plenary.nvim' },
+		config = function()
+			require('plugins.others').norme()
+		end,
+	})
+
+	use({
+		'eduardomosko/header42.nvim',
+		cmd = 'Stdheader',
+		config = function()
+			require('plugins.others').header42()
+		end,
+	})
+
+	-- Misc
+	use({
+		'norcalli/nvim-colorizer.lua',
+		event = { 'BufRead', 'BufNewFile' },
+		config = function()
+			require('plugins.others').colorizer()
+		end,
+	})
+
+	use({
+		'folke/which-key.nvim',
+		after = 'packer.nvim',
+		config = function()
+			require('plugins.whichkey')
+		end,
+	})
+
+	use({
+		'akinsho/nvim-toggleterm.lua',
+		keys = [[<c-\>]],
+		config = function()
+			require('plugins.toggleterm')
+		end,
+	})
+
+	use({
+		'glepnir/dashboard-nvim',
+		after = 'packer.nvim',
+		config = function()
+			require('plugins.dashboard')
+		end,
+	})
+
+	-- VimScript
+	use({ 'tpope/vim-commentary', event = { 'BufEnter', 'BufNewFile' } })
+	use({ 'tpope/vim-surround', event = { 'BufEnter', 'BufNewFile' } })
+	use({ 'tpope/vim-repeat', event = { 'BufEnter', 'BufNewFile' } })
+end)
