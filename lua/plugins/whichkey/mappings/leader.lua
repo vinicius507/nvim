@@ -78,7 +78,7 @@ M.map = {
 		r = { '<cmd>LspTrouble lsp_references<CR>', 'references' },
 		s = { '<cmd>lua vim.lsp.buf.signature_help()<CR>', 'signature help' },
 	},
-	G = { '<cmd>Neogit kind=floating<CR>', 'neogit' },
+	G = { '<cmd>Neogit<CR>', 'neogit' },
 	h = {
 		name = 'git signs',
 		b = { "<cmd>lua require('gitsigns').blame_line(true)", 'blame line' },

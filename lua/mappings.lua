@@ -126,7 +126,7 @@ map('n', '<Leader>dq', '<cmd>DiffviewClose<CR>')
 map('n', '<Leader>dr', '<cmd>DiffviewRefresh<CR>')
 
 -- Neogit
-map('n', '<Leader>G', '<cmd>Neogit kind=floating<CR>')
+map('n', '<Leader>G', '<cmd>Neogit<CR>')
 
 -- 42 Header
 map('n', '<F2>', ':Stdheader<CR>')
