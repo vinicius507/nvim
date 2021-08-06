@@ -79,7 +79,7 @@ return packer.startup(function()
 
 	use({
 		'jose-elias-alvarez/null-ls.nvim',
-		after = 'nvim-lspconfig',
+		module = 'lspconfig',
 		requires = { 'nvim-lua/plenary.nvim' },
 		config = function()
 			require('plugins.null')
