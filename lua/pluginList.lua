@@ -14,7 +14,10 @@ cmd('autocmd BufWritePost pluginList.lua PackerCompile')
 local use = packer.use
 
 return packer.startup(function()
-	use({ 'wbthomason/packer.nvim', event = 'VimEnter' })
+	use({
+		'wbthomason/packer.nvim',
+		event = 'VimEnter',
+	})
 	-- Appearance
 	use({
 		'folke/tokyonight.nvim',
@@ -66,7 +69,7 @@ return packer.startup(function()
 
 	use({
 		'kabouzeid/nvim-lspinstall',
-		event = 'BufEnter',
+		event = { 'BufEnter', 'BufNewFile' },
 	})
 
 	use({
