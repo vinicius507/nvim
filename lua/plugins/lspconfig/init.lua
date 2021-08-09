@@ -13,8 +13,6 @@ local setup_servers = function()
 	for _, server in pairs(installed) do
 		lspconfig[server].setup(servers.config[server] or {})
 	end
-	-- HACK: need a better idea to fix LspServers not starting
-	vim.cmd('LspStart')
 end
 
 setup_servers()

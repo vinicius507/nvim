@@ -67,14 +67,10 @@ return packer.startup(function()
 		after = 'nvim-treesitter',
 	})
 
-	use({
-		'kabouzeid/nvim-lspinstall',
-		event = { 'BufRead', 'BufNewFile' },
-	})
+	use({ 'kabouzeid/nvim-lspinstall' })
 
 	use({
 		'neovim/nvim-lspconfig',
-		after = 'nvim-lspinstall',
 		config = function()
 			require('plugins.lspconfig')
 		end,
@@ -107,7 +103,7 @@ return packer.startup(function()
 
 	use({
 		'ray-x/lsp_signature.nvim',
-		after = 'nvim-lspconfig',
+		module = 'lspconfig',
 		config = function()
 			require('plugins.lspsignature')
 		end,
