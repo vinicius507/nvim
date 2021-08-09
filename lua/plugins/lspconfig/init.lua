@@ -1,4 +1,3 @@
--- Config
 local ok1, lspinstall = pcall(require, 'lspinstall')
 local ok2, lspconfig = pcall(require, 'lspconfig')
 
@@ -19,6 +18,16 @@ local setup_servers = function()
 end
 
 setup_servers()
+
+vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(
+	vim.lsp.diagnostic.on_publish_diagnostics,
+	{
+		virtual_text = true,
+		signs = true,
+		underline = true,
+		update_in_insert = true,
+	}
+)
 
 lspinstall.post_install_hook = function()
 	setup_servers()

@@ -129,6 +129,14 @@ return packer.startup(function()
 		end,
 	})
 
+	use({
+		'onsails/lspkind-nvim',
+		after = 'nvim-lspconfig',
+		config = function()
+			require('plugins.others').lspkind()
+		end,
+	})
+
 	-- Presence
 	use({
 		'andweeb/presence.nvim',
