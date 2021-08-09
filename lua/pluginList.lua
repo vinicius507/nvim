@@ -69,7 +69,7 @@ return packer.startup(function()
 
 	use({
 		'kabouzeid/nvim-lspinstall',
-		event = { 'BufEnter', 'BufNewFile' },
+		event = { 'BufRead', 'BufNewFile' },
 	})
 
 	use({
