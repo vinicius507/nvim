@@ -78,7 +78,7 @@ return packer.startup(function()
 
 	use({
 		'jose-elias-alvarez/null-ls.nvim',
-		module = 'lspconfig',
+		after = 'nvim-lspconfig',
 		requires = { 'nvim-lua/plenary.nvim' },
 		config = function()
 			require('plugins.null')
@@ -99,11 +99,14 @@ return packer.startup(function()
 		end,
 	})
 
-	use({ 'folke/lsp-colors.nvim', after = 'nvim-lspconfig' })
+	use({
+		'folke/lsp-colors.nvim',
+		after = 'nvim-lspconfig',
+	})
 
 	use({
 		'ray-x/lsp_signature.nvim',
-		module = 'lspconfig',
+		after = 'nvim-lspconfig',
 		config = function()
 			require('plugins.lspsignature')
 		end,
@@ -177,7 +180,7 @@ return packer.startup(function()
 	-- Comments
 	use({
 		'folke/todo-comments.nvim',
-		after = 'lsp-trouble.nvim',
+		moudule = 'trouble',
 		requires = { 'nvim-lua/plenary.nvim' },
 		config = function()
 			require('plugins.todo_comments')
