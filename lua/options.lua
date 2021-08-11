@@ -15,6 +15,7 @@ local options = {
 	completeopt = 'menuone,noselect',
 	clipboard = 'unnamedplus',
 	termguicolors = true,
+	mouse = 'a',
 }
 
 local set_options = function(opt)
