@@ -22,6 +22,7 @@ return packer.startup(function()
 	use({
 		'folke/tokyonight.nvim',
 		after = 'packer.nvim',
+		as = 'theme',
 		config = function()
 			require('theme')
 		end,
@@ -29,7 +30,7 @@ return packer.startup(function()
 
 	use({
 		'hoob3rt/lualine.nvim',
-		after = 'tokyonight.nvim',
+		after = 'theme',
 		requires = { 'kyazdani42/nvim-web-devicons' },
 		config = function()
 			require('plugins.lualine')
@@ -38,7 +39,7 @@ return packer.startup(function()
 
 	use({
 		'akinsho/nvim-bufferline.lua',
-		after = 'tokyonight.nvim',
+		after = 'theme',
 		requires = { 'kyazdani42/nvim-web-devicons' },
 		config = function()
 			require('plugins.bufferline')
