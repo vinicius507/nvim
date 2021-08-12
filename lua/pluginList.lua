@@ -232,6 +232,7 @@ return packer.startup(function()
 	use({
 		'vinicius507/norme.nvim',
 		after = 'null-ls.nvim',
+		branch = 'dev',
 		requires = { 'nvim-lua/plenary.nvim' },
 		config = function()
 			require('plugins.others').norme()
