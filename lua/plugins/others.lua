@@ -27,7 +27,9 @@ M.norme = function()
 		return
 	end
 
-	norme.setup()
+	norme.setup({
+		cmd = os.getenv('HOME') .. '/.local/bin/norminette',
+	})
 end
 
 M.header42 = function()
