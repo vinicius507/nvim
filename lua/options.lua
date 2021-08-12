@@ -1,4 +1,5 @@
 local setopt = vim.opt
+local vimg = vim.g
 
 local options = {
 	shiftwidth = 4,
@@ -25,3 +26,5 @@ local set_options = function(opt)
 end
 
 set_options(options)
+
+vimg['neovide_remember_window_size'] = true
