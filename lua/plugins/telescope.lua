@@ -10,6 +10,7 @@ telescope.setup({
 	defaults = {
 		file_sorter = require('telescope.sorters').get_fzy_sorter,
 		prompt_prefix = '  ',
+		selection_caret = ' ',
 		color_devicons = true,
 
 		file_previewer = require('telescope.previewers').vim_buffer_cat.new,
@@ -19,6 +20,9 @@ telescope.setup({
 		mappings = {
 			i = {
 				['<C-x>'] = false,
+				['<C-q>'] = ok2 and trouble.open_with_trouble or nil,
+			},
+			n = {
 				['<C-q>'] = ok2 and trouble.open_with_trouble or nil,
 			},
 		},

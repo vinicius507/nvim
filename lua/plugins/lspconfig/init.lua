@@ -9,7 +9,10 @@ local servers = require('plugins.lspconfig.servers')
 
 local setup_servers = function()
 	lspinstall.setup()
+
 	local installed = lspinstall.installed_servers()
+	table.insert(installed, 'pylsp')
+
 	for _, server in pairs(installed) do
 		lspconfig[server].setup(servers.config[server] or {})
 	end

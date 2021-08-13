@@ -119,14 +119,10 @@ map('n', '<Leader>nr', '<cmd>NvimTreeRefresh<CR>')
 map('n', '<Leader>nf', '<cmd>NvimTreeFindFile<CR>')
 
 -- Dap
-map('n', '<Leader>tb', "<cmd>lua require('dap').toggle_breakpoint()<CR>")
-map(
-	'n',
-	'<Leader>tB',
-	"<cmd>lua require('dap').set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>"
-)
-map('n', '<Leader>tc', ':DebugC ')
-map('n', '<Leader>tr', ':DebugRust ')
+map('n', '<Leader>tb', '<cmd>DapSetBreakpoint<CR>')
+map('n', '<Leader>tB', '<cmd>DapSetConditionalBreakpoint<CR>')
+map('n', '<Leader>td', '<cmd>DapContinue<CR>')
+map('n', '<Leader>to', '<cmd>DapReplOpen<CR>')
 
 -- Diffview
 map('n', '<Leader>do', '<cmd>DiffviewOpen -uno<CR>')
