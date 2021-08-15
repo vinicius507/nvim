@@ -1,10 +1,10 @@
-local ok, term = pcall(require, 'toggleterm')
+local ok, toggleterm = pcall(require, 'toggleterm')
 
 if not ok then
 	return
 end
 
-term.setup({
+toggleterm.setup({
 	size = 15,
 	open_mapping = [[<c-\>]],
 	hide_numbers = true,
@@ -27,3 +27,24 @@ term.setup({
 		},
 	},
 })
+
+local Terminal = require('toggleterm.terminal').Terminal
+
+local make_run_term = Terminal:new({
+	cmd = 'make run',
+	direction = 'float',
+	close_on_exit = false,
+	float_opts = {
+		border = 'curved',
+	},
+	on_open = function(term)
+		vim.api.nvim_buf_set_keymap(term.bufnr, 'n', 'q', '<CMD>close<CR>', {
+			noremap = true,
+			silent = true,
+		})
+	end,
+})
+
+_G.make_run = function()
+	make_run_term:toggle()
+end
