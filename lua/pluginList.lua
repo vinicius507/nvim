@@ -293,6 +293,11 @@ return packer.startup(function()
 		end,
 	})
 
+	use({
+		'theHamsta/nvim-dap-virtual-text',
+		after = 'nvim-dap',
+	})
+
 	-- VimScript
 	use({ 'tpope/vim-commentary', event = { 'BufEnter', 'BufNewFile' } })
 	use({ 'tpope/vim-surround', event = { 'BufEnter', 'BufNewFile' } })
