@@ -297,6 +297,11 @@ return packer.startup(function()
 		after = 'nvim-dap',
 	})
 
+	use({
+		'npxbr/glow.nvim',
+		ft = 'markdown',
+	})
+
 	-- VimScript
 	use({ 'tpope/vim-commentary', event = { 'BufEnter', 'BufNewFile' } })
 	use({ 'tpope/vim-surround', event = { 'BufEnter', 'BufNewFile' } })
