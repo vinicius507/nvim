@@ -122,10 +122,10 @@ return packer.startup(function()
 	})
 
 	use({
-		'ahmedkhalf/lsp-rooter.nvim',
+		'ahmedkhalf/project.nvim',
 		after = 'nvim-lspconfig',
 		config = function()
-			require('plugins.others').lsprooter()
+			require('plugins.others').project_nvim()
 		end,
 	})
 

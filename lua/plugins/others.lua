@@ -10,14 +10,14 @@ M.lsptrouble = function()
 	trouble.setup()
 end
 
-M.lsprooter = function()
-	local ok, rooter = pcall(require, 'lsp-rooter')
+M.project_nvim = function()
+	local ok, project_nvim = pcall(require, 'project_nvim')
 
 	if not ok then
 		return
 	end
 
-	rooter.setup()
+	project_nvim.setup()
 end
 
 M.norme = function()
