@@ -300,6 +300,7 @@ return packer.startup(function()
 	use({
 		'npxbr/glow.nvim',
 		ft = 'markdown',
+		cmd = { 'Glow', 'GlowInstall' },
 	})
 
 	-- VimScript
