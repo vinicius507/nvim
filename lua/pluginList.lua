@@ -297,11 +297,6 @@ return packer.startup(function()
 		after = 'nvim-dap',
 	})
 
-	use({
-		'npxbr/glow.nvim',
-		cmd = { 'Glow', 'GlowInstall' },
-	})
-
 	-- VimScript
 	use({ 'tpope/vim-commentary', event = { 'BufEnter', 'BufNewFile' } })
 	use({ 'tpope/vim-surround', event = { 'BufEnter', 'BufNewFile' } })
