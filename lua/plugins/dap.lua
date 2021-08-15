@@ -40,3 +40,4 @@ dap.configurations.c = {
 }
 
 require('dap.ext.vscode').load_launchjs()
+vim.g['dap_virtual_text'] = 'all frames'
