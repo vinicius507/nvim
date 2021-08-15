@@ -68,10 +68,9 @@ return packer.startup(function()
 		after = 'nvim-treesitter',
 	})
 
-	use({ 'kabouzeid/nvim-lspinstall' })
-
 	use({
 		'neovim/nvim-lspconfig',
+		requires = { 'kabouzeid/nvim-lspinstall' },
 		config = function()
 			require('plugins.lspconfig')
 		end,
