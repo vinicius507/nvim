@@ -20,11 +20,12 @@ M.map = {
 		r = 'refresh',
 	},
 	f = {
-		name = 'telescope',
 		f = 'files',
 		g = 'grep',
 		h = 'history',
 		l = 'lsp symbols',
+		name = 'telescope',
+		p = 'projects',
 		G = {
 			name = 'git',
 			g = 'commits',

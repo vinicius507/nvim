@@ -108,9 +108,10 @@ map('n', '<Leader>ff', '<cmd>Telescope find_files<CR>')
 map('n', '<Leader>fg', '<cmd>Telescope live_grep<CR>')
 map('n', '<Leader>fh', '<cmd>Telescope oldfiles<CR>')
 map('n', '<Leader>fl', '<cmd>Telescope lsp_workspace_symbols<CR>')
-map('n', '<Leader>fGg', '<cmd>Telescope git_commits<CR>')
-map('n', '<Leader>fGc', '<cmd>Telescope git_bcommits<CR>')
+map('n', '<Leader>fp', '<cmd>Telescope projects<CR>')
 map('n', '<Leader>fGb', '<cmd>Telescope git_branches<CR>')
+map('n', '<Leader>fGc', '<cmd>Telescope git_bcommits<CR>')
+map('n', '<Leader>fGg', '<cmd>Telescope git_commits<CR>')
 map('n', '<Leader>fGs', '<cmd>Telescope git_status<CR>')
 
 -- Nvim-tree
