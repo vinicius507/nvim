@@ -135,3 +135,22 @@ map('n', '<Leader>G', '<cmd>Neogit<CR>')
 
 -- 42 Header
 map('n', '<F2>', ':Stdheader<CR>')
+
+-- Hacks by ThePrimeagen
+-- Better Cursor positioning in search
+map('n', 'n', 'nzzzv')
+map('n', 'N', 'Nzzzv')
+-- Better cursor positioning while joining lines
+map('n', 'J', 'mzJ`z')
+-- Undo breakpoints
+map('i', ',', ',<C-g>u')
+map('i', '.', '.<C-g>u')
+map('i', '!', '!<C-g>u')
+map('i', '?', '?<C-g>u')
+-- Moving Text
+map('v', '>', '>gv')
+map('v', '<', '<gv')
+map('v', 'J', ":m '>+1<CR>gv=gv")
+map('v', 'K', ":m '<-2<CR>gv=gv")
+map('i', '<C-j>', '<esc>:m .+1<CR>==a')
+map('i', '<C-k>', '<esc>:m .-2<CR>==a')
