@@ -1,13 +1,16 @@
-vim.cmd('packadd packer.nvim')
-local ok, packer = pcall(require, 'packer')
+local fn = vim.fn
+local cmd = vim.cmd
+
+local ok, packer
+ok, _ = pcall(cmd, 'packadd packer.nvim')
 
 if not ok then
-	local packer_path = vim.fn.stdpath('data')
+	local packer_path = fn.stdpath('data')
 		.. '/site/pack/packer/opt/packer.nvim'
 
 	print('Cloning packer..')
-	vim.fn.delete(packer_path, 'rf')
-	vim.fn.system({
+	fn.delete(packer_path, 'rf')
+	fn.system({
 		'git',
 		'clone',
 		'https://github.com/wbthomason/packer.nvim',
@@ -16,7 +19,7 @@ if not ok then
 		packer_path,
 	})
 
-	vim.cmd('packadd packer.nvim')
+	cmd('packadd packer.nvim')
 	ok, packer = pcall(require, 'packer')
 
 	if ok then
@@ -24,6 +27,8 @@ if not ok then
 	else
 		error("Couldn't clone packer !\nPacker path: " .. packer_path)
 	end
+else
+	ok, packer = pcall(require, 'packer')
 end
 
 return packer.init({
