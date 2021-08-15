@@ -266,6 +266,7 @@ return packer.startup(function()
 	use({
 		'akinsho/nvim-toggleterm.lua',
 		keys = [[<c-\>]],
+		cmd = { 'MakeRun' },
 		config = function()
 			require('plugins.toggleterm')
 		end,

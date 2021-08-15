@@ -38,7 +38,7 @@ local make_run_term = Terminal:new({
 		border = 'curved',
 	},
 	on_open = function(term)
-		vim.api.nvim_buf_set_keymap(term.bufnr, 'n', 'q', '<CMD>close<CR>', {
+		vim.api.nvim_buf_set_keymap(term.bufnr, 'n', 'q', '<cmd>close<CR>', {
 			noremap = true,
 			silent = true,
 		})
@@ -48,3 +48,5 @@ local make_run_term = Terminal:new({
 _G.make_run = function()
 	make_run_term:toggle()
 end
+
+vim.cmd([[command! MakeRun lua _G.make_run()]])

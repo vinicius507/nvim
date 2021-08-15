@@ -137,7 +137,7 @@ map('n', '<Leader>G', '<cmd>Neogit<CR>')
 map('n', '<F2>', ':Stdheader<CR>')
 
 -- Make Run terminal
-map('n', '<F5>', '<cmd>lua _G.make_run()<CR>')
+map('n', '<F5>', ':MakeRun<CR>')
 
 -- Hacks by ThePrimeagen
 -- Better Cursor positioning in search
