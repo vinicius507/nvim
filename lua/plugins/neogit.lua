@@ -9,7 +9,7 @@ neogit.setup({
 	disable_context_highlighting = false,
 	disable_commit_confirmation = false,
 	signs = {
-		section = { '', '' },
+		section = { '', '' },
 		item = { '', '' },
 		hunk = { '', '' },
 	},
