@@ -18,6 +18,12 @@ neogit.setup({
 	},
 })
 
+local env = vim.env
+
+if env['SSH_AGENT_PID'] then
+	return
+end
+
 local job
 ok, job = pcall(require, 'plenary.job')
 
@@ -28,7 +34,6 @@ local result = job
 	})
 	:sync()
 
-local env = vim.env
 if result and #result then
 	for _, v in ipairs(result) do
 		local key, value = v:match('^(.*)=(.*);%s+export.*$')
