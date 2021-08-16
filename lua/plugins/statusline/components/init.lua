@@ -1,5 +1,5 @@
 local M = {}
-local components = 'plugins.lualine.components.'
+local components = 'plugins.statusline.components.'
 
 local list = {
 	'filetype',

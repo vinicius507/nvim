@@ -4,7 +4,7 @@ if not ok then
 	return
 end
 
-local components = require('plugins.lualine.components')
+local components = require('plugins.statusline.components')
 
 lualine.setup({
 	options = {
