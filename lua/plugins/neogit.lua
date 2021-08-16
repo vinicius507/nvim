@@ -37,3 +37,10 @@ if result and #result then
 		end
 	end
 end
+
+result = job
+	:new({
+		command = 'ssh-add',
+		args = { os.getenv('HOME') .. '/.ssh/id_ed25519' },
+	})
+	:sync()
