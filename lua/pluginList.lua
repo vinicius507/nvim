@@ -33,7 +33,7 @@ return packer.startup(function()
 		after = 'theme',
 		requires = { 'kyazdani42/nvim-web-devicons' },
 		config = function()
-			require('plugins.lualine')
+			require('plugins.statusline')
 		end,
 	})
 
