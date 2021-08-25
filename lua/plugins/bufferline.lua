@@ -9,7 +9,6 @@ bufferline.setup({
 		view = 'default',
 		numbers = 'ordinal',
 		number_style = '',
-		mappings = true,
 		buffer_close_icon = '',
 		modified_icon = '●',
 		close_icon = '',
@@ -27,12 +26,6 @@ bufferline.setup({
 				s = s .. n .. sym
 			end
 			return s
-		end,
-		custom_filter = function(buf_number)
-			-- not working
-			if vim.fn.bufname(buf_number) ~= 'zsh' then
-				return true
-			end
 		end,
 		show_buffer_close_icons = true,
 		show_close_icon = true,

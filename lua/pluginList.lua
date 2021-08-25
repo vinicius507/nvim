@@ -18,6 +18,7 @@ return packer.startup(function()
 		'wbthomason/packer.nvim',
 		event = 'VimEnter',
 	})
+
 	-- Appearance
 	use({
 		'folke/tokyonight.nvim',
@@ -296,6 +297,13 @@ return packer.startup(function()
 	use({
 		'theHamsta/nvim-dap-virtual-text',
 		after = 'nvim-dap',
+	})
+
+	use({
+		'vinicius507/asdf.nvim',
+		config = function()
+			require('plugins.others').asdf()
+		end,
 	})
 
 	-- VimScript

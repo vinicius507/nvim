@@ -138,4 +138,14 @@ M.lspkind = function()
 	})
 end
 
+M.asdf = function()
+	local ok, asdf = pcall(require, 'asdf-nvim')
+
+	if not ok then
+		return
+	end
+
+	asdf.setup()
+end
+
 return M
