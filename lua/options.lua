@@ -16,6 +16,8 @@ local options = {
 	completeopt = 'menuone,noselect',
 	clipboard = 'unnamedplus',
 	termguicolors = true,
+	undofile = true,
+	undodir = os.getenv('HOME') .. '/.cache/nvim/undo',
 	mouse = 'a',
 }
 
