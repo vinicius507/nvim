@@ -7,8 +7,9 @@ end
 bufferline.setup({
 	options = {
 		view = 'default',
-		numbers = 'ordinal',
-		number_style = '',
+		numbers = function(buf)
+			return buf.ordinal
+		end,
 		buffer_close_icon = '',
 		modified_icon = '●',
 		close_icon = '',
@@ -27,6 +28,18 @@ bufferline.setup({
 			end
 			return s
 		end,
+		custom_filter = function(bufnumber)
+			if vim.bo[bufnumber].filetype ~= 'dap-repl' then
+				return true
+			end
+		end,
+		offsets = {
+			{
+				filetype = 'NvimTree',
+				text = 'File Explorer',
+				text_align = 'center',
+			},
+		},
 		show_buffer_close_icons = true,
 		show_close_icon = true,
 		show_tab_indicators = true,
