@@ -148,4 +148,16 @@ M.asdf = function()
 	asdf.setup()
 end
 
+M.autopairs = function()
+	local ok, npairs = pcall(require, 'nvim-autopairs')
+
+	if not ok then
+		return
+	end
+
+	npairs.setup({
+		disable_filetype = { 'TelescopePrompt', 'vim' },
+	})
+end
+
 return M

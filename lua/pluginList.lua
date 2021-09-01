@@ -306,6 +306,14 @@ return packer.startup(function()
 		end,
 	})
 
+	use({
+		'windwp/nvim-autopairs',
+		event = 'InsertEnter',
+		config = function()
+			require('plugins.others').autopairs()
+		end,
+	})
+
 	-- VimScript
 	use({ 'tpope/vim-commentary', event = { 'BufEnter', 'BufNewFile' } })
 	use({ 'tpope/vim-surround', event = { 'BufEnter', 'BufNewFile' } })
