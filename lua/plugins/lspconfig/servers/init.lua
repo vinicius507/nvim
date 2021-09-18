@@ -6,6 +6,7 @@ local servers = {
 	'lua',
 	'typescript',
 	'java',
+	'python',
 }
 
 M.config = {}
