@@ -24,6 +24,7 @@ M.norme = function()
 	local ok, norme = pcall(require, 'norme')
 
 	if not ok then
+		error('[Norme.nvim] Not loaded')
 		return
 	end
 
@@ -39,8 +40,10 @@ M.header42 = function()
 		return
 	end
 
-	header.user = 'vgocalv'
-	header.mail = '@student.42sp.org.br'
+	header.setup({
+		user = 'vgoncalv',
+		mail = 'vgoncalv@student.42sp.org.br',
+	})
 end
 
 M.gitsigns = function()

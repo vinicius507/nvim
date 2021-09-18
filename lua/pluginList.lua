@@ -71,6 +71,7 @@ return packer.startup(function()
 
 	use({
 		'neovim/nvim-lspconfig',
+		after = 'asdf.nvim',
 		requires = { 'kabouzeid/nvim-lspinstall' },
 		config = function()
 			require('plugins.lspconfig')
@@ -240,8 +241,8 @@ return packer.startup(function()
 	})
 
 	use({
-		'eduardomosko/header42.nvim',
-		cmd = 'Stdheader',
+		'vinicius507/header42.nvim',
+		event = { 'BufRead', 'BufNewFile' },
 		config = function()
 			require('plugins.others').header42()
 		end,
