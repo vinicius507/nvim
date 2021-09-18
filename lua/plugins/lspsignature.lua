@@ -11,7 +11,6 @@ signature.setup({
 	hint_enable = false,
 	hint_prefix = '',
 	hint_scheme = 'String',
-	use_lspsaga = false,
 	hi_parameter = 'Search',
 	max_height = 12,
 	max_width = 120,
