@@ -66,7 +66,6 @@ map(
 	'<C-p>',
 	'<cmd>lua require("trouble").previous({skip_groups = true, jump = true})<CR>'
 )
-map('n', '<C-d>', '<cmd>lua vim.lsp.buf.show_line_diagnostics()<CR>')
 
 -- LSP Trouble Keys
 map('n', '<leader>xx', '<cmd>LspTroubleToggle<CR>')
