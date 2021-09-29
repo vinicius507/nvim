@@ -53,7 +53,9 @@ M.gitsigns = function()
 		return
 	end
 
-	signs.setup()
+	signs.setup({
+		current_line_blame = true,
+	})
 end
 
 M.colorizer = function()
