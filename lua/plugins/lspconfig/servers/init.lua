@@ -7,6 +7,7 @@ local servers = {
 	'typescript',
 	'java',
 	'python',
+	'go',
 }
 
 M.config = {}

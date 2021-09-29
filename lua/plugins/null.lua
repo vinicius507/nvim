@@ -9,7 +9,7 @@ null_ls.config({
 	sources = {
 		null_ls.builtins.formatting.stylua,
 		null_ls.builtins.formatting.black,
-		-- null_ls.builtins.diagnostics.flake8,
+		null_ls.builtins.formatting.golines,
 	},
 })
 
@@ -17,7 +17,7 @@ lspconfig['null-ls'].setup({
 	on_attach = function(client)
 		if client.resolved_capabilities.document_formatting then
 			vim.cmd(
-				'autocmd BufWritePre *.lua,*.py,*.ts,*.tsx lua vim.lsp.buf.formatting_sync()'
+				'autocmd BufWritePre *.lua,*.py,*.ts,*.tsx,*.go lua vim.lsp.buf.formatting_sync({}, 200)'
 			)
 		end
 	end,
