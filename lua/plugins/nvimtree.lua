@@ -21,7 +21,7 @@ local config = {
 	special_files = { 'README.md', 'Makefile' },
 	show_icons = { git = 0, folders = 1, files = 1 },
 	icons = {
-		default = '',
+		default = '',
 		symlink = '',
 		git = {
 			unstaged = '✗',
