@@ -1,32 +1,41 @@
-local ok, compe = pcall(require, 'compe')
+local ok, cmp = pcall(require, 'cmp')
 
 if not ok then
 	return
 end
 
-compe.setup({
-	enabled = true,
-	autocomplete = true,
-	debug = false,
-	min_length = 1,
-	preselect = 'enable',
-	throttle_time = 80,
-	source_timeout = 200,
-	incomplete_delay = 400,
-	max_abbr_width = 100,
-	max_kind_width = 100,
-	max_menu_width = 100,
-	documentation = true,
+cmp.setup({
+	formatting = {
+		format = function(entry, vim_item)
+			vim_item.kind = string.format(
+				'%s %s',
+				require('plugins.others').lspkind[vim_item.kind],
+				vim_item.kind
+			)
 
-	source = {
-		path = true,
-		buffer = true,
-		calc = false,
-		nvim_lsp = true,
-		nvim_lua = true,
-		treesitter = true,
-		tags = true,
-		spell = true,
-		orgmode = true,
+			vim_item.menu = ({
+				nvim_lsp = '[LSP]',
+				nvim_lua = '[Lua]',
+				buffer = '[BUF]',
+			})[entry.source.name]
+
+			return vim_item
+		end,
+	},
+	mapping = {
+		['<C-d>'] = cmp.mapping.scroll_docs(-4),
+		['<C-f>'] = cmp.mapping.scroll_docs(4),
+		['<C-Space>'] = cmp.mapping.complete(),
+		['<C-e>'] = cmp.mapping.close(),
+		['<CR>'] = cmp.mapping.confirm({ select = true }),
+		['<Tab>'] = cmp.mapping.select_next_item(),
+		['<S-Tab>'] = cmp.mapping.select_prev_item(),
+	},
+	sources = {
+		{ name = 'nvim_lsp' },
+		{ name = 'nvim_lua' },
+		{ name = 'buffer' },
+		{ name = 'path' },
+		{ name = 'calc' },
 	},
 })

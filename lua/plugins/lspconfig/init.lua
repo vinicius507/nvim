@@ -7,13 +7,27 @@ end
 
 local servers = require('plugins.lspconfig.servers')
 
+local default = {
+	capabilities = require('cmp_nvim_lsp').update_capabilities(
+		vim.lsp.protocol.make_client_capabilities(),
+		{
+			snippetSupport = false,
+		}
+	),
+}
+
 local setup_servers = function()
 	lspinstall.setup()
 
 	local installed = lspinstall.installed_servers()
 
 	for _, server in pairs(installed) do
-		lspconfig[server].setup(servers.config[server] or {})
+		local cfg = vim.tbl_deep_extend(
+			'force',
+			default,
+			servers.config[server] or {}
+		)
+		lspconfig[server].setup(cfg)
 	end
 end
 

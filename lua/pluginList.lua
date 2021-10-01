@@ -130,14 +130,6 @@ return packer.startup(function()
 		end,
 	})
 
-	use({
-		'onsails/lspkind-nvim',
-		after = 'nvim-lspconfig',
-		config = function()
-			require('plugins.others').lspkind()
-		end,
-	})
-
 	-- Presence
 	use({
 		'andweeb/presence.nvim',
@@ -147,12 +139,23 @@ return packer.startup(function()
 		end,
 	})
 
+	-- Cmp
 	use({
-		'hrsh7th/nvim-compe',
-		event = 'InsertEnter',
+		'hrsh7th/nvim-cmp',
+		module = 'lspconfig',
 		config = function()
 			require('plugins.compe')
 		end,
+	})
+
+	use({
+		'hrsh7th/cmp-nvim-lua',
+		after = 'nvim-cmp',
+	})
+
+	use({
+		'hrsh7th/cmp-nvim-lsp',
+		after = 'cmp-nvim-lua',
 	})
 
 	-- File Navigation

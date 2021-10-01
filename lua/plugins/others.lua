@@ -103,45 +103,33 @@ M.orgmode = function()
 	})
 end
 
-M.lspkind = function()
-	local ok, lspkind = pcall(require, 'lspkind')
-
-	if not ok then
-		return
-	end
-
-	lspkind.init({
-		with_text = true,
-		preset = 'codicons',
-		symbol_map = {
-			Text = '',
-			Method = '',
-			Function = '',
-			Constructor = '',
-			Field = 'ﰠ',
-			Variable = '',
-			Class = 'ﴯ',
-			Interface = '',
-			Module = '',
-			Property = 'ﰠ',
-			Unit = '塞',
-			Value = '',
-			Enum = '',
-			Keyword = '',
-			Snippet = '',
-			Color = '',
-			File = '',
-			Reference = '',
-			Folder = '',
-			EnumMember = '',
-			Constant = '',
-			Struct = 'פּ',
-			Event = '',
-			Operator = '',
-			TypeParameter = '',
-		},
-	})
-end
+M.lspkind = {
+	Text = '',
+	Method = '',
+	Function = '',
+	Constructor = '',
+	Field = 'ﰠ',
+	Variable = '',
+	Class = 'ﴯ',
+	Interface = '',
+	Module = '',
+	Property = 'ﰠ',
+	Unit = '塞',
+	Value = '',
+	Enum = '',
+	Keyword = '',
+	Snippet = '',
+	Color = '',
+	File = '',
+	Reference = '',
+	Folder = '',
+	EnumMember = '',
+	Constant = '',
+	Struct = 'פּ',
+	Event = '',
+	Operator = '',
+	TypeParameter = '',
+}
 
 M.asdf = function()
 	local ok, asdf = pcall(require, 'asdf-nvim')
