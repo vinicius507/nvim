@@ -114,8 +114,9 @@ return packer.startup(function()
 		end,
 	})
 
+	-- NOTE: change back
 	use({
-		'glepnir/lspsaga.nvim',
+		'tami5/lspsaga.nvim',
 		after = 'nvim-lspconfig',
 		config = function()
 			require('plugins.lspsaga')
