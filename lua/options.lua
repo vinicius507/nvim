@@ -10,7 +10,6 @@ local options = {
 	showmode = false,
 	hidden = true,
 	hlsearch = false,
-	shortmess = 'filnxToOFc',
 	splitright = true,
 	splitbelow = true,
 	completeopt = 'menuone,noselect',
@@ -19,14 +18,37 @@ local options = {
 	undofile = true,
 	undodir = os.getenv('HOME') .. '/.cache/nvim/undo',
 	mouse = 'a',
+	list = true,
+	listchars = '',
 }
 
-local set_options = function(opt)
+local options_append = {
+	shortmess = 'c',
+	listchars = {
+		eol = '',
+		nbsp = ' ',
+		tab = '  ',
+		trail = ' ',
+	},
+}
+
+local set_options = function(opt, opt_a)
 	for option, value in pairs(opt) do
 		setopt[option] = value
 	end
+
+	for option, value in pairs(opt_a) do
+		if type(option) == 'table' then
+			for k, v in pairs(option) do
+				setopt[option]:append(string.format('%s:%s', k, v))
+			end
+		else
+			setopt[option]:append(value)
+		end
+	end
 end
 
-set_options(options)
+set_options(options, options_append)
 
+-- Neovide
 vimg['neovide_remember_window_size'] = true
