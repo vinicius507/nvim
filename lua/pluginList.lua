@@ -162,7 +162,7 @@ return packer.startup(function()
 	-- File Navigation
 	use({
 		'kyazdani42/nvim-tree.lua',
-		cmd = { 'NvimTreeToggle', 'NvimTreeRefresh', 'NvimTreeFindFile' },
+		event = { 'BufRead', 'BufNewFile' },
 		requires = { 'kyazdani42/nvim-web-devicons' },
 		config = function()
 			require('plugins.nvimtree')

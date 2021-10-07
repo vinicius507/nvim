@@ -5,9 +5,6 @@ if not ok then
 end
 
 local config = {
-	side = 'left',
-	width = 30,
-	ignore = { '.git', 'node_modules', '.cache' },
 	gitignore = 1,
 	auto_ignore_ft = {},
 	quit_on_open = 1,
@@ -15,37 +12,12 @@ local config = {
 	hide_dotfiles = 0,
 	git_hl = 0,
 	root_folder_modifier = ':t',
-	width_allow_resize = 0,
 	add_trailing = 0,
-	group_empty = 1,
+	group_empty = 0,
 	special_files = { 'README.md', 'Makefile' },
 	show_icons = { git = 0, folders = 1, files = 1 },
 	icons = {
 		default = '',
-		symlink = '',
-		git = {
-			unstaged = '✗',
-			staged = '✓',
-			unmerged = '',
-			renamed = '➜',
-			untracked = '★',
-			deleted = '',
-			ignored = '◌',
-		},
-		folder = {
-			default = '',
-			open = '',
-			empty = '',
-			empty_open = '',
-			symlink = '',
-			symlink_open = '',
-		},
-		lsp = {
-			hint = '',
-			info = '',
-			warning = '',
-			error = '',
-		},
 	},
 }
 
@@ -74,5 +46,10 @@ tree.setup({
 	system_open = {
 		cmd = nil,
 		args = {},
+	},
+	lsp_diagnostics = true,
+	view = {
+		side = 'left',
+		auto_resize = true,
 	},
 })
