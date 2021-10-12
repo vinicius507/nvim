@@ -150,6 +150,11 @@ return packer.startup(function()
 	})
 
 	use({
+		'L3MON4D3/LuaSnip',
+		module = 'cmp',
+	})
+
+	use({
 		'hrsh7th/cmp-nvim-lua',
 		after = 'nvim-cmp',
 	})
@@ -159,10 +164,14 @@ return packer.startup(function()
 		after = 'cmp-nvim-lua',
 	})
 
+	use({
+		'saadparwaiz1/cmp_luasnip',
+		after = 'cmp-nvim-lua',
+	})
+
 	-- File Navigation
 	use({
 		'kyazdani42/nvim-tree.lua',
-		event = { 'BufRead', 'BufNewFile' },
 		requires = { 'kyazdani42/nvim-web-devicons' },
 		config = function()
 			require('plugins.nvimtree')

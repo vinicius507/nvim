@@ -5,6 +5,18 @@ if not ok then
 end
 
 cmp.setup({
+	snippet = {
+		expand = function(args)
+			local ok_s, luasnip = pcall(require, 'luasnip')
+
+			if not ok_s then
+				error('[CMP] Luasnip could not be loaded')
+				return
+			end
+
+			luasnip.lsp_expand(args.body)
+		end,
+	},
 	formatting = {
 		format = function(entry, vim_item)
 			vim_item.kind = string.format(
@@ -28,8 +40,21 @@ cmp.setup({
 		['<C-Space>'] = cmp.mapping.complete(),
 		['<C-e>'] = cmp.mapping.close(),
 		['<CR>'] = cmp.mapping.confirm({ select = true }),
-		['<Tab>'] = cmp.mapping.select_next_item(),
-		['<S-Tab>'] = cmp.mapping.select_prev_item(),
+		['<Tab>'] = function(fallback)
+			print(cmp.visible())
+			if cmp.visible() then
+				cmp.select_next_item()
+			else
+				fallback()
+			end
+		end,
+		['<S-Tab>'] = function(fallback)
+			if cmp.visible() then
+				cmp.select_prev_item()
+			else
+				fallback()
+			end
+		end,
 	},
 	sources = {
 		{ name = 'nvim_lsp' },
@@ -38,5 +63,6 @@ cmp.setup({
 		{ name = 'path' },
 		{ name = 'calc' },
 		{ name = 'orgmode' },
+		{ name = 'luasnip' },
 	},
 })
