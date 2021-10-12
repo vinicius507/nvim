@@ -47,7 +47,9 @@ tree.setup({
 		cmd = nil,
 		args = {},
 	},
-	lsp_diagnostics = true,
+	diagnostics = {
+		enable = true,
+	},
 	view = {
 		side = 'left',
 		auto_resize = true,
