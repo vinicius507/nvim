@@ -25,10 +25,10 @@ local options = {
 local options_append = {
 	shortmess = 'c',
 	listchars = {
-		eol = '',
+		eol = ' ',
 		nbsp = ' ',
 		tab = '  ',
-		trail = ' ',
+		trail = '',
 	},
 }
 
