@@ -114,17 +114,18 @@ return packer.startup(function()
 		end,
 	})
 
-	-- NOTE: change back
 	use({
 		'tami5/lspsaga.nvim',
 		after = 'nvim-lspconfig',
+		branch = 'nvim51',
 		config = function()
 			require('plugins.lspsaga')
 		end,
 	})
 
 	use({
-		'ahmedkhalf/project.nvim',
+		'vinicius507/project.nvim',
+		branch = 'fix/get_selected_entry',
 		after = 'nvim-lspconfig',
 		config = function()
 			require('plugins.others').project_nvim()
