@@ -43,6 +43,13 @@ M.header42 = function()
 	header.setup({
 		user = 'vgoncalv',
 		mail = 'vgoncalv@student.42sp.org.br',
+		ft = {
+			go = {
+				start_comment = '/*',
+				end_comment = '*/',
+				fill_comment = '*',
+			},
+		},
 	})
 end
 
