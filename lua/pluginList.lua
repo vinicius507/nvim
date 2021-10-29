@@ -51,7 +51,6 @@ return packer.startup(function()
 	use({
 		'nvim-treesitter/nvim-treesitter',
 		event = { 'BufRead', 'BufNewFile' },
-		branch = '0.5-compat',
 		run = ':TSUpdate',
 		config = function()
 			require('plugins.treesitter')
@@ -61,7 +60,6 @@ return packer.startup(function()
 	use({
 		'nvim-treesitter/nvim-treesitter-textobjects',
 		after = 'nvim-treesitter',
-		branch = '0.5-compat',
 	})
 
 	use({
@@ -117,7 +115,6 @@ return packer.startup(function()
 	use({
 		'tami5/lspsaga.nvim',
 		after = 'nvim-lspconfig',
-		branch = 'nvim51',
 		config = function()
 			require('plugins.lspsaga')
 		end,
