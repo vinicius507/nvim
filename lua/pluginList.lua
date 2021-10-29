@@ -30,7 +30,7 @@ return packer.startup(function()
 	})
 
 	use({
-		'hoob3rt/lualine.nvim',
+		'nvim-lualine/lualine.nvim',
 		after = 'theme',
 		requires = { 'kyazdani42/nvim-web-devicons' },
 		config = function()
