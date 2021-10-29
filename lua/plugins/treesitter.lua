@@ -19,6 +19,7 @@ ts_config.setup({
 		'html',
 		'dockerfile',
 		'cmake',
+		'go',
 	},
 	highlight = {
 		enable = true,
