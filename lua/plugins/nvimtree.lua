@@ -9,7 +9,6 @@ local config = {
 	auto_ignore_ft = {},
 	quit_on_open = 1,
 	indent_markers = 0,
-	hide_dotfiles = 0,
 	git_hl = 0,
 	root_folder_modifier = ':t',
 	add_trailing = 0,
@@ -49,6 +48,9 @@ tree.setup({
 	},
 	diagnostics = {
 		enable = true,
+	},
+	filter = {
+		dotfiles = false,
 	},
 	view = {
 		side = 'left',
