@@ -222,7 +222,7 @@ return packer.startup(function()
 	use({
 		'sindrets/diffview.nvim',
 		cmd = 'DiffviewOpen',
-		requires = { 'kyazdani42/nvim-web-devicons' },
+		requires = { 'kyazdani42/nvim-web-devicons', 'nvim-lua/plenary.nvim' },
 	})
 
 	-- Org
