@@ -41,7 +41,6 @@ cmp.setup({
 		['<C-e>'] = cmp.mapping.close(),
 		['<CR>'] = cmp.mapping.confirm({ select = true }),
 		['<Tab>'] = function(fallback)
-			print(cmp.visible())
 			if cmp.visible() then
 				cmp.select_next_item()
 			else
