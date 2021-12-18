@@ -78,7 +78,7 @@ return packer.startup(function()
 
 	use({
 		'jose-elias-alvarez/null-ls.nvim',
-		after = 'nvim-lspconfig',
+		event = { 'BufRead', 'BufNewFile' },
 		requires = { 'nvim-lua/plenary.nvim' },
 		config = function()
 			require('plugins.null')
@@ -243,12 +243,8 @@ return packer.startup(function()
 	-- École 42
 	use({
 		'vinicius507/norme.nvim',
-		after = 'null-ls.nvim',
-		-- branch = 'feat/runtime_condition',
-		requires = { 'nvim-lua/plenary.nvim' },
-		config = function()
-			require('plugins.others').norme()
-		end,
+		module = 'null-ls',
+		branch = 'feat/refactor',
 	})
 
 	use({

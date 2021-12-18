@@ -20,19 +20,6 @@ M.project_nvim = function()
 	project_nvim.setup()
 end
 
-M.norme = function()
-	local ok, norme = pcall(require, 'norme')
-
-	if not ok then
-		error('[Norme.nvim] Not loaded')
-		return
-	end
-
-	norme.setup({
-		cmd = os.getenv('HOME') .. '/.local/bin/norminette',
-	})
-end
-
 M.header42 = function()
 	local ok, header = pcall(require, 'header42')
 
@@ -45,9 +32,15 @@ M.header42 = function()
 		mail = 'vgoncalv@student.42sp.org.br',
 		ft = {
 			go = {
+				user = 'vini',
+				mail = 'vini@42sp.org.br',
 				start_comment = '/*',
 				end_comment = '*/',
 				fill_comment = '*',
+			},
+			python = {
+				user = 'vini',
+				mail = 'vini@42sp.org.br',
 			},
 		},
 	})

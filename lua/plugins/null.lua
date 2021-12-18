@@ -1,19 +1,26 @@
-local null_ls = require('null-ls')
-local ok2, lspconfig = pcall(require, 'lspconfig')
+local ok, null_ls = pcall(require, 'null-ls')
 
-if not ok2 then
+if not ok then
+	error('[Null-ls.nvim] Not loaded')
 	return
 end
 
-null_ls.config({
+local norme
+ok, norme = pcall(require, 'norme')
+
+if not ok then
+	error('[Norme.nvim] Not loaded')
+	return
+end
+
+null_ls.setup({
 	sources = {
 		null_ls.builtins.formatting.stylua,
 		null_ls.builtins.formatting.black,
 		null_ls.builtins.formatting.golines,
+		norme.diagnostics,
 	},
-})
-
-lspconfig['null-ls'].setup({
+	diagnostics_format = '#{s}: #{m}',
 	on_attach = function(client)
 		if client.resolved_capabilities.document_formatting then
 			vim.cmd(
