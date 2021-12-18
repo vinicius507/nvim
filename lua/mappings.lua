@@ -68,12 +68,12 @@ map(
 )
 
 -- LSP Trouble Keys
-map('n', '<leader>xx', '<cmd>LspTroubleToggle<CR>')
-map('n', '<leader>xw', '<cmd>LspTroubleToggle lsp_workspace_diagnostics<CR>')
-map('n', '<leader>xd', '<cmd>LspTroubleToggle lsp_document_diagnostics<CR>')
-map('n', '<leader>xl', '<cmd>LspTroubleToggle loclist<CR>')
-map('n', '<leader>xq', '<cmd>LspTroubleToggle quickfix<CR>')
-map('n', '<Leader>gr', '<cmd>LspTrouble lsp_references<CR>')
+map('n', '<leader>xx', '<cmd>TroubleToggle<CR>')
+map('n', '<leader>xw', '<cmd>TroubleToggle workspace_diagnostics<CR>')
+map('n', '<leader>xd', '<cmd>TroubleToggle document_diagnostics<CR>')
+map('n', '<leader>xl', '<cmd>TroubleToggle loclist<CR>')
+map('n', '<leader>xq', '<cmd>TroubleToggle quickfix<CR>')
+map('n', '<Leader>gr', '<cmd>Trouble lsp_references<CR>')
 
 -- TODO: Comments Keys
 map('n', '<Leader>xt', '<cmd>TodoTrouble<CR>')
