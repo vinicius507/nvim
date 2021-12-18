@@ -8,7 +8,7 @@ local components = require('plugins.statusline.components')
 
 lualine.setup({
 	options = {
-		theme = 'tokyonight',
+		theme = 'nord',
 		section_separators = { '', '' },
 		component_separators = { '', '' },
 		disabled_filetypes = {},
@@ -22,7 +22,7 @@ lualine.setup({
 		lualine_c = {
 			{
 				'diagnostics',
-				sources = { 'nvim_lsp' },
+				sources = { 'nvim_diagnostic' },
 				sections = { 'error', 'warn', 'info' },
 				symbols = { error = ' ', warn = ' ', info = ' ' },
 			},

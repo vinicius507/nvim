@@ -21,7 +21,7 @@ return packer.startup(function()
 
 	-- Appearance
 	use({
-		'folke/tokyonight.nvim',
+		'shaunsingh/nord.nvim',
 		after = 'packer.nvim',
 		as = 'theme',
 		config = function()
