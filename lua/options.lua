@@ -1,5 +1,6 @@
 local setopt = vim.opt
 local vimg = vim.g
+local diagnostic = vim.diagnostic
 
 local options = {
 	shiftwidth = 4,
@@ -53,3 +54,26 @@ set_options(options, options_append)
 
 -- Neovide
 vimg['neovide_remember_window_size'] = true
+diagnostic.config({
+	virtual_text = {
+		prefix = '',
+		format = function(d)
+			print(vim.inspect(d))
+			local signs = {
+				'',
+				'',
+				'',
+				'',
+			}
+			return string.format(
+				'%s %s: %s',
+				signs[d.severity],
+				d.source,
+				d.message
+			)
+		end,
+	},
+	signs = true,
+	underline = true,
+	update_in_insert = true,
+})
