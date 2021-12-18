@@ -20,6 +20,7 @@ local options = {
 	mouse = 'a',
 	list = true,
 	listchars = '',
+	colorcolumn = '81',
 }
 
 local options_append = {
