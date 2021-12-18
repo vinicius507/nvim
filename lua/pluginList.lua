@@ -70,7 +70,7 @@ return packer.startup(function()
 	use({
 		'neovim/nvim-lspconfig',
 		after = 'asdf.nvim',
-		requires = { 'kabouzeid/nvim-lspinstall' },
+		requires = { 'williamboman/nvim-lsp-installer' },
 		config = function()
 			require('plugins.lspconfig')
 		end,

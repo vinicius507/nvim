@@ -1,7 +1,6 @@
-local ok1, lspinstall = pcall(require, 'lspinstall')
-local ok2, lspconfig = pcall(require, 'lspconfig')
+local ok1, lspinstall = pcall(require, 'nvim-lsp-installer')
 
-if not ok1 or not ok2 then
+if not ok1 then
 	return
 end
 
@@ -16,37 +15,24 @@ local default = {
 	),
 }
 
-local setup_servers = function()
-	lspinstall.setup()
+lspinstall.on_server_ready(function(server)
+	local opts = vim.tbl_deep_extend(
+		'force',
+		default,
+		servers.config[server.name] or {}
+	)
+	server:setup(opts)
+end)
 
-	local installed = lspinstall.installed_servers()
-
-	for _, server in pairs(installed) do
-		local cfg = vim.tbl_deep_extend(
-			'force',
-			default,
-			servers.config[server] or {}
-		)
-		lspconfig[server].setup(cfg)
-	end
-end
-
-setup_servers()
-
-vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(
-	vim.lsp.diagnostic.on_publish_diagnostics,
-	{
-		virtual_text = {
-			spacing = 4,
-			prefix = '●',
-		},
-		signs = true,
-		underline = true,
-		update_in_insert = true,
-	}
-)
-
-lspinstall.post_install_hook = function()
-	setup_servers()
-	vim.cmd('bufdo e')
-end
+-- vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(
+-- 	vim.lsp.diagnostic.on_publish_diagnostics,
+-- 	{
+-- 		virtual_text = {
+-- 			spacing = 4,
+-- 			prefix = '●',
+-- 		},
+-- 		signs = true,
+-- 		underline = true,
+-- 		update_in_insert = true,
+-- 	}
+-- )

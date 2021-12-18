@@ -2,12 +2,11 @@ local M = {}
 local servers_dir = 'plugins.lspconfig.servers.'
 
 local servers = {
-	'cpp',
-	'lua',
-	'typescript',
-	'java',
-	'python',
-	'go',
+	'clangd',
+	'sumneko_lua',
+	'tsserver',
+	'pyright',
+	'gopls',
 }
 
 M.config = {}

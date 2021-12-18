@@ -1,7 +1,7 @@
 local M = {}
 
 local util = require('lspconfig/util')
-local root_pattern = util.root_pattern('.git', 'rc.lua')
+local root_pattern = util.root_pattern('stylua.toml', 'rc.lua', '.git')
 
 M.config = {
 	root_dir = function(fname)
@@ -34,7 +34,6 @@ M.config = {
 					[vim.fn.expand('$VIMRUNTIME/lua')] = true,
 					[vim.fn.expand('$VIMRUNTIME/lua/vim/lsp')] = true,
 					['/usr/share/awesome/lib'] = true,
-					[vim.fn.expand('$HOME/.config/awesome')] = true,
 				},
 			},
 		},

@@ -9,8 +9,14 @@ M.config = {
 			) or 'python',
 			venvPath = string.format('%s/.local/virtualenvs', os.getenv('HOME')),
 			analysis = {
+				autoSearchPaths = true,
 				diagnosticMode = 'workspace',
 				extraPaths = { './srcs', './src' },
+				typeCheckingMode = 'basic',
+				useLibraryCodeForTypes = true,
+				diagnosticSeverityOverrides = {
+					reportPrivateImportUsage = false,
+				},
 			},
 		},
 	},
