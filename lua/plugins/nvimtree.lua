@@ -5,7 +5,6 @@ if not ok then
 end
 
 local config = {
-	gitignore = 1,
 	auto_ignore_ft = {},
 	quit_on_open = 1,
 	indent_markers = 0,
@@ -48,6 +47,11 @@ tree.setup({
 	},
 	diagnostics = {
 		enable = true,
+	},
+	git = {
+		enable = false,
+		ignore = false,
+		timeout = 500,
 	},
 	filter = {
 		dotfiles = false,
