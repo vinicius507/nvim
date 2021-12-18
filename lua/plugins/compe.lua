@@ -4,16 +4,14 @@ if not ok then
 	return
 end
 
+local snip_ok, luasnip = pcall(require, 'luasnip')
+
 cmp.setup({
 	snippet = {
 		expand = function(args)
-			local ok_s, luasnip = pcall(require, 'luasnip')
-
-			if not ok_s then
-				error('[CMP] Luasnip could not be loaded')
+			if not snip_ok then
 				return
 			end
-
 			luasnip.lsp_expand(args.body)
 		end,
 	},
@@ -40,20 +38,30 @@ cmp.setup({
 		['<C-Space>'] = cmp.mapping.complete(),
 		['<C-e>'] = cmp.mapping.close(),
 		['<CR>'] = cmp.mapping.confirm({ select = true }),
-		['<Tab>'] = function(fallback)
+		['<Tab>'] = cmp.mapping(function(fallback)
 			if cmp.visible() then
 				cmp.select_next_item()
+			elseif snip_ok and luasnip.expand_or_jumpable() then
+				luasnip.expand_or_jump()
 			else
 				fallback()
 			end
-		end,
-		['<S-Tab>'] = function(fallback)
+		end, {
+			'i',
+			's',
+		}),
+		['<S-Tab>'] = cmp.mapping(function(fallback)
 			if cmp.visible() then
 				cmp.select_prev_item()
+			elseif luasnip.jumpable(-1) then
+				luasnip.jump(-1)
 			else
 				fallback()
 			end
-		end,
+		end, {
+			'i',
+			's',
+		}),
 	},
 	sources = {
 		{ name = 'nvim_lsp' },
