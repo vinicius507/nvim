@@ -37,16 +37,16 @@ lualine.setup({
 		lualine_z = { 'progress' },
 	},
 	inactive_sections = {
-		lualine_a = { components.filetype },
-		lualine_b = {
+		lualine_a = {},
+		lualine_b = { components.filetype },
+		lualine_c = {},
+		lualine_x = {},
+		lualine_y = {
 			{
 				'branch',
 				icon = '',
 			},
 		},
-		lualine_c = {},
-		lualine_x = {},
-		lualine_y = {},
 		lualine_z = {},
 	},
 	extensions = {
