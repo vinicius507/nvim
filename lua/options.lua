@@ -58,7 +58,6 @@ diagnostic.config({
 	virtual_text = {
 		prefix = '',
 		format = function(d)
-			print(vim.inspect(d))
 			local signs = {
 				'',
 				'',
