@@ -6,7 +6,7 @@ ok, _ = pcall(cmd, 'packadd packer.nvim')
 
 if not ok then
 	local packer_path = fn.stdpath('data')
-		.. '/site/pack/packer/opt/packer.nvim'
+		.. '/site/pack/packer/start/packer.nvim'
 
 	print('Cloning packer..')
 	fn.delete(packer_path, 'rf')
