@@ -21,7 +21,7 @@ return packer.startup(function()
 
 	-- Appearance
 	use({
-		'shaunsingh/nord.nvim',
+		'NvChad/nvim-base16.lua',
 		as = 'theme',
 		config = function()
 			require('theme')
@@ -29,10 +29,10 @@ return packer.startup(function()
 	})
 
 	use({
-		'nvim-lualine/lualine.nvim',
+		'feline-nvim/feline.nvim',
 		requires = { 'kyazdani42/nvim-web-devicons' },
 		config = function()
-			require('plugins.statusline')
+			require('plugins.feline')
 		end,
 	})
 
