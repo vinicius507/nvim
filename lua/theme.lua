@@ -34,6 +34,7 @@ end
 
 base16(base16.themes('nord'))
 
+vim.g.base16_theme = 'nord'
 local colors = require('hl_themes.nord')
 
 bg('Normal', colors.black)
@@ -48,6 +49,8 @@ fg('EndOfBuffer', colors.black)
 fg('Comment', colors.grey_fg)
 
 ---Treesitter
+bg('TSWarning', 'NONE')
+
 fg('TSString', colors.vibrant_green)
 fg('TSNumber', colors.yellow)
 fg('TSConstant', colors.sun)
@@ -83,11 +86,12 @@ fg('DashboardCenter', colors.blue)
 fg('DashboardFooter', colors.white)
 fg('DashboardHeader', colors.white)
 
--- Git signs
+-- Neogit
 fg_bg('DiffAdd', colors.blue, 'NONE')
-fg_bg('DiffChange', colors.grey_fg, 'NONE')
+fg_bg('DiffChange', colors.dark_purple, 'NONE')
 fg_bg('DiffChangeDelete', colors.red, 'NONE')
-fg_bg('DiffModified', colors.red, 'NONE')
+fg_bg('DiffModified', colors.dark_purple, 'NONE')
+fg_bg('DiffRemoved', colors.red, 'NONE')
 fg_bg('DiffDelete', colors.red, 'NONE')
 
 -- Diagnostics
@@ -146,6 +150,31 @@ fg('NeogitPopupSwitchEnabled', colors.nord_blue)
 -- Git
 fg('gitCommitSummary', colors.nord_blue)
 fg('gitCommitSelectedFile', colors.yellow)
+
+-- TODO: Comments
+-- HACK: Comments
+-- FIXME: Comments
+-- NOTE: Comments
+-- PERF: Comments
+-- WARN: Comments
+fg('TodoFgTODO', colors.white)
+fg_bg('TodoBgTODO', colors.nord_blue, 'NONE')
+fg('TodoSignTODO', colors.nord_blue)
+fg('TodoFgHACK', colors.white)
+fg_bg('TodoBgHACK', colors.orange, 'NONE')
+fg('TodoSignHACK', colors.orange)
+fg('TodoFgFIX', colors.white)
+fg_bg('TodoBgFIX', colors.red, 'NONE')
+fg('TodoSignFIX', colors.red)
+fg('TodoFgNOTE', colors.white)
+fg_bg('TodoBgNOTE', colors.vibrant_green, 'NONE')
+fg('TodoSignNOTE', colors.vibrant_green)
+fg('TodoFgPERF', colors.white)
+fg_bg('TodoBgPERF', colors.baby_pink, 'NONE')
+fg('TodoSignPERF', colors.baby_pink)
+fg('TodoFgWARN', colors.white)
+fg_bg('TodoBgWARN', colors.yellow, 'NONE')
+fg('TodoSignWARN', colors.yellow)
 
 cmd([[
 augroup theme_reloader
