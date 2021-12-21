@@ -75,5 +75,8 @@ diagnostic.config({
 		end,
 	},
 	signs = true,
-	underline = true,
+	underline = {
+		severity = 1,
+	},
+	severity_sort = true,
 })
