@@ -57,6 +57,8 @@ return packer.startup(function()
 
 	use('nvim-treesitter/nvim-treesitter-refactor')
 
+	use('nvim-treesitter/playground')
+
 	use({
 		'neovim/nvim-lspconfig',
 		requires = { 'williamboman/nvim-lsp-installer' },
