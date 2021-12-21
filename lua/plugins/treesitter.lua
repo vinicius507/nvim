@@ -20,6 +20,8 @@ ts_config.setup({
 		'dockerfile',
 		'cmake',
 		'go',
+		'toml',
+		'yaml',
 	},
 	highlight = {
 		enable = true,
