@@ -54,6 +54,8 @@ set_options(options, options_append)
 
 -- Neovide
 vimg['neovide_remember_window_size'] = true
+
+-- Diagnostics
 diagnostic.config({
 	virtual_text = {
 		prefix = '',
@@ -74,5 +76,4 @@ diagnostic.config({
 	},
 	signs = true,
 	underline = true,
-	update_in_insert = true,
 })
