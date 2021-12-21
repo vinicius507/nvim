@@ -63,8 +63,8 @@ diagnostic.config({
 			local signs = {
 				'',
 				'',
-				'',
-				'',
+				'',
+				'',
 			}
 			return string.format(
 				'%s %s: %s',
