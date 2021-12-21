@@ -13,9 +13,6 @@ neogit.setup({
 		item = { '', '' },
 		hunk = { '', '' },
 	},
-	integrations = {
-		diffview = true,
-	},
 })
 
 local env = vim.env

@@ -17,7 +17,9 @@ M.project_nvim = function()
 		return
 	end
 
-	project_nvim.setup()
+	project_nvim.setup({
+		show_hidden = true,
+	})
 end
 
 M.header42 = function()
@@ -80,29 +82,6 @@ M.colorizer = function()
 	})
 end
 
-M.orgmode = function()
-	local ok1, org = pcall(require, 'orgmode')
-
-	if not ok1 then
-		return
-	end
-
-	org.setup({
-		org_agenda_files = { '~/Documents/org/**/*' },
-		org_default_notes_file = '~/Documents/org/notes.org',
-	})
-
-	local ok2, bullets = pcall(require, 'org-bullets')
-
-	if not ok2 then
-		return
-	end
-
-	bullets.setup({
-		symbols = { '◉', '○', '✸', '✿' },
-	})
-end
-
 M.lspkind = {
 	Text = '',
 	Method = '',
@@ -130,16 +109,6 @@ M.lspkind = {
 	Operator = '',
 	TypeParameter = '',
 }
-
-M.asdf = function()
-	local ok, asdf = pcall(require, 'asdf-nvim')
-
-	if not ok then
-		return
-	end
-
-	asdf.setup()
-end
 
 M.autopairs = function()
 	local ok, npairs = pcall(require, 'nvim-autopairs')

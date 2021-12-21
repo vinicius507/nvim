@@ -2,9 +2,7 @@ local M = {}
 local servers_dir = 'plugins.lspconfig.servers.'
 
 local servers = {
-	'clangd',
 	'sumneko_lua',
-	'tsserver',
 	'pyright',
 	'gopls',
 }

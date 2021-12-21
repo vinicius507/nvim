@@ -40,4 +40,6 @@ return packer.init({
 	git = {
 		clone_timeout = 600,
 	},
+	auto_clean = true,
+	compile_on_sync = true,
 })

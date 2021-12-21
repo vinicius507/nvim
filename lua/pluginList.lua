@@ -9,7 +9,7 @@ end
 
 local cmd = vim.cmd
 
-cmd('autocmd BufWritePost pluginList.lua PackerCompile')
+cmd('autocmd BufWritePost pluginList.lua source <afile> | PackerCompile')
 
 local use = packer.use
 
@@ -22,7 +22,6 @@ return packer.startup(function()
 	-- Appearance
 	use({
 		'shaunsingh/nord.nvim',
-		after = 'packer.nvim',
 		as = 'theme',
 		config = function()
 			require('theme')
@@ -31,7 +30,6 @@ return packer.startup(function()
 
 	use({
 		'nvim-lualine/lualine.nvim',
-		after = 'theme',
 		requires = { 'kyazdani42/nvim-web-devicons' },
 		config = function()
 			require('plugins.statusline')
@@ -40,7 +38,6 @@ return packer.startup(function()
 
 	use({
 		'akinsho/nvim-bufferline.lua',
-		after = 'theme',
 		requires = { 'kyazdani42/nvim-web-devicons' },
 		config = function()
 			require('plugins.bufferline')
@@ -50,26 +47,18 @@ return packer.startup(function()
 	-- LSP and TS Configuration
 	use({
 		'nvim-treesitter/nvim-treesitter',
-		event = { 'BufRead', 'BufNewFile' },
 		run = ':TSUpdate',
 		config = function()
 			require('plugins.treesitter')
 		end,
 	})
 
-	use({
-		'nvim-treesitter/nvim-treesitter-textobjects',
-		after = 'nvim-treesitter',
-	})
+	use('nvim-treesitter/nvim-treesitter-textobjects')
 
-	use({
-		'nvim-treesitter/nvim-treesitter-refactor',
-		after = 'nvim-treesitter',
-	})
+	use('nvim-treesitter/nvim-treesitter-refactor')
 
 	use({
 		'neovim/nvim-lspconfig',
-		after = 'asdf.nvim',
 		requires = { 'williamboman/nvim-lsp-installer' },
 		config = function()
 			require('plugins.lspconfig')
@@ -78,7 +67,6 @@ return packer.startup(function()
 
 	use({
 		'jose-elias-alvarez/null-ls.nvim',
-		event = { 'BufRead', 'BufNewFile' },
 		requires = { 'nvim-lua/plenary.nvim' },
 		config = function()
 			require('plugins.null')
@@ -86,13 +74,7 @@ return packer.startup(function()
 	})
 
 	use({
-		'jose-elias-alvarez/nvim-lsp-ts-utils',
-		after = 'null-ls.nvim',
-	})
-
-	use({
 		'folke/lsp-trouble.nvim',
-		after = 'nvim-lspconfig',
 		requires = 'kyazdani42/nvim-web-devicons',
 		config = function()
 			require('plugins.others').lsptrouble()
@@ -100,13 +82,7 @@ return packer.startup(function()
 	})
 
 	use({
-		'folke/lsp-colors.nvim',
-		after = 'nvim-lspconfig',
-	})
-
-	use({
 		'ray-x/lsp_signature.nvim',
-		after = 'nvim-lspconfig',
 		config = function()
 			require('plugins.lspsignature')
 		end,
@@ -114,58 +90,33 @@ return packer.startup(function()
 
 	use({
 		'tami5/lspsaga.nvim',
-		after = 'nvim-lspconfig',
 		config = function()
 			require('plugins.lspsaga')
 		end,
 	})
 
 	use({
-		'vinicius507/project.nvim',
-		branch = 'fix/get_selected_entry',
-		after = 'nvim-lspconfig',
+		'ahmedkhalf/project.nvim',
 		config = function()
 			require('plugins.others').project_nvim()
-		end,
-	})
-
-	-- Presence
-	use({
-		'andweeb/presence.nvim',
-		event = 'BufEnter',
-		config = function()
-			require('plugins.discord')
 		end,
 	})
 
 	-- Cmp
 	use({
 		'hrsh7th/nvim-cmp',
-		module = 'lspconfig',
 		config = function()
 			require('plugins.compe')
 		end,
 	})
 
-	use({
-		'L3MON4D3/LuaSnip',
-		module = 'cmp',
-	})
+	use('L3MON4D3/LuaSnip')
 
-	use({
-		'hrsh7th/cmp-nvim-lua',
-		after = 'nvim-cmp',
-	})
+	use('hrsh7th/cmp-nvim-lua')
 
-	use({
-		'hrsh7th/cmp-nvim-lsp',
-		after = 'cmp-nvim-lua',
-	})
+	use('hrsh7th/cmp-nvim-lsp')
 
-	use({
-		'saadparwaiz1/cmp_luasnip',
-		after = 'cmp-nvim-lua',
-	})
+	use('saadparwaiz1/cmp_luasnip')
 
 	-- File Navigation
 	use({
@@ -176,14 +127,10 @@ return packer.startup(function()
 		end,
 	})
 
-	use({
-		'nvim-telescope/telescope-fzy-native.nvim',
-		module = 'telescope',
-	})
+	use('nvim-telescope/telescope-fzy-native.nvim')
 
 	use({
 		'nvim-telescope/telescope.nvim',
-		cmd = 'Telescope',
 		requires = { 'nvim-lua/popup.nvim', 'nvim-lua/plenary.nvim' },
 		config = function()
 			require('plugins.telescope')
@@ -203,7 +150,6 @@ return packer.startup(function()
 	-- Git Plugins
 	use({
 		'TimUntersberger/neogit',
-		cmd = 'Neogit',
 		requires = { 'nvim-lua/plenary.nvim' },
 		config = function()
 			require('plugins.neogit')
@@ -212,44 +158,20 @@ return packer.startup(function()
 
 	use({
 		'lewis6991/gitsigns.nvim',
-		event = 'BufRead',
 		requires = { 'nvim-lua/plenary.nvim' },
 		config = function()
 			require('plugins.others').gitsigns()
 		end,
 	})
 
-	use({
-		'sindrets/diffview.nvim',
-		cmd = 'DiffviewOpen',
-		requires = { 'kyazdani42/nvim-web-devicons', 'nvim-lua/plenary.nvim' },
-	})
-
-	-- Org
-	use({
-		'kristijanhusak/orgmode.nvim',
-		ft = 'org',
-		keys = { '<Leader>o' },
-		config = function()
-			require('plugins.others').orgmode()
-		end,
-	})
-
-	use({
-		'akinsho/org-bullets.nvim',
-		module = 'orgmode',
-	})
-
 	-- École 42
 	use({
 		'vinicius507/norme.nvim',
-		module = 'null-ls',
 		branch = 'feat/refactor',
 	})
 
 	use({
 		'vinicius507/header42.nvim',
-		event = { 'BufRead', 'BufNewFile' },
 		config = function()
 			require('plugins.others').header42()
 		end,
@@ -258,7 +180,6 @@ return packer.startup(function()
 	-- Misc
 	use({
 		'norcalli/nvim-colorizer.lua',
-		event = { 'BufRead', 'BufNewFile' },
 		config = function()
 			require('plugins.others').colorizer()
 		end,
@@ -266,7 +187,6 @@ return packer.startup(function()
 
 	use({
 		'folke/which-key.nvim',
-		after = 'packer.nvim',
 		config = function()
 			require('plugins.whichkey')
 		end,
@@ -275,7 +195,6 @@ return packer.startup(function()
 	use({
 		'akinsho/nvim-toggleterm.lua',
 		keys = [[<c-\>]],
-		cmd = { 'MakeRun' },
 		config = function()
 			require('plugins.toggleterm')
 		end,
@@ -283,7 +202,6 @@ return packer.startup(function()
 
 	use({
 		'glepnir/dashboard-nvim',
-		after = 'packer.nvim',
 		config = function()
 			require('plugins.dashboard')
 		end,
@@ -291,39 +209,20 @@ return packer.startup(function()
 
 	use({
 		'mfussenegger/nvim-dap',
-		cmd = {
-			'DapSetBreakpoint',
-			'DapSetConditionalBreakpoint',
-			'DapContinue',
-			'DapReplOpen',
-		},
 		config = function()
 			require('plugins.dap')
 		end,
 	})
 
 	use({
-		'theHamsta/nvim-dap-virtual-text',
-		after = 'nvim-dap',
-	})
-
-	use({
-		'vinicius507/asdf.nvim',
-		config = function()
-			require('plugins.others').asdf()
-		end,
-	})
-
-	use({
 		'windwp/nvim-autopairs',
-		event = 'InsertEnter',
 		config = function()
 			require('plugins.others').autopairs()
 		end,
 	})
 
 	-- VimScript
-	use({ 'tpope/vim-commentary', event = { 'BufEnter', 'BufNewFile' } })
-	use({ 'tpope/vim-surround', event = { 'BufEnter', 'BufNewFile' } })
-	use({ 'tpope/vim-repeat', event = { 'BufEnter', 'BufNewFile' } })
+	use('tpope/vim-repeat')
+	use('tpope/vim-surround')
+	use('tpope/vim-commentary')
 end)

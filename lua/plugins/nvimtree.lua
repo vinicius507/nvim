@@ -5,7 +5,6 @@ if not ok then
 end
 
 local config = {
-	auto_ignore_ft = {},
 	quit_on_open = 1,
 	indent_markers = 0,
 	git_hl = 0,
@@ -58,6 +57,7 @@ tree.setup({
 	},
 	view = {
 		side = 'left',
+		hide_root_folder = true,
 		auto_resize = true,
 	},
 })
