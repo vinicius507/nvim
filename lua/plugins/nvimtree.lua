@@ -6,7 +6,7 @@ end
 
 local config = {
 	quit_on_open = 1,
-	indent_markers = 0,
+	indent_markers = 1,
 	git_hl = 0,
 	root_folder_modifier = ':t',
 	add_trailing = 0,
