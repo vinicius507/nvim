@@ -33,6 +33,14 @@ local providers = {
 		filename = 'Commit',
 		hl = { style = 'bold' },
 	},
+	['^.*Trouble.*$'] = {
+		icon = {
+			str = ' 飯',
+			hl = { fg = colors.nord_blue },
+		},
+		filename = 'Trouble',
+		hl = { style = 'bold' },
+	},
 }
 setmetatable(providers, {
 	__index = function(self, key)

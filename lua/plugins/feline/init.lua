@@ -46,6 +46,7 @@ feline.setup({
 	force_inactive = {
 		filetypes = {
 			'^.*Neogit.*$',
+			'^.*Trouble.*$',
 			'^NvimTree$',
 			'^help$',
 		},
