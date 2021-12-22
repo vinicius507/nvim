@@ -1,6 +1,5 @@
-local base16 = require('base16')
-
 local cmd = vim.cmd
+local colors = require('hl_themes.' .. vim.g.base16_theme)
 
 ---Define bg color
 ---@param group string
@@ -31,11 +30,6 @@ end
 local function link(group, target)
 	cmd('hi default link ' .. target .. ' ' .. group)
 end
-
-base16(base16.themes('nord'))
-
-vim.g.base16_theme = 'nord'
-local colors = require('hl_themes.nord')
 
 bg('Normal', colors.black)
 
@@ -93,6 +87,9 @@ fg_bg('DiffChangeDelete', colors.red, 'NONE')
 fg_bg('DiffModified', colors.dark_purple, 'NONE')
 fg_bg('DiffRemoved', colors.red, 'NONE')
 fg_bg('DiffDelete', colors.red, 'NONE')
+fg_bg('NeogitNotificationInfo', colors.vibrant_green, 'NONE')
+fg_bg('NeogitNotificationError', colors.red, 'NONE')
+fg_bg('NeogitNotificationWarning', colors.yellow, 'NONE')
 
 -- Diagnostics
 fg('DiagnosticHint', colors.purple)
