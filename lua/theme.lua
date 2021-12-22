@@ -107,7 +107,7 @@ sp('DiagnosticUnderlineInformation', colors.green)
 -- NvimTree
 fg('NvimTreeEmptyFolderName', colors.one_bg3)
 fg('NvimTreeEndOfBuffer', colors.darker_black)
-fg('NvimTreeFolderIcon', colors.white)
+fg('NvimTreeFolderIcon', colors.nord_blue)
 fg('NvimTreeFolderName', colors.nord_blue)
 fg('NvimTreeIndentMarker', colors.one_bg)
 bg('NvimTreeNormal', colors.darker_black)
@@ -115,8 +115,8 @@ bg('NvimTreeNormalNC', colors.darker_black)
 fg('NvimTreeOpenedFolderName', colors.nord_blue)
 fg('NvimTreeRootFolder', colors.red .. ' gui=underline') -- enable underline for root folder in nvim tree
 fg_bg('NvimTreeStatuslineNc', colors.darker_black, colors.darker_black)
-fg('NvimTreeVertSplit', colors.darker_black)
-bg('NvimTreeVertSplit', colors.darker_black)
+fg_bg('NvimTreeVertSplit', colors.black, colors.black)
+bg('NvimTreeCursorLine', colors.black2)
 fg_bg('NvimTreeWindowPicker', colors.red, colors.darker_black)
 
 -- Telescope
