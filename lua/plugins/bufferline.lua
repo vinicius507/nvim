@@ -36,8 +36,7 @@ bufferline.setup({
 		offsets = {
 			{
 				filetype = 'NvimTree',
-				text = 'File Explorer',
-				text_align = 'center',
+				text = '',
 			},
 		},
 		show_buffer_close_icons = true,
