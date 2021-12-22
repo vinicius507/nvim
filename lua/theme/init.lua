@@ -1,5 +1,6 @@
 local base16 = require('base16')
 
-base16(base16.themes('nord'))
-vim.g.base16_theme = 'nord'
+local theme = 'nord'
+vim.g.base16_theme = theme
+base16(base16.themes(theme))
 require('theme.highlights')
