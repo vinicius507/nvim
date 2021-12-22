@@ -119,6 +119,9 @@ map('n', '<F2>', ':Stdheader<CR>')
 -- Make Run terminal
 map('n', '<F5>', ':MakeRun<CR>')
 
+-- Get TS hl-group
+map('n', '<F10>', '<cmd>TSHighlightCapturesUnderCursor<CR>')
+
 -- Hacks by ThePrimeagen
 -- Better Cursor positioning in search
 map('n', 'n', 'nzzzv')
