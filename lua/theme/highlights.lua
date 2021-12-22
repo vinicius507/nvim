@@ -176,6 +176,6 @@ fg('TodoSignWARN', colors.yellow)
 cmd([[
 augroup theme_reloader
 	autocmd!
-	autocmd BufWritePost theme.lua so <afile>
+	autocmd BufWritePost highlights.lua so <afile>
 augroup end
 ]])
