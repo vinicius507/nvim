@@ -8,7 +8,7 @@ local ok2, trouble = pcall(require, 'trouble.providers.telescope')
 
 telescope.setup({
 	defaults = {
-		prompt_prefix = '  ',
+		prompt_prefix = '  ',
 		selection_caret = ' ',
 		entry_prefix = '  ',
 		color_devicons = true,
@@ -21,7 +21,7 @@ telescope.setup({
 			vertical = {
 				mirror = false,
 			},
-			width = 0.87,
+			width = 0.80,
 			height = 0.80,
 			preview_cutoff = 120,
 		},
@@ -35,6 +35,12 @@ telescope.setup({
 			n = {
 				['<C-q>'] = ok2 and trouble.open_with_trouble or nil,
 			},
+		},
+		-- borderchars = { '―', '｜', '―', '｜', '「', '┐', '⌞', '⌟' },
+		borderchars = {
+			prompt = { '─', '│', '─', '│', '┌', '┐', '┘', '└' },
+			results = { '─', '│', '─', '│', '┌', '┐', '┘', '└' },
+			preview = { '─', '│', '─', '│', '┌', '┐', '┘', '└' },
 		},
 	},
 	extensions = {
