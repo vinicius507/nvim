@@ -43,4 +43,11 @@ feline.setup({
 		bg = colors.black,
 	},
 	components = components,
+	force_inactive = {
+		filetypes = {
+			'^.*Neogit.*$',
+			'^NvimTree$',
+			'^help$',
+		},
+	},
 })
