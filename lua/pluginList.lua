@@ -60,6 +60,13 @@ return packer.startup(function()
 	use('nvim-treesitter/playground')
 
 	use({
+		'vinicius507/asdf.nvim',
+		config = function()
+			require('asdf-nvim').setup()
+		end,
+	})
+
+	use({
 		'neovim/nvim-lspconfig',
 		requires = { 'williamboman/nvim-lsp-installer' },
 		config = function()
@@ -92,6 +99,7 @@ return packer.startup(function()
 
 	use({
 		'tami5/lspsaga.nvim',
+		branch = 'nvim6.0',
 		config = function()
 			require('plugins.lspsaga')
 		end,
@@ -174,6 +182,7 @@ return packer.startup(function()
 
 	use({
 		'vinicius507/header42.nvim',
+		branch = 'refactor',
 		config = function()
 			require('plugins.others').header42()
 		end,
@@ -220,6 +229,13 @@ return packer.startup(function()
 		'windwp/nvim-autopairs',
 		config = function()
 			require('plugins.others').autopairs()
+		end,
+	})
+
+	use({
+		'rcarriga/nvim-notify',
+		config = function()
+			vim.notify = require('notify')
 		end,
 	})
 
