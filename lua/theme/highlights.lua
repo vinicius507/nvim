@@ -173,6 +173,30 @@ fg('TodoFgWARN', colors.white)
 fg_bg('TodoBgWARN', colors.yellow, 'NONE')
 fg('TodoSignWARN', colors.yellow)
 
+-- TODO: Lspsaga.nvim
+
+-- Notify
+fg('NotifyERRORBorder', colors.red)
+fg('NotifyWARNBorder', colors.yellow)
+fg('NotifyINFOBorder', colors.vibrant_green)
+fg('NotifyDEBUGBorder', colors.baby_pink)
+fg('NotifyTRACEBorder', colors.grey_fg)
+fg('NotifyERRORIcon', colors.red)
+fg('NotifyWARNIcon', colors.yellow)
+fg('NotifyINFOIcon', colors.vibrant_green)
+fg('NotifyDEBUGIcon', colors.baby_pink)
+fg('NotifyTRACEIcon', colors.grey_fg)
+fg('NotifyERRORTitle', colors.red)
+fg('NotifyWARNTitle', colors.yellow)
+fg('NotifyINFOTitle', colors.vibrant_green)
+fg('NotifyDEBUGTitle', colors.baby_pink)
+fg('NotifyTRACETitle', colors.grey_fg)
+fg('NotifyERRORBody', colors.white)
+fg('NotifyWARNBody', colors.white)
+fg('NotifyINFOBody', colors.white)
+fg('NotifyDEBUGBody', colors.white)
+fg('NotifyTRACEBody', colors.white)
+
 cmd([[
 augroup theme_reloader
 	autocmd!
