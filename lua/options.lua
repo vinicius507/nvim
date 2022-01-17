@@ -21,7 +21,6 @@ local options = {
 	mouse = 'a',
 	list = true,
 	listchars = '',
-	colorcolumn = '81',
 }
 
 local options_append = {
@@ -80,3 +79,12 @@ diagnostic.config({
 	},
 	severity_sort = true,
 })
+
+vim.cmd([[
+augroup options_reloader
+	autocmd!
+	autocmd BufWritePost options.lua so <afile>
+augroup end
+]])
+
+vim.cmd([[command! W noautocmd w]])
