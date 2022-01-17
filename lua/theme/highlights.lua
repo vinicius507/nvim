@@ -147,6 +147,7 @@ fg('NeogitPopupSwitchEnabled', colors.nord_blue)
 -- Git
 fg('gitCommitSummary', colors.nord_blue)
 fg('gitCommitSelectedFile', colors.yellow)
+fg('gitCommitOverflow', colors.red)
 
 -- TODO: Comments
 -- HACK: Comments
