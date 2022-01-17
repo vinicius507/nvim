@@ -18,7 +18,6 @@ null_ls.setup({
 		null_ls.builtins.formatting.golines,
 		norme.diagnostics,
 	},
-	diagnostics_format = '#{s}: #{m}',
 	on_attach = function(client)
 		if client.resolved_capabilities.document_formatting then
 			vim.cmd(
