@@ -21,7 +21,7 @@ local mode_colors = {
 }
 
 return {
-	provider = '  ',
+	provider = '  ',
 	hl = function()
 		return {
 			name = vi_mode.get_mode_highlight_name(),

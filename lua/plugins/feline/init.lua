@@ -38,7 +38,7 @@ local components = {
 }
 
 feline.setup({
-	colors = {
+	theme = {
 		fg = colors.white,
 		bg = colors.black,
 	},
@@ -49,6 +49,8 @@ feline.setup({
 			'^.*Trouble.*$',
 			'^NvimTree$',
 			'^help$',
+			'^man$',
+			'^dashboard$',
 		},
 	},
 })
