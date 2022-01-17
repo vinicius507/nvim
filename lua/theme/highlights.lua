@@ -204,3 +204,14 @@ augroup theme_reloader
 	autocmd BufWritePost highlights.lua so <afile>
 augroup end
 ]])
+
+--- NOTE: Header42
+fg('Header42', colors.teal)
+fg('Header42Filename', colors.nord_blue)
+fg('Header42Keyword', colors.teal)
+link('Header42Section', 'Comment')
+fg('Header42Title', colors.nord_blue)
+fg('Header42Author', colors.nord_blue)
+fg('Header42Mail', colors.nord_blue)
+fg('Header42Date', colors.yellow)
+fg('Header42Logo', colors.baby_pink)
