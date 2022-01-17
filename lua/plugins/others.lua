@@ -30,19 +30,24 @@ M.header42 = function()
 	end
 
 	header.setup({
-		user = 'vgoncalv',
-		mail = 'vgoncalv@student.42sp.org.br',
+		intra_login = 'vgoncalv',
+		intra_mail = 'vgoncalv@student.42sp.org.br',
 		ft = {
 			go = {
-				user = 'vini',
-				mail = 'vini@42sp.org.br',
+				intra_login = 'vini',
+				intra_mail = 'vini@42sp.org.br',
 				start_comment = '/*',
 				end_comment = '*/',
 				fill_comment = '*',
 			},
 			python = {
-				user = 'vini',
-				mail = 'vini@42sp.org.br',
+				intra_login = 'vini',
+				intra_mail = 'vini@42sp.org.br',
+			},
+			sh = {
+				start_comment = '#',
+				fill_comment = '*',
+				end_comment = '#',
 			},
 		},
 	})
