@@ -64,7 +64,7 @@ diagnostic.config({
 				'',
 				'',
 				'',
-				'',
+				'',
 			}
 			return string.format(
 				'%s %s: %s',
