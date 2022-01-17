@@ -28,7 +28,7 @@ local function sp(group, color)
 end
 
 local function link(group, target)
-	cmd('hi default link ' .. target .. ' ' .. group)
+	cmd('hi link ' .. group .. ' ' .. target)
 end
 
 bg('Normal', colors.black)
