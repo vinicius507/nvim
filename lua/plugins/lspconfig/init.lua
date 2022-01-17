@@ -15,6 +15,8 @@ local default = {
 	),
 }
 
+default.capabilities.offsetEncoding = { 'utf-16' }
+
 lspinstall.on_server_ready(function(server)
 	local opts = vim.tbl_deep_extend(
 		'force',
