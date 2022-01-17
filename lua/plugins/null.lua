@@ -1,7 +1,6 @@
 local ok, null_ls = pcall(require, 'null-ls')
 
 if not ok then
-	error('[Null-ls.nvim] Not loaded')
 	return
 end
 
@@ -9,7 +8,6 @@ local norme
 ok, norme = pcall(require, 'norme')
 
 if not ok then
-	error('[Norme.nvim] Not loaded')
 	return
 end
 
