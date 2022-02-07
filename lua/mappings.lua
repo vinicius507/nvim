@@ -67,6 +67,16 @@ map(
 	'<cmd>lua require("trouble").previous({skip_groups = true, jump = true})<CR>'
 )
 
+-- Git signs
+map('n', '<Leader>hR', '<cmd>Gitsigns reset_buffer<CR>')
+map('n', '<Leader>hS', '<cmd>Gitsigns stage_buffer<CR>')
+map('n', '<Leader>hU', '<cmd>Gitsigns unstage_buffer<CR>')
+map('n', '<Leader>hb', '<cmd>Gitsigns blame_line<CR>')
+map('n', '<Leader>hp', '<cmd>Gitsigns preview_hunk<CR>')
+map('n', '<Leader>hr', '<cmd>Gitsigns reset_hunk<CR>')
+map('n', '<Leader>hs', '<cmd>Gitsigns stage_hunk<CR>')
+map('n', '<Leader>hu', '<cmd>Gitsigns unstage_hunk<CR>')
+
 -- LSP Trouble Keys
 map('n', '<leader>xx', '<cmd>TroubleToggle<CR>')
 map('n', '<leader>xw', '<cmd>TroubleToggle workspace_diagnostics<CR>')
