@@ -15,7 +15,9 @@ require("catppuccin").setup({
 		operators = "NONE",
 	},
 	integrations = {
+		treesitter = true,
 		telescope = true,
+		markdown = true,
 	},
 })
 

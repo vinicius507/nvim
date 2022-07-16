@@ -27,6 +27,14 @@ packer.startup({
 			end,
 			requires = { "nvim-lua/plenary.nvim", "nvim-telescope/telescope-fzy-native.nvim" },
 		})
+		packer.use({
+			"nvim-treesitter/nvim-treesitter",
+			run = ":TSUpdate",
+			config = function()
+				require("plugins.treesitter")
+			end,
+			requires = { "nvim-treesitter/nvim-treesitter-textobjects", "nvim-treesitter/nvim-treesitter-refactor" },
+		})
 	end,
 	config = {},
 })
