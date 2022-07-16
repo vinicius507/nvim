@@ -11,6 +11,14 @@ packer.startup({
 				require("plugins.catppuccin")
 			end,
 		})
+		packer.use({
+			"feline-nvim/feline.nvim",
+			after = "catppuccin",
+			config = function()
+				require("plugins.feline")
+			end,
+			requires = { "kyazdani42/nvim-web-devicons" },
+		})
 	end,
 	config = {},
 })
