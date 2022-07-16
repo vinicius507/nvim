@@ -30,10 +30,14 @@ packer.startup({
 		packer.use({
 			"nvim-treesitter/nvim-treesitter",
 			run = ":TSUpdate",
+			event = { "BufReadPost", "BufNewFile" },
 			config = function()
 				require("plugins.treesitter")
 			end,
-			requires = { "nvim-treesitter/nvim-treesitter-textobjects", "nvim-treesitter/nvim-treesitter-refactor" },
+			requires = {
+				{ "nvim-treesitter/nvim-treesitter-textobjects", opt = true },
+				{ "nvim-treesitter/nvim-treesitter-refactor", opt = true },
+			},
 		})
 	end,
 	config = {},
