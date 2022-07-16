@@ -14,7 +14,9 @@ require("catppuccin").setup({
 		types = "NONE",
 		operators = "NONE",
 	},
-	integrations = {},
+	integrations = {
+		telescope = true,
+	},
 })
 
 vim.g.flavor = "mocha"

@@ -19,6 +19,14 @@ packer.startup({
 			end,
 			requires = { "kyazdani42/nvim-web-devicons" },
 		})
+		packer.use({
+			"nvim-telescope/telescope.nvim",
+			after = "catppuccin",
+			config = function()
+				require("plugins.telescope")
+			end,
+			requires = { "nvim-lua/plenary.nvim", "nvim-telescope/telescope-fzy-native.nvim" },
+		})
 	end,
 	config = {},
 })
