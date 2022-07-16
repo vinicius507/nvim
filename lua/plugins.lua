@@ -12,6 +12,13 @@ packer.startup({
 			end,
 		})
 		packer.use({
+			"folke/which-key.nvim",
+			module = "which-key",
+			config = function()
+				require("plugins.whichkey")
+			end,
+		})
+		packer.use({
 			"feline-nvim/feline.nvim",
 			after = "catppuccin",
 			config = function()

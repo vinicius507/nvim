@@ -29,3 +29,5 @@ opt.listchars:append("space:")
 opt.listchars:append("nbsp: ")
 
 opt.fillchars:append("eob: ")
+
+opt.guifont = "JetBrainsMono Nerd Font Mono"

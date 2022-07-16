@@ -79,3 +79,42 @@ ts_config.setup({
 		},
 	},
 })
+
+require("which-key").register({
+	vaf = { "<CMD>TSTextobjectSelect @function.outer<CR>", "outer function" },
+	vif = { "<CMD>TSTextobjectSelect @function.inner<CR>", "inner function" },
+	vac = { "<CMD>TSTextobjectSelect @class.outer<CR>", "outer class" },
+	vic = { "<CMD>TSTextobjectSelect @class.inner<CR>", "inner class" },
+	["]m"] = {
+		"<CMD>TSTextobjectGotoNextStart @function.outer<CR>",
+		"Next function start",
+	},
+	["]M"] = {
+		"<CMD>TSTextobjectGotoNextEnd @function.outer<CR>",
+		"Next function end",
+	},
+	["[m"] = {
+		"<CMD>TSTextobjectGotoPreviousStart @function.outer<CR>",
+		"Previous function start",
+	},
+	["[M"] = {
+		"<CMD>TSTextobjectGotoPreviousEnd @function.outer<CR>",
+		"Previous function end",
+	},
+	["]]"] = {
+		"<CMD>TSTextobjectGotoNextStart @class.outer<CR>",
+		"Next class start",
+	},
+	["]["] = {
+		"<CMD>TSTextobjectGotoNextEnd @class.outer<CR>",
+		"Next class end",
+	},
+	["[["] = {
+		"<CMD>TSTextobjectGotoPreviousStart @class.outer<CR>",
+		"Previous class start",
+	},
+	["[]"] = {
+		"<CMD>TSTextobjectGotoPreviousEnd @class.outer<CR>",
+		"Previous class end",
+	},
+})
