@@ -46,13 +46,21 @@ packer.startup({
 				{ "nvim-treesitter/nvim-treesitter-refactor", opt = true },
 			},
 		})
+		packer.use({
+			"jose-elias-alvarez/null-ls.nvim",
+			after = "nvim-treesitter",
+			config = function()
+				require("plugins.null-ls")
+			end,
+			requires = { "nvim-lua/plenary.nvim" },
+		})
 	end,
 	config = {},
 })
 
 vim.cmd([[
 	augroup packer_user_config
-	  autocmd!
-	  autocmd BufWritePost plugins.lua source <afile> | PackerCompile
+		autocmd!
+		autocmd BufWritePost plugins.lua source <afile> | PackerCompile
 	augroup end 
 ]])
