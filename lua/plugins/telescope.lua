@@ -30,6 +30,7 @@ require("which-key").register({
 	g = { builtin.live_grep, "Live grep" },
 	r = { builtin.oldfiles, "Recent files" },
 	f = { builtin.find_files, "Find files" },
+	h = { builtin.help_tags, "Help" },
 	c = {
 		function()
 			builtin.find_files({ find_command = { "fd", "--type", "f", ".", vim.fn.stdpath("config") } })
