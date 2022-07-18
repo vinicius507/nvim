@@ -20,7 +20,9 @@ wk.setup({
 			},
 		},
 		operators = { gc = "Comments" },
-		key_labels = {},
+		key_labels = {
+			["<leader>"] = "LEADER",
+		},
 		icons = {
 			breadcrumb = "»",
 			separator = "➜",
@@ -46,5 +48,12 @@ wk.setup({
 		ignore_missing = false,
 		hidden = { "<silent>", "<cmd>", "<Cmd>", "<CR>", "call", "lua", "^:", "^ " },
 		show_help = true,
+	},
+})
+wk.register({
+	["<Leader>"] = {
+		b = { name = "Buffers" },
+		c = { name = "Code" },
+		f = { name = "Telescope" },
 	},
 })

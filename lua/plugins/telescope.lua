@@ -1,5 +1,6 @@
 local telescope = require("telescope")
 local builtin = require("telescope.builtin")
+local mappings = require("mappings")
 
 telescope.setup({
 	defaults = {
@@ -24,17 +25,15 @@ telescope.setup({
 })
 telescope.load_extension("fzy_native")
 
-require("which-key").register({
-	name = "Telescope",
-	b = { builtin.buffers, "Buffers" },
-	g = { builtin.live_grep, "Live grep" },
-	r = { builtin.oldfiles, "Recent files" },
-	f = { builtin.find_files, "Find files" },
-	h = { builtin.help_tags, "Help" },
-	c = {
-		function()
-			builtin.find_files({ find_command = { "fd", "--type", "f", ".", vim.fn.stdpath("config") } })
-		end,
-		"Find files",
-	},
-}, { prefix = "<Leader>f" })
+mappings.add({ "<Leader>bb", builtin.buffers, description = "Buffers List" })
+mappings.add({ "<Leader>ff", builtin.find_files, description = "Find files" })
+mappings.add({ "<Leader>fg", builtin.live_grep, description = "Live grep" })
+mappings.add({ "<Leader>fh", builtin.help_tags, description = "Help tags" })
+mappings.add({ "<Leader>fr", builtin.oldfiles, description = "Recent files" })
+mappings.add({
+	"<Leader>fc",
+	function()
+		builtin.find_files({ find_command = { "fd", "--type", "f", ".", vim.fn.stdpath("config") } })
+	end,
+	description = "Find in .config/nvim",
+})

@@ -1,24 +1,24 @@
 local null_ls = require("null-ls")
-local map = require("which-key").register
+local mappings = require("mappings")
 
 null_ls.setup({
-	on_attach = function(client, bufnr)
-		local mappings = {
-			name = "Code",
-			f = {
-				vim.lsp.buf.formatting,
-				"Format Buffer",
-			},
-		}
-		local visual_mappings = {
-			name = "Code",
-			f = {
-				vim.lsp.buf.formatting,
-				"Format Region",
-			},
-		}
-		map(mappings, { prefix = "<Leader>c", buffer = bufnr })
-		map(visual_mappings, { mode = "v", prefix = "<Leader>c", buffer = bufnr })
+	on_attach = function(_, bufnr)
+		local get_mark = vim.api.nvim_buf_get_mark
+		mappings.add({
+			"<Leader>cf",
+			function()
+				if vim.api.nvim_get_mode().mode == "n" then
+					vim.lsp.buf.formatting()
+				else
+					local start_pos = get_mark(bufnr, "<")
+					local end_pos = get_mark(bufnr, ">")
+					vim.lsp.buf.range_formatting({}, start_pos, end_pos)
+				end
+			end,
+			buffer = bufnr,
+			modes = { "n", "v" },
+			description = "Format Buffer/Region",
+		})
 	end,
 	sources = {
 		null_ls.builtins.formatting.stylua,

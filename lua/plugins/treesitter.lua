@@ -1,4 +1,5 @@
 local ts_config = require("nvim-treesitter.configs")
+local mappings = require("mappings")
 
 ts_config.setup({
 	ensure_installed = {
@@ -80,41 +81,19 @@ ts_config.setup({
 	},
 })
 
-require("which-key").register({
-	vaf = { "<CMD>TSTextobjectSelect @function.outer<CR>", "outer function" },
-	vif = { "<CMD>TSTextobjectSelect @function.inner<CR>", "inner function" },
-	vac = { "<CMD>TSTextobjectSelect @class.outer<CR>", "outer class" },
-	vic = { "<CMD>TSTextobjectSelect @class.inner<CR>", "inner class" },
-	["]m"] = {
-		"<CMD>TSTextobjectGotoNextStart @function.outer<CR>",
-		"Next function start",
-	},
-	["]M"] = {
-		"<CMD>TSTextobjectGotoNextEnd @function.outer<CR>",
-		"Next function end",
-	},
-	["[m"] = {
-		"<CMD>TSTextobjectGotoPreviousStart @function.outer<CR>",
-		"Previous function start",
-	},
-	["[M"] = {
-		"<CMD>TSTextobjectGotoPreviousEnd @function.outer<CR>",
-		"Previous function end",
-	},
-	["]]"] = {
-		"<CMD>TSTextobjectGotoNextStart @class.outer<CR>",
-		"Next class start",
-	},
-	["]["] = {
-		"<CMD>TSTextobjectGotoNextEnd @class.outer<CR>",
-		"Next class end",
-	},
-	["[["] = {
-		"<CMD>TSTextobjectGotoPreviousStart @class.outer<CR>",
-		"Previous class start",
-	},
-	["[]"] = {
-		"<CMD>TSTextobjectGotoPreviousEnd @class.outer<CR>",
-		"Previous class end",
-	},
+mappings.add({ "vaf", "<CMD>TSTextobjectSelect @function.outer<CR>", description = "outer function" })
+mappings.add({ "vif", "<CMD>TSTextobjectSelect @function.inner<CR>", description = "inner function" })
+mappings.add({ "vac", "<CMD>TSTextobjectSelect @class.outer<CR>", description = "outer class" })
+mappings.add({ "vic", "<CMD>TSTextobjectSelect @class.inner<CR>", description = "inner class" })
+mappings.add({ "]m", "<CMD>TSTextobjectGotoNextStart @function.outer<CR>", description = "Next function start" })
+mappings.add({ "]M", "<CMD>TSTextobjectGotoNextEnd @function.outer<CR>", description = "Next function end" })
+mappings.add({
+	"[m",
+	"<CMD>TSTextobjectGotoPreviousStart @function.outer<CR>",
+	description = "Previous function start",
 })
+mappings.add({ "[M", "<CMD>TSTextobjectGotoPreviousEnd @function.outer<CR>", description = "Previous function end" })
+mappings.add({ "]]", "<CMD>TSTextobjectGotoNextStart @class.outer<CR>", description = "Next class start" })
+mappings.add({ "][", "<CMD>TSTextobjectGotoNextEnd @class.outer<CR>", description = "Next class end" })
+mappings.add({ "[[", "<CMD>TSTextobjectGotoPreviousStart @class.outer<CR>", description = "Previous class start" })
+mappings.add({ "[]", "<CMD>TSTextobjectGotoPreviousEnd @class.outer<CR>", description = "Previous class end" })
