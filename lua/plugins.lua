@@ -42,8 +42,8 @@ packer.startup({
 				require("plugins.treesitter")
 			end,
 			requires = {
-				{ "nvim-treesitter/nvim-treesitter-textobjects", opt = true },
-				{ "nvim-treesitter/nvim-treesitter-refactor", opt = true },
+				{ "nvim-treesitter/nvim-treesitter-textobjects", module = "nvim-treesitter" },
+				{ "nvim-treesitter/nvim-treesitter-refactor", module = "nvim-treesitter" },
 			},
 		})
 		packer.use({
