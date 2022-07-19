@@ -13,7 +13,7 @@ packer.startup({
 		})
 		packer.use({
 			"folke/which-key.nvim",
-			module = "which-key",
+			after = "catppuccin",
 			config = function()
 				require("plugins.whichkey")
 			end,
@@ -50,9 +50,16 @@ packer.startup({
 			"jose-elias-alvarez/null-ls.nvim",
 			after = "nvim-treesitter",
 			config = function()
-				require("plugins.null-ls")
+				require("plugins.lsp.null-ls")
 			end,
 			requires = { "nvim-lua/plenary.nvim" },
+		})
+		packer.use({
+			"neovim/nvim-lspconfig",
+			after = "nvim-treesitter",
+			config = function()
+				require("plugins.lsp.lspconfig")
+			end,
 		})
 	end,
 	config = {},
