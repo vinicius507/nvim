@@ -3,6 +3,8 @@ local configs = {}
 local lspconfig = require("lspconfig")
 local on_attach = require("plugins.lsp.on_attach")
 
+configs.clangd = {}
+
 configs.pylsp = {
 	settings = {
 		plugins = {
