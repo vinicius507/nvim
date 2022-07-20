@@ -76,7 +76,6 @@ M.build = function(flags)
 	})
 	flags = vim.tbl_extend("force", { formatting = true }, flags)
 	return function(client, buffer)
-		vim.api.nvim_buf_set_option(buffer, "omnifunc", "v:lua.vim.lsp.omnifunc")
 		update_capabilities(client, flags)
 		add_mappings(buffer, client.resolved_capabilities)
 	end

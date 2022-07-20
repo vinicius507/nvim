@@ -30,6 +30,7 @@ mappings.add({ "<Leader>ff", builtin.find_files, description = "Find files" })
 mappings.add({ "<Leader>fg", builtin.live_grep, description = "Live grep" })
 mappings.add({ "<Leader>fh", builtin.help_tags, description = "Help tags" })
 mappings.add({ "<Leader>fr", builtin.oldfiles, description = "Recent files" })
+mappings.add({ "<Leader>fk", builtin.keymaps, description = "Keymaps" })
 mappings.add({
 	"<Leader>fc",
 	function()

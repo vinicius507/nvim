@@ -36,7 +36,10 @@ configs.sumneko_lua = {
 	},
 }
 
-local default_config = { on_attach = on_attach.build() }
+local default_config = {
+	on_attach = on_attach.build(),
+	capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities()),
+}
 for server, config in pairs(configs) do
 	config = vim.tbl_deep_extend("force", default_config, config)
 	lspconfig[server].setup(config)

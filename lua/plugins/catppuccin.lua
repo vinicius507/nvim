@@ -6,6 +6,7 @@ require("catppuccin").setup({
 		keywords = { "italic" },
 	},
 	integrations = {
+		cmp = true,
 		treesitter = true,
 		telescope = true,
 		markdown = true,
