@@ -7,10 +7,15 @@ configs.clangd = {}
 
 configs.pylsp = {
 	settings = {
-		plugins = {
-			flake8 = { enabled = true },
-			pydocstyle = { enabled = true },
-			rope_completion = { enabled = true },
+		pylsp = {
+			plugins = {
+				autopep8 = { enabled = false },
+				yapf = { enabled = false },
+				flake8 = { enabled = true },
+				pydocstyle = { enabled = true },
+				pylint = { enabled = false },
+				rope_completion = { enabled = true },
+			},
 		},
 	},
 }
