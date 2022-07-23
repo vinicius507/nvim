@@ -80,6 +80,13 @@ packer.startup({
 				require("plugins.toggleterm")
 			end,
 		})
+		packer.use({
+			"kylechui/nvim-surround",
+			event = { "BufReadPost", "BufNewFile" },
+			config = function()
+				require("nvim-surround").setup()
+			end,
+		})
 	end,
 	config = {},
 })
