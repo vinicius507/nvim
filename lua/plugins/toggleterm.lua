@@ -3,7 +3,7 @@ local Terminal = require("toggleterm.terminal").Terminal
 
 require("toggleterm").setup({
 	size = 15,
-	open_mapping = "<Leader>ot",
+	open_mapping = nil,
 	hide_numbers = true,
 	shade_terminals = true,
 	start_in_insert = true,
@@ -17,14 +17,20 @@ require("toggleterm").setup({
 	winbar = { enabled = true },
 })
 
+local shell = Terminal:new()
+local runner = Terminal:new({ close_on_exit = false })
+mappings.add({
+	"<Leader>ot",
+	function()
+		shell:toggle()
+	end,
+	description = "Open terminal",
+})
 mappings.add({
 	"<Leader>cc",
 	function()
-		local terminal = Terminal:new({
-			cmd = vim.fn.input("Compile command: ", "make -C ."),
-			close_on_exit = false,
-		})
-		terminal:open()
+		runner.cmd = vim.fn.input("Compile command: ", "make -C .")
+		runner:toggle()
 	end,
 	description = "Compile",
 })
