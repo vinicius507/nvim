@@ -55,5 +55,6 @@ wk.register({
 		b = { name = "Buffers" },
 		c = { name = "Code" },
 		f = { name = "Telescope" },
+		o = { name = "Open", t = "Terminal" },
 	},
 })

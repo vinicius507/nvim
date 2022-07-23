@@ -73,6 +73,13 @@ packer.startup({
 				"onsails/lspkind.nvim",
 			},
 		})
+		packer.use({
+			"akinsho/toggleterm.nvim",
+			after = "catppuccin",
+			config = function()
+				require("plugins.toggleterm")
+			end,
+		})
 	end,
 	config = {},
 })
