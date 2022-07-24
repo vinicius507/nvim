@@ -87,6 +87,13 @@ packer.startup({
 				require("nvim-surround").setup()
 			end,
 		})
+		packer.use({
+			"numToStr/Comment.nvim",
+			event = { "BufReadPost", "BufNewFile" },
+			config = function()
+				require("plugins.comment")
+			end,
+		})
 	end,
 	config = {},
 })
