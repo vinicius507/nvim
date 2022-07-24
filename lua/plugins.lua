@@ -94,6 +94,13 @@ packer.startup({
 				require("plugins.comment")
 			end,
 		})
+		packer.use({
+			"TimUntersberger/neogit",
+			config = function()
+				require("plugins.neogit")
+			end,
+			requires = { "nvim-lua/plenary.nvim" },
+		})
 	end,
 	config = {},
 })
