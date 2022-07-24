@@ -9,7 +9,7 @@ local function add_mappings(buffer)
 	mappings.add({ "gD", vim.lsp.buf.declaration, buffer = buffer, description = "Goto declaration" })
 	mappings.add({ "gt", vim.lsp.buf.type_definition, buffer = buffer, description = "Goto type definition" })
 	mappings.add({
-		"<C-k>",
+		"<C-h>",
 		vim.lsp.buf.signature_help,
 		buffer = buffer,
 		modes = "i",

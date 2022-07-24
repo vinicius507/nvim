@@ -36,5 +36,23 @@ mappings.add({
 	end,
 	description = "Kill Buffer",
 })
+-- Hacks by ThePrimeagen
+-- Better Cursor positioning in search
+mappings.add({ "n", "nzzzv" })
+mappings.add({ "N", "Nzzzv" })
+-- Better cursor positioning while joining lines
+mappings.add({ "J", "mzJ`z" })
+-- Undo breakpoints
+mappings.add({ ",", ",<C-g>u", modes = "i" })
+mappings.add({ ".", ".<C-g>u", modes = "i" })
+mappings.add({ "!", "!<C-g>u", modes = "i" })
+mappings.add({ "?", "?<C-g>u", modes = "i" })
+-- Moving Text
+mappings.add({ ">", ">gv", modes = "v" })
+mappings.add({ "<", "<gv", modes = "v" })
+mappings.add({ "J", ":m '>+1<CR>gv=gv", modes = "v" })
+mappings.add({ "K", ":m '<-2<CR>gv=gv", modes = "v" })
+mappings.add({ "<C-j>", "<esc>:m .+1<CR>==a", modes = "i" })
+mappings.add({ "<C-k>", "<esc>:m .-2<CR>==a", modes = "i" })
 
 return mappings
