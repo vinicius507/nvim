@@ -13,4 +13,5 @@ neogit.setup({
 mappings.add({
 	"<Leader>gg",
 	neogit.open,
+	description = "Open Neogit",
 })

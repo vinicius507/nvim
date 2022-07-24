@@ -13,6 +13,7 @@ require("catppuccin").setup({
 		telescope = true,
 		markdown = true,
 		neogit = true,
+		barbar = true,
 	},
 })
 

@@ -101,6 +101,14 @@ packer.startup({
 			end,
 			requires = { "nvim-lua/plenary.nvim" },
 		})
+		packer.use({
+			"romgrk/barbar.nvim",
+			after = "catppuccin",
+			config = function()
+				require("plugins.barbar")
+			end,
+			requires = { "kyazdani42/nvim-web-devicons" },
+		})
 	end,
 	config = {},
 })
