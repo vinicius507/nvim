@@ -30,7 +30,9 @@ mappings.add({
 	"<Leader>cc",
 	function()
 		runner.cmd = vim.fn.input("Compile command: ", "make -C .")
-		runner:toggle()
+		if runner.cmd ~= "" then
+			runner:toggle()
+		end
 	end,
 	description = "Compile",
 })
