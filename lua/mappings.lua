@@ -29,6 +29,7 @@ function mappings.add(map)
 	keymap.set(modes, keys, callback, opts)
 end
 
+-- Buffer
 mappings.add({
 	"<Leader>bk",
 	function()
@@ -36,6 +37,42 @@ mappings.add({
 	end,
 	description = "Kill Buffer",
 })
+
+-- Windows
+local directions = {
+	j = "up",
+	k = "down",
+	h = "left",
+	l = "right",
+}
+for key, direction in pairs(directions) do
+	mappings.add({
+		string.format("<Leader>w%s", key),
+		string.format("<CR>wincmd %s<CR>", key),
+		description = string.format("Goto window %s", direction),
+	})
+	mappings.add({
+		string.format("<Leader>w%s", key:upper()),
+		string.format("<CR>wincmd %s<CR>", key:upper()),
+		description = string.format("Move window %s", direction),
+	})
+end
+mappings.add({
+	"<Leader>ws",
+	"<CMD>split<CR>",
+	description = "Split window",
+})
+mappings.add({
+	"<Leader>wv",
+	"<CMD>vsplit<CR>",
+	description = "Split window vertically",
+})
+mappings.add({
+	"<Leader>wq",
+	"<CMD>quit<CR>",
+	description = "Close window",
+})
+
 -- Hacks by ThePrimeagen
 -- Better Cursor positioning in search
 mappings.add({ "n", "nzzzv" })
