@@ -109,6 +109,13 @@ packer.startup({
 			end,
 			requires = { "kyazdani42/nvim-web-devicons" },
 		})
+		packer.use({
+			"ahmedkhalf/project.nvim",
+			event = "VimEnter",
+			config = function()
+				require("plugins.project")
+			end,
+		})
 	end,
 	config = {},
 })
