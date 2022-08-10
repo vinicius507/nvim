@@ -111,7 +111,7 @@ packer.startup({
 		})
 		packer.use({
 			"ahmedkhalf/project.nvim",
-			event = "VimEnter",
+			after = "telescope.nvim",
 			config = function()
 				require("plugins.project")
 			end,
