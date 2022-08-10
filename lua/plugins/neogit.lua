@@ -8,6 +8,7 @@ neogit.setup({
 		item = { "", "" },
 		hunk = { "", "" },
 	},
+	disable_insert_on_commit = false,
 })
 
 mappings.add({
