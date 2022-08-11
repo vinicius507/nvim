@@ -16,3 +16,10 @@ mappings.add({
 	neogit.open,
 	description = "Open Neogit",
 })
+mappings.add({
+	"<Leader>gc",
+	function ()
+		neogit.open({ "commit" })
+	end,
+	description = "Commit",
+})
