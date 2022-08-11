@@ -64,7 +64,7 @@ wk.register({
 		b = { name = "Buffers" },
 		c = { name = "Code" },
 		f = { name = "Telescope" },
-		g = { name = "Neogit" },
+		g = { name = "Git", t = "Toggle" },
 		o = { name = "Open" },
 		w = { name = "Window" },
 		z = { name = "Zen mode" },

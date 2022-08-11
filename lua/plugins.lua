@@ -123,6 +123,13 @@ packer.startup({
 				require("plugins.zen")
 			end,
 		})
+		packer.use({
+			"lewis6991/gitsigns.nvim",
+			event = "VimEnter",
+			config = function()
+				require("plugins.gitsigns")
+			end,
+		})
 	end,
 	config = {},
 })

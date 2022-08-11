@@ -14,6 +14,7 @@ require("catppuccin").setup({
 		markdown = true,
 		neogit = true,
 		barbar = true,
+		gitsigns = true,
 	},
 })
 
