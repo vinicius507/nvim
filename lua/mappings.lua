@@ -48,12 +48,12 @@ local directions = {
 for key, direction in pairs(directions) do
 	mappings.add({
 		string.format("<Leader>w%s", key),
-		string.format("<CR>wincmd %s<CR>", key),
+		string.format("<CMD>wincmd %s<CR>", key),
 		description = string.format("Goto window %s", direction),
 	})
 	mappings.add({
 		string.format("<Leader>w%s", key:upper()),
-		string.format("<CR>wincmd %s<CR>", key:upper()),
+		string.format("<CMD>wincmd %s<CR>", key:upper()),
 		description = string.format("Move window %s", direction),
 	})
 end
