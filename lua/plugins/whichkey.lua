@@ -65,7 +65,7 @@ wk.register({
 		c = { name = "Code" },
 		f = { name = "Telescope" },
 		g = { name = "Neogit" },
-		o = { name = "Open", t = "Terminal" },
+		o = { name = "Open" },
 		w = { name = "Window" },
 	},
 })
