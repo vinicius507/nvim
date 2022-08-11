@@ -116,6 +116,13 @@ packer.startup({
 				require("plugins.project")
 			end,
 		})
+		packer.use({
+			"Pocco81/true-zen.nvim",
+			event = "VimEnter",
+			config = function()
+				require("plugins.zen")
+			end,
+		})
 	end,
 	config = {},
 })
