@@ -1,5 +1,3 @@
-local colors = require("catppuccin.palettes").get_palette()
-
 require("catppuccin").setup({
 	term_colors = true,
 	styles = {
