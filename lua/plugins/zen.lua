@@ -97,5 +97,6 @@ mappings.add({
 		local first_line = 0
 		local last_line = vim.api.nvim_buf_line_count(0)
 		truezen.narrow(first_line, last_line)
-	end
+	end,
+	description = "Toggle narrow mode",
 })
