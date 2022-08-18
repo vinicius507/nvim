@@ -7,13 +7,13 @@ truezen.setup({
 			shade = "dark",
 			backdrop = 0,
 			minimum_writing_area = {
-				width = 70,
+				width = 80,
 				height = 44,
 			},
 			quit_untoggles = true,
 			padding = {
-				left = 52,
-				right = 52,
+				left = 42,
+				right = 42,
 				top = 0,
 				bottom = 0,
 			},
