@@ -130,6 +130,14 @@ packer.startup({
 				require("plugins.gitsigns")
 			end,
 		})
+		packer.use({
+			"kyazdani42/nvim-tree.lua",
+			event = "VimEnter",
+			requires = { "kyazdani42/nvim-web-devicons" },
+			config = function ()
+				require("plugins.nvimtree")
+			end
+		})
 	end,
 	config = {},
 })

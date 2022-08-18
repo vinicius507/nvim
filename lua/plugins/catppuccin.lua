@@ -13,6 +13,11 @@ require("catppuccin").setup({
 		neogit = true,
 		barbar = true,
 		gitsigns = true,
+		nvimtree = {
+			enabled = true,
+			show_root = true,
+			transparent_panel = false,
+		},
 	},
 })
 
