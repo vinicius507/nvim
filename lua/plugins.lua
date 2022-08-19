@@ -32,7 +32,12 @@ packer.startup({
 			config = function()
 				require("plugins.telescope")
 			end,
-			requires = { "nvim-lua/plenary.nvim", "nvim-telescope/telescope-fzy-native.nvim" },
+			requires = {
+				"nvim-lua/plenary.nvim",
+				"nvim-telescope/telescope-fzy-native.nvim",
+				"nvim-telescope/telescope-frecency.nvim",
+				"tami5/sqlite.lua",
+			},
 		})
 		packer.use({
 			"nvim-treesitter/nvim-treesitter",
@@ -134,9 +139,9 @@ packer.startup({
 			"kyazdani42/nvim-tree.lua",
 			event = "VimEnter",
 			requires = { "kyazdani42/nvim-web-devicons" },
-			config = function ()
+			config = function()
 				require("plugins.nvimtree")
-			end
+			end,
 		})
 	end,
 	config = {},

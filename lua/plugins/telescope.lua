@@ -26,12 +26,30 @@ telescope.setup({
 			override_generic_sorter = false,
 			override_file_sorter = true,
 		},
+		frecency = {
+			show_scores = false,
+			show_unindexed = true,
+			ignore_patterns = { "*.git/*" },
+			disable_devicons = false,
+			workspaces = {
+				code = vim.fn.expand("$HOME/Code"),
+				conf = vim.fn.expand("$HOME/.config"),
+				nvim = vim.fn.expand("$HOME/.config/nvim"),
+			},
+		},
 	},
 })
+telescope.load_extension("frecency")
 telescope.load_extension("fzy_native")
 
 mappings.add({ "<Leader>bb", builtin.buffers, description = "Buffers List" })
-mappings.add({ "<Leader>ff", builtin.find_files, description = "Find files" })
+mappings.add({
+	"<Leader>ff",
+	function()
+		telescope.extensions.frecency.frecency({ workspace = "CWD" })
+	end,
+	description = "Find files",
+})
 mappings.add({ "<Leader>fg", builtin.live_grep, description = "Live grep" })
 mappings.add({ "<Leader>fh", builtin.help_tags, description = "Help tags" })
 mappings.add({ "<Leader>fr", builtin.oldfiles, description = "Recent files" })
