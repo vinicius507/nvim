@@ -59,6 +59,8 @@ require("nvim-tree").setup({
 
 mappings.add({
 	"<Leader><Tab>",
-	nvimtree.tree.toggle,
+	function ()
+		nvimtree.tree.toggle(true)
+	end,
 	description = "Toggle file explorer",
 })
