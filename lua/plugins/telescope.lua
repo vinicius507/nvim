@@ -43,12 +43,13 @@ telescope.load_extension("frecency")
 telescope.load_extension("fzy_native")
 
 mappings.add({ "<Leader>bb", builtin.buffers, description = "Buffers List" })
+mappings.add({ "<Leader>ff", builtin.find_files, description = "Find files" })
 mappings.add({
-	"<Leader>ff",
+	"<Leader>fF",
 	function()
 		telescope.extensions.frecency.frecency({ workspace = "CWD" })
 	end,
-	description = "Find files",
+	description = "Frecency",
 })
 mappings.add({ "<Leader>fg", builtin.live_grep, description = "Live grep" })
 mappings.add({ "<Leader>fh", builtin.help_tags, description = "Help tags" })
