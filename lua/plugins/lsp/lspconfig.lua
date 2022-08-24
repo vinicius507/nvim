@@ -41,6 +41,8 @@ configs.sumneko_lua = {
 	},
 }
 
+configs.tsserver = {}
+
 local default_config = {
 	on_attach = on_attach.build(),
 	capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities()),
