@@ -46,7 +46,7 @@ require("nvim-tree").setup({
 		debounce_delay = 50,
 	},
 	filters = {
-		dotfiles = true,
+		dotfiles = false,
 		custom = { "^\\.git" },
 	},
 	git = {
