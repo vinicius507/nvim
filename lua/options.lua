@@ -26,8 +26,9 @@ opt.mouse = "a"
 opt.list = true
 opt.listchars:append("eol: ")
 opt.listchars:append("tab: ")
-opt.listchars:append("space:")
+opt.listchars:append("space: ")
 opt.listchars:append("nbsp: ")
+opt.listchars:append("trail:~")
 
 opt.fillchars:append("eob: ")
 
