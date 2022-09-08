@@ -1,0 +1,36 @@
+snippet fn
+	/**
+	 * @brief ${1:Function description}
+	 */
+	${2:void}	${3:fn}(${4:void})
+	{
+		${0}
+	}
+
+snippet def
+	${1:void}	${2:fn}(${3:void});
+
+snippet loop
+	${1:offset} = ${2:0};
+	while (${3})
+	{
+		${0}
+	}
+
+snippet fmain
+	#include <`expand("%:t:r")`.h>
+
+	int	main(${1:void})
+	{
+		$0
+		return (0);
+	}
+
+snippet fptr
+	${1:void}	${0}(*${2:fn})(${3:void});
+
+snippet var
+	${1:int}	${0}${2:var};
+
+snippet vunused
+	(void)${1:var};

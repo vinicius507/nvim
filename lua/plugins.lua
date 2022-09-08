@@ -66,6 +66,12 @@ packer.startup({
 			end,
 		})
 		packer.use({
+			"L3MON4D3/LuaSnip",
+			config = function ()
+				require("plugins.luasnip")
+			end
+		})
+		packer.use({
 			"hrsh7th/nvim-cmp",
 			config = function()
 				require("plugins.cmp")
