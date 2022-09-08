@@ -12,9 +12,10 @@ snippet def
 
 snippet loop
 	${1:offset} = ${2:0};
-	while (${3})
+	while (${3:offset <} ${4:n})
 	{
 		${0}
+		${3}${5:++};
 	}
 
 snippet fmain
@@ -27,10 +28,7 @@ snippet fmain
 	}
 
 snippet fptr
-	${1:void}	${0}(*${2:fn})(${3:void});
-
-snippet var
-	${1:int}	${0}${2:var};
+	${1:void}	(*${2:fn})(${3:void});
 
 snippet vunused
 	(void)${1:var};
