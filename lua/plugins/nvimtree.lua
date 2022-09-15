@@ -100,3 +100,14 @@ mappings.add({
 	end,
 	description = "Kill Buffer",
 })
+mappings.add({
+	"<Leader>wq",
+	function ()
+		local windows = vim.api.nvim_tabpage_list_wins(0)
+		if nvimtree_view.is_visible() and #windows == 2 then
+			nvimtree.tree.close()
+		end
+		vim.cmd[[quit]]
+	end,
+	description = "Close window",
+})

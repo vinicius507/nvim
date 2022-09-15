@@ -58,11 +58,6 @@ mappings.add({
 	"<CMD>vsplit<CR>",
 	description = "Split window vertically",
 })
-mappings.add({
-	"<Leader>wq",
-	"<CMD>quit<CR>",
-	description = "Close window",
-})
 
 -- Hacks by ThePrimeagen
 -- Better Cursor positioning in search
