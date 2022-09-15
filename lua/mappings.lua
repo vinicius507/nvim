@@ -59,6 +59,17 @@ mappings.add({
 	description = "Split window vertically",
 })
 
+-- Files
+mappings.add({
+	"<Leader>fD",
+	function()
+		if vim.fn.confirm("Delete file?", "&Yes\n&No", 1) == 1 then
+			vim.fn.delete(vim.expand("%"), "f")
+		end
+	end,
+	description = "Delete file",
+})
+
 -- Hacks by ThePrimeagen
 -- Better Cursor positioning in search
 mappings.add({ "n", "nzzzv" })
