@@ -1,1 +1,1 @@
-set colorcolumn=80
+source <sfile>:h/c.vim
