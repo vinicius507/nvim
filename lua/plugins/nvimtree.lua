@@ -10,6 +10,8 @@ require("nvim-tree").setup({
 	sort_by = "name",
 	root_dirs = { "compile_commands.json", "Makefile", "pyproject.toml", ".git", "README.md" },
 	remove_keymaps = false,
+	reload_on_bufenter = true,
+	auto_reload_on_write = true,
 	view = {
 		adaptive_size = true,
 		hide_root_folder = false,
@@ -61,9 +63,7 @@ require("nvim-tree").setup({
 
 mappings.add({
 	"<Leader><Tab>",
-	function()
-		nvimtree.tree.toggle(true)
-	end,
+	"<CMD>NvimTreeFindFile<CR>",
 	description = "Toggle file explorer",
 })
 
