@@ -12,6 +12,7 @@ require("nvim-tree").setup({
 	remove_keymaps = false,
 	reload_on_bufenter = true,
 	auto_reload_on_write = true,
+	sync_root_with_cwd = true,
 	view = {
 		adaptive_size = true,
 		hide_root_folder = false,
