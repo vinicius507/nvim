@@ -7,7 +7,7 @@ mappings.add({
 		if ft ~= "lua" and ft ~= "vim" then
 			return
 		end
-		if vim.fn.confirm(string.format("Source %s?", vim.fn.expand("%")), "&Yes\n&No", 1) then
+		if vim.fn.confirm(string.format("Source %s?", vim.fn.expand("%:t")), "&Yes\n&No", 1) then
 			vim.cmd([[source]])
 		end
 	end,
