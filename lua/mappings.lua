@@ -29,15 +29,6 @@ function mappings.add(map)
 	keymap.set(modes, keys, callback, opts)
 end
 
--- Buffer
-mappings.add({
-	"<Leader>bk",
-	function()
-		vim.api.nvim_buf_delete(0, {})
-	end,
-	description = "Kill Buffer",
-})
-
 -- Windows
 local directions = {
 	j = "up",
