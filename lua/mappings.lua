@@ -69,6 +69,20 @@ mappings.add({
 	end,
 	description = "Delete file",
 })
+mappings.add({
+	"<Leader>fR",
+	function()
+		local filename = vim.fn.expand("%")
+		local new_filename = vim.fn.input("New filename: ", vim.fn.expand("%"), "file")
+		if new_filename == "" then
+			return
+		end
+		if vim.fn.confirm(string.format("%s  %s", filename, new_filename), "&Yes\n&No", 1) == 1 then
+			vim.fn.rename(filename, new_filename)
+		end
+	end,
+	description = "Rename file",
+})
 
 -- Hacks by ThePrimeagen
 -- Better Cursor positioning in search
