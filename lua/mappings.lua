@@ -63,7 +63,7 @@ mappings.add({
 mappings.add({
 	"<Leader>fD",
 	function()
-		if vim.fn.confirm("Delete file?", "&Yes\n&No", 1) == 1 then
+		if vim.fn.confirm(string.format("Delete %s?", vim.fn.expand("%:t")), "&Yes\n&No", 1) == 1 then
 			vim.fn.delete(vim.expand("%"), "f")
 		end
 	end,
