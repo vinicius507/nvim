@@ -22,11 +22,11 @@ local function add_mappings(buffer)
 		function()
 			local get_mark = vim.api.nvim_buf_get_mark
 			if vim.api.nvim_get_mode().mode == "n" then
-				vim.lsp.buf.formatting()
+				vim.lsp.buf.format({ async = true })
 			else
 				local start_pos = get_mark(buffer, "<")
 				local end_pos = get_mark(buffer, ">")
-				vim.lsp.buf.range_formatting({}, start_pos, end_pos)
+				vim.lsp.buf.format({ range = { start_pos, end_pos } })
 			end
 		end,
 		buffer = buffer,
@@ -36,7 +36,7 @@ local function add_mappings(buffer)
 end
 
 local function update_capabilities(client, flags)
-	local rc = client.resolved_capabilities
+	local rc = client.server_capabilities
 	if flags.formatting == false then
 		rc.document_formatting = false
 		rc.document_range_formatting = false

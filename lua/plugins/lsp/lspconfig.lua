@@ -6,10 +6,12 @@ local on_attach = require("plugins.lsp.on_attach")
 configs.clangd = {}
 
 configs.pylsp = {
+	on_attach = on_attach.build({ formatting = false }),
 	settings = {
 		pylsp = {
 			plugins = {
 				autopep8 = { enabled = false },
+				black = { enabled = true },
 				yapf = { enabled = false },
 				flake8 = { enabled = true },
 				pydocstyle = { enabled = true },
@@ -28,20 +30,20 @@ configs.sumneko_lua = {
 				version = "LuaJIT",
 				path = vim.split(package.path, ";"),
 			},
+			completion = { enable = true },
 			diagnostics = {
+				enable = true,
 				globals = { "vim" },
 			},
-			workspace = {
-				library = {
-					[vim.fn.expand("$VIMRUNTIME/lua")] = true,
-					[vim.fn.expand("$VIMRUNTIME/lua/vim/lsp")] = true,
-				},
-			},
+			workspace = { library = vim.api.nvim_get_runtime_file("", true) },
+			telemetry = { enable = false },
 		},
 	},
 }
 
 configs.tsserver = {}
+
+configs.jsonls = {}
 
 local default_config = {
 	on_attach = on_attach.build(),
