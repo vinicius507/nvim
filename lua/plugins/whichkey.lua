@@ -66,6 +66,7 @@ wk.register({
 		f = { name = "Telescope" },
 		g = { name = "Git", t = "Toggle" },
 		o = { name = "Open" },
+		p = { name = "Packer" },
 		w = { name = "Window" },
 		z = { name = "Zen mode" },
 	},

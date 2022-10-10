@@ -59,16 +59,39 @@ mappings.add({
 	description = "Split window vertically",
 })
 
--- Files
+-- Packer
 mappings.add({
-	"<Leader>fD",
-	function()
-		if vim.fn.confirm(string.format("Delete %s?", vim.fn.expand("%:t")), "&Yes\n&No", 1) == 1 then
-			vim.fn.delete(vim.expand("%"), "f")
-		end
-	end,
-	description = "Delete file",
+	"<Leader>pS",
+	"<CMD>PackerStatus<CR>",
+	description = "Status",
 })
+mappings.add({
+	"<Leader>pi",
+	"<CMD>PackerInstall<CR>",
+	description = "Install",
+})
+mappings.add({
+	"<Leader>pu",
+	"<CMD>PackerUpdate<CR>",
+	description = "Update",
+})
+mappings.add({
+	"<Leader>ps",
+	"<CMD>PackerSync<CR>",
+	description = "Sync",
+})
+mappings.add({
+	"<Leader>pc",
+	"<CMD>PackerCompile<CR>",
+	description = "Compile",
+})
+mappings.add({
+	"<Leader>pC",
+	"<CMD>PackerClean<CR>",
+	description = "Clean",
+})
+
+-- Files
 mappings.add({
 	"<Leader>fR",
 	function()
