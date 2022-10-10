@@ -8,13 +8,20 @@ require("nvim-tree").setup({
 	hijack_netrw = true,
 	ignore_buffer_on_setup = false,
 	sort_by = "name",
-	root_dirs = { "compile_commands.json", "Makefile", "pyproject.toml", ".git", "README.md" },
+	root_dirs = {
+		".git",
+		"rc.lua",
+		"Makefile",
+		"README.md",
+		"pyproject.toml",
+		"compile_commands.json",
+	},
 	remove_keymaps = false,
 	reload_on_bufenter = true,
 	auto_reload_on_write = true,
 	sync_root_with_cwd = true,
 	view = {
-		adaptive_size = true,
+		adaptive_size = false,
 		hide_root_folder = false,
 		side = "left",
 		signcolumn = "yes",
@@ -30,6 +37,7 @@ require("nvim-tree").setup({
 			inline_arrows = true,
 		},
 		icons = {
+			symlink_arrow = "  ",
 			glyphs = {
 				git = {
 					unstaged = "",
@@ -64,51 +72,63 @@ require("nvim-tree").setup({
 
 mappings.add({
 	"<Leader><Tab>",
-	"<CMD>NvimTreeFindFile<CR>",
+	"<CMD>NvimTreeFindFileToggle<CR>",
 	description = "Toggle file explorer",
 })
 
-mappings.add({
-	"<Leader>bk",
-	function()
-		if vim.api.nvim_buf_get_option(0, "filetype") == "NvimTree" then
-			return
-		end
-		local buf = vim.api.nvim_get_current_buf()
-		if nvimtree_view.is_visible() then
-			local buffers = vim.tbl_filter(function(b)
-				if vim.api.nvim_buf_get_option(b, "buftype") == "nofile" then
-					return false
-				end
-				return vim.api.nvim_buf_is_loaded(b)
-			end, vim.api.nvim_list_bufs())
-			if #buffers <= 1 then
-				local scratch = vim.api.nvim_create_buf(1, 1)
-				vim.api.nvim_win_set_buf(0, scratch)
+local function kill_buffer()
+	if vim.api.nvim_buf_get_option(0, "filetype") == "NvimTree" then
+		return
+	end
+	local buf = vim.api.nvim_get_current_buf()
+	if nvimtree_view.is_visible() then
+		local buffers = vim.tbl_filter(function(b)
+			if vim.api.nvim_buf_get_option(b, "buftype") == "nofile" then
+				return false
+			end
+			return vim.api.nvim_buf_is_loaded(b)
+		end, vim.api.nvim_list_bufs())
+		if #buffers <= 1 then
+			local scratch = vim.api.nvim_create_buf(1, 1)
+			vim.api.nvim_win_set_buf(0, scratch)
+		else
+			local index = 1
+			while buffers[index] ~= buf do
+				index = index + 1
+			end
+			if index < #buffers then
+				vim.api.nvim_win_set_buf(0, buffers[index + 1])
 			else
-				local index = 1
-				while buffers[index] ~= buf do
-					index = index + 1
-				end
-				if index < #buffers then
-					vim.api.nvim_win_set_buf(0, buffers[index + 1])
-				else
-					vim.api.nvim_win_set_buf(0, buffers[index - 1])
-				end
+				vim.api.nvim_win_set_buf(0, buffers[index - 1])
 			end
 		end
-		vim.api.nvim_buf_delete(buf, { force = true })
-	end,
+	end
+	vim.api.nvim_buf_delete(buf, { force = true })
+end
+
+mappings.add({
+	"<Leader>bk",
+	kill_buffer,
 	description = "Kill Buffer",
 })
 mappings.add({
+	"<Leader>fD",
+	function()
+		if vim.fn.confirm(string.format("Delete %s?", vim.fn.expand("%:t")), "&Yes\n&No", 1) == 1 then
+			vim.fn.delete(vim.fn.expand("%"))
+			kill_buffer()
+		end
+	end,
+	description = "Delete file",
+})
+mappings.add({
 	"<Leader>wq",
-	function ()
+	function()
 		local windows = vim.api.nvim_tabpage_list_wins(0)
 		if nvimtree_view.is_visible() and #windows == 2 then
 			nvimtree.tree.close()
 		end
-		vim.cmd[[quit]]
+		vim.cmd([[quit]])
 	end,
 	description = "Close window",
 })
