@@ -24,7 +24,7 @@ local function get_compile_cmd()
 	if not ok then
 		last_cmd = "make -C ."
 	end
-	local compile_cmd = vim.fn.input("Compile command: ", last_cmd)
+	local compile_cmd = vim.fn.input("Compile command: ", last_cmd, "file")
 	vim.api.nvim_tabpage_set_var(0, "last_compile_cmd", compile_cmd)
 	return compile_cmd
 end
