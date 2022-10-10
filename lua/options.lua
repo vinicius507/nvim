@@ -7,9 +7,9 @@ opt.cursorline = true
 opt.hidden = true
 opt.showmode = false
 
-opt.tabstop = 4
-opt.shiftwidth = 4
-opt.expandtab = false
+opt.tabstop = 2
+opt.shiftwidth = 2
+opt.expandtab = true
 
 opt.splitright = true
 opt.splitbelow = true
