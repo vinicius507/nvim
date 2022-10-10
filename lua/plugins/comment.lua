@@ -1,3 +1,5 @@
+local api = require("Comment.api")
+
 local mappings = require("mappings")
 
 require("Comment").setup({
@@ -8,20 +10,34 @@ require("Comment").setup({
 })
 
 mappings.add({
-	"gcc",
-	"v:count == 0 ? '<Plug>(comment_toggle_current_linewise)' : '<Plug>(comment_toggle_linewise_count)'",
-	description = "Toggle",
+	"gc",
+	api.call("toggle.linewise", "g@"),
 	expr = true,
-	noremap = false,
+	desc = "Comment region linewise",
 })
 mappings.add({
-	"gbc",
-	"v:count == 0 ? '<Plug>(comment_toggle_current_blockwise)' : '<Plug>(comment_toggle_blockwise_count)'",
-	description = "Toggle",
+	"gcc",
+	api.call("toggle.linewise.current", "g@$"),
 	expr = true,
-	noremap = false,
+	description = "Comment current line",
 })
-mappings.add({ "gc", "<Plug>(comment_toggle_linewise)", description = "Comment linewise" })
-mappings.add({ "gb", "<Plug>(comment_toggle_blockwise)", description = "Comment blockwise" })
-mappings.add({ "gc", "<Plug>(comment_toggle_linewise_visual)", modes = "x", description = "Comment linewise" })
-mappings.add({ "gb", "<Plug>(comment_toggle_blockwise_visual)", modes = "x", description = "Comment linewise visual" })
+mappings.add({
+	"gcb",
+	api.call("toggle.blockwise.current", "g@$"),
+	expr = true,
+	description = "Comment current block",
+})
+
+-- Visual
+-- NOTE:Workaround for nvim_feedkeys
+local esc = vim.api.nvim_replace_termcodes("<ESC>", true, false, true)
+
+mappings.add({
+	"gcc",
+	function()
+		vim.api.nvim_feedkeys(esc, "nx", false)
+		api.locked("toggle.linewise")(vim.fn.visualmode())
+	end,
+	modes = "x",
+	desc = "Comment region linewise (visual)",
+})
