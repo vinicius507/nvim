@@ -1,3 +1,5 @@
+local opt = vim.opt
+
 local mappings = require("mappings")
 
 mappings.add({
@@ -14,3 +16,8 @@ mappings.add({
 	buffer = vim.api.nvim_get_current_buf(),
 	description = "Source file",
 })
+
+
+opt.tabstop = 4
+opt.shiftwidth = 4
+opt.expandtab = false
