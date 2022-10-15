@@ -76,34 +76,48 @@ mappings.add({
 	description = "Toggle file explorer",
 })
 
-local function kill_buffer()
-	if vim.api.nvim_buf_get_option(0, "filetype") == "NvimTree" then
-		return
+local function is_file_buffer(buf)
+	local buftype = vim.api.nvim_buf_get_option(buf, "buftype")
+	-- If buftype is empty, then it is a normal buffer
+	return buftype == ""
+end
+
+local function get_next_buf(buf)
+	local file_buffers = vim.tbl_filter(is_file_buffer, vim.api.nvim_list_bufs())
+
+	if #file_buffers <= 1 then
+		return nil
 	end
-	local buf = vim.api.nvim_get_current_buf()
-	if nvimtree_view.is_visible() then
-		local buffers = vim.tbl_filter(function(b)
-			if vim.api.nvim_buf_get_option(b, "buftype") == "nofile" then
-				return false
-			end
-			return vim.api.nvim_buf_is_loaded(b)
-		end, vim.api.nvim_list_bufs())
-		if #buffers <= 1 then
-			local scratch = vim.api.nvim_create_buf(1, 1)
-			vim.api.nvim_win_set_buf(0, scratch)
-		else
-			local index = 1
-			while buffers[index] ~= buf do
-				index = index + 1
-			end
-			if index < #buffers then
-				vim.api.nvim_win_set_buf(0, buffers[index + 1])
-			else
-				vim.api.nvim_win_set_buf(0, buffers[index - 1])
-			end
+
+	local buf_idx = -1
+	for idx, file_buf in pairs(file_buffers) do
+		if file_buf == buf then
+			buf_idx = idx
+			break
 		end
 	end
+	if buf_idx == 1 then
+		return file_buffers[buf_idx + 1]
+	end
+	return file_buffers[buf_idx - 1]
+end
+
+local function kill_buffer()
+	local buf = vim.api.nvim_get_current_buf()
+
+	-- If it is NvimTree just close it
+	if vim.api.nvim_buf_get_option(buf, "filetype") == "NvimTree" then
+		nvimtree.tree.close()
+		return
+	end
+
+	local next_buf = get_next_buf(buf)
+	if next_buf == nil then
+		-- Create scratch Buffer
+		next_buf = vim.api.nvim_create_buf(1, 1)
+	end
 	vim.api.nvim_buf_delete(buf, { force = true })
+	vim.api.nvim_set_current_buf(next_buf)
 end
 
 mappings.add({
