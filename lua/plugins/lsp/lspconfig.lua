@@ -11,7 +11,7 @@ configs.pylsp = {
 		pylsp = {
 			plugins = {
 				autopep8 = { enabled = false },
-				black = { enabled = true },
+				black = { enabled = false },
 				yapf = { enabled = false },
 				flake8 = { enabled = true },
 				pydocstyle = { enabled = true },
