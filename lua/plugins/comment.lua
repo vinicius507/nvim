@@ -33,7 +33,7 @@ mappings.add({
 local esc = vim.api.nvim_replace_termcodes("<ESC>", true, false, true)
 
 mappings.add({
-	"gcc",
+	"gc",
 	function()
 		vim.api.nvim_feedkeys(esc, "nx", false)
 		api.locked("toggle.linewise")(vim.fn.visualmode())
