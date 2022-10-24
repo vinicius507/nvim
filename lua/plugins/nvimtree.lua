@@ -78,8 +78,11 @@ mappings.add({
 
 local function is_file_buffer(buf)
 	local buftype = vim.api.nvim_buf_get_option(buf, "buftype")
+
 	-- If buftype is empty, then it is a normal buffer
-	return buftype == ""
+	local buf_is_file = buftype == ""
+	local buf_is_loaded = vim.api.nvim_buf_is_loaded(buf)
+	return buf_is_file and buf_is_loaded
 end
 
 local function get_next_buf(buf)
