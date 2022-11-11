@@ -76,17 +76,17 @@ mappings.add({
 	description = "Toggle file explorer",
 })
 
-local function is_file_buffer(buf)
-	local buftype = vim.api.nvim_buf_get_option(buf, "buftype")
-
-	-- If buftype is empty, then it is a normal buffer
-	local buf_is_file = buftype == ""
-	local buf_is_loaded = vim.api.nvim_buf_is_loaded(buf)
-	return buf_is_file and buf_is_loaded
-end
-
 local function get_next_buf(buf)
-	local file_buffers = vim.tbl_filter(is_file_buffer, vim.api.nvim_list_bufs())
+	local buffers = vim.api.nvim_list_bufs()
+	local file_buffers = vim.tbl_filter(function(b)
+		local buflisted = vim.api.nvim_buf_get_option(b, "buflisted")
+		local is_loaded = vim.api.nvim_buf_is_loaded(b)
+		return is_loaded and buflisted
+	end, buffers)
+
+	if not vim.api.nvim_buf_is_loaded(buf) then
+		return file_buffers[#file_buffers]
+	end
 
 	if #file_buffers <= 1 then
 		return nil
