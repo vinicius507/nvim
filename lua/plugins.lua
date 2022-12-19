@@ -150,6 +150,12 @@ packer.startup({
 				require("plugins.nvimtree")
 			end,
 		})
+		packer.use({
+			"klen/nvim-config-local",
+			config = function()
+				require("plugins.config-local")
+			end,
+		})
 	end,
 	config = {},
 })
