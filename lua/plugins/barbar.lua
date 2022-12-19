@@ -2,7 +2,7 @@ local mappings = require("mappings")
 
 require("bufferline").setup({
 	animation = false,
-	auto_hide = false,
+	auto_hide = true,
 	tabpages = true,
 	closable = true,
 	clickable = true,
