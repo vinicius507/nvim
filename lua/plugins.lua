@@ -54,35 +54,36 @@ packer.startup({
 			"jose-elias-alvarez/null-ls.nvim",
 			after = "nvim-treesitter",
 			config = function()
-				require("plugins.lsp.null-ls")
+				require("plugins.null-ls")
 			end,
 			requires = { "nvim-lua/plenary.nvim" },
 		})
 		packer.use({
-			"neovim/nvim-lspconfig",
-			after = "nvim-treesitter",
-			config = function()
-				require("plugins.lsp.lspconfig")
+			"VonHeikemen/lsp-zero.nvim",
+			config = function ()
+				require("plugins.lsp")
 			end,
+			requires = {
+				-- Lsp
+				"neovim/nvim-lspconfig",
+				"williamboman/mason.nvim",
+				"williamboman/mason-lspconfig.nvim",
+
+				-- Completion
+				"hrsh7th/nvim-cmp",
+				"hrsh7th/cmp-path",
+				"hrsh7th/cmp-buffer",
+				"hrsh7th/cmp-nvim-lsp",
+				"hrsh7th/cmp-nvim-lua",
+				"onsails/lspkind.nvim",
+				"saadparwaiz1/cmp_luasnip",
+			},
 		})
 		packer.use({
 			"L3MON4D3/LuaSnip",
 			config = function()
 				require("plugins.luasnip")
 			end,
-		})
-		packer.use({
-			"hrsh7th/nvim-cmp",
-			config = function()
-				require("plugins.cmp")
-			end,
-			requires = {
-				"hrsh7th/cmp-nvim-lsp",
-				"L3MON4D3/LuaSnip",
-				"saadparwaiz1/cmp_luasnip",
-				"hrsh7th/cmp-nvim-lua",
-				"onsails/lspkind.nvim",
-			},
 		})
 		packer.use({
 			"akinsho/toggleterm.nvim",
