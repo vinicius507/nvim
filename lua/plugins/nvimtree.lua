@@ -16,6 +16,10 @@ require("nvim-tree").setup({
 		"pyproject.toml",
 		"compile_commands.json",
 	},
+	update_focused_file = {
+		enable = true,
+		update_root = false,
+	},
 	remove_keymaps = false,
 	reload_on_bufenter = true,
 	auto_reload_on_write = true,
