@@ -27,7 +27,7 @@ require("nvim-tree").setup({
 		signcolumn = "yes",
 	},
 	renderer = {
-		group_empty = true,
+		group_empty = false,
 		highlight_git = true,
 		full_name = false,
 		highlight_opened_files = "name",
