@@ -4,12 +4,25 @@ local lspkind = require("lspkind")
 local luasnip = require("luasnip")
 local mappings = require("mappings")
 
-lsp.preset("recommended")
+lsp.preset("per-project")
+lsp.ensure_installed({ "vimls", "sumneko_lua" })
 lsp.set_preferences({ set_lsp_keymaps = false })
-lsp.ensure_installed({ "clangd", "sumneko_lua" })
+
+lsp.setup_servers({
+	"pylsp",
+	"sumneko_lua",
+	on_attach = function(client)
+		local caps = client.server_capabilities
+		caps.document_formatting = false
+		caps.range_formatting = true
+	end,
+})
 lsp.nvim_workspace({ library = vim.api.nvim_get_runtime_file("", true) })
 
+
 lsp.on_attach(function(client, buffer)
+	local caps = client.server_capabilities
+
 	mappings.add({ "K", vim.lsp.buf.hover, buffer = buffer, description = "Hover" })
 	mappings.add({ "gi", vim.lsp.buf.implementation, buffer = buffer, "Goto implementation" })
 	mappings.add({ "gr", vim.lsp.buf.references, buffer = buffer, description = "Goto references" })
@@ -25,22 +38,25 @@ lsp.on_attach(function(client, buffer)
 	})
 	mappings.add({ "<Leader>cr", vim.lsp.buf.rename, buffer = buffer, description = "Rename" })
 	mappings.add({ "<Leader>ca", vim.lsp.buf.code_action, buffer = buffer, description = "Code actions" })
-	mappings.add({
-		"<Leader>cf",
-		function()
-			local get_mark = vim.api.nvim_buf_get_mark
-			if vim.api.nvim_get_mode().mode == "n" then
-				vim.lsp.buf.format({ async = true })
-			else
-				local start_pos = get_mark(buffer, "<")
-				local end_pos = get_mark(buffer, ">")
-				vim.lsp.buf.format({ range = { start_pos, end_pos } })
-			end
-		end,
-		buffer = buffer,
-		modes = { "n", "v" },
-		description = "Format Buffer/Region",
-	})
+
+	if caps.document_formatting then
+		mappings.add({
+			"<Leader>cf",
+			function()
+				local get_mark = vim.api.nvim_buf_get_mark
+				if vim.api.nvim_get_mode().mode == "n" then
+					vim.lsp.buf.format({ async = true })
+				else
+					local start_pos = get_mark(buffer, "<")
+					local end_pos = get_mark(buffer, ">")
+					vim.lsp.buf.format({ range = { start_pos, end_pos } })
+				end
+			end,
+			buffer = buffer,
+			modes = { "n", "v" },
+			description = "Format Buffer/Region",
+		})
+	end
 end)
 
 lsp.setup_nvim_cmp({

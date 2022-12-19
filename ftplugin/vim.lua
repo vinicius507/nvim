@@ -21,4 +21,4 @@ opt.tabstop = 4
 opt.shiftwidth = 4
 opt.expandtab = false
 
-lsp.use("sumneko_lua")
+lsp.use("vimls")
