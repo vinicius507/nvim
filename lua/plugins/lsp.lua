@@ -19,7 +19,6 @@ lsp.setup_servers({
 })
 lsp.nvim_workspace({ library = vim.api.nvim_get_runtime_file("", true) })
 
-
 lsp.on_attach(function(client, buffer)
 	local caps = client.server_capabilities
 
@@ -125,3 +124,12 @@ mappings.add({
 })
 
 lsp.setup()
+
+vim.diagnostic.config({
+	virtual_text = true,
+	signs = true,
+	update_in_insert = true,
+	underline = true,
+	severity_sort = false,
+	float = false,
+})
