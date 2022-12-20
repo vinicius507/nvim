@@ -157,6 +157,12 @@ packer.use({
 		require("plugins.config-local")
 	end,
 })
+packer.use({
+	"phaazon/hop.nvim",
+	config = function()
+		require("plugins.hop")
+	end,
+})
 
 vim.cmd([[
 	augroup packer_user_config
