@@ -10,6 +10,7 @@ require("catppuccin").setup({
 		treesitter = true,
 		telescope = true,
 		markdown = true,
+		notify = true,
 		neogit = true,
 		barbar = true,
 		gitsigns = true,

@@ -175,6 +175,12 @@ packer.use({
 		require("plugins.todo")
 	end,
 })
+packer.use({
+	"rcarriga/nvim-notify",
+	config = function()
+		require("plugins.notify")
+	end,
+})
 
 vim.cmd([[
 	augroup packer_user_config
