@@ -33,7 +33,11 @@ ts_config.setup({
 })
 
 mappings.add({ "<Leader>a", "<CMD>TSTextobjectSwapNext @parameter.inner<CR>", description = "Swap next parameter" })
-mappings.add({ "<Leader>A", "<CMD>TSTextobjectSwapPrevious @parameter.inner<CR>", description = "Swap previous parameter" })
+mappings.add({
+	"<Leader>A",
+	"<CMD>TSTextobjectSwapPrevious @parameter.inner<CR>",
+	description = "Swap previous parameter",
+})
 mappings.add({ "vaf", "<CMD>TSTextobjectSelect @function.outer<CR>", description = "outer function" })
 mappings.add({ "vif", "<CMD>TSTextobjectSelect @function.inner<CR>", description = "inner function" })
 mappings.add({ "vac", "<CMD>TSTextobjectSelect @class.outer<CR>", description = "outer class" })

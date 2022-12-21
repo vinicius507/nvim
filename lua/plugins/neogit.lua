@@ -18,7 +18,7 @@ mappings.add({
 })
 mappings.add({
 	"<Leader>gc",
-	function ()
+	function()
 		neogit.open({ "commit" })
 	end,
 	description = "Commit",

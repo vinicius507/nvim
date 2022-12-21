@@ -8,7 +8,6 @@ hop.setup({
 	multi_windows = true,
 })
 
-
 mappings.add({
 	"<Leader>hc",
 	hop.hint_char1,

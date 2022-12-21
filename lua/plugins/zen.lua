@@ -93,7 +93,7 @@ mappings.add({
 })
 mappings.add({
 	"<Leader>zn",
-	function ()
+	function()
 		local first_line = 0
 		local last_line = vim.api.nvim_buf_line_count(0)
 		truezen.narrow(first_line, last_line)
