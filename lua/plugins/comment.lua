@@ -29,7 +29,7 @@ mappings.add({
 })
 
 -- Visual
--- NOTE:Workaround for nvim_feedkeys
+-- NOTE: Workaround for nvim_feedkeys
 local esc = vim.api.nvim_replace_termcodes("<ESC>", true, false, true)
 
 mappings.add({

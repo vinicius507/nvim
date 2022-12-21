@@ -169,6 +169,12 @@ packer.use({
 		require("plugins.trouble")
 	end,
 })
+packer.use({
+	"folke/todo-comments.nvim",
+	config = function()
+		require("plugins.todo")
+	end,
+})
 
 vim.cmd([[
 	augroup packer_user_config
