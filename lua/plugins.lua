@@ -163,6 +163,12 @@ packer.use({
 		require("plugins.hop")
 	end,
 })
+packer.use({
+	"folke/trouble.nvim",
+	config = function()
+		require("plugins.trouble")
+	end,
+})
 
 vim.cmd([[
 	augroup packer_user_config

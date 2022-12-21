@@ -56,6 +56,22 @@ lsp.on_attach(function(client, buffer)
 			description = "Format Buffer/Region",
 		})
 	end
+
+	-- Trouble
+	mappings.add({
+		"<Leader>cx",
+		function()
+			vim.cmd.TroubleToggle("document_diagnostics")
+		end,
+		buffer = buffer,
+		description = "Document diagnostics",
+	})
+	mappings.add({
+		"<Leader>cX",
+		vim.cmd.TroubleToggle,
+		buffer = buffer,
+		description = "Workspace diagnostics",
+	})
 end)
 
 lsp.setup_nvim_cmp({
