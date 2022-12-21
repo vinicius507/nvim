@@ -181,6 +181,16 @@ packer.use({
 		require("plugins.notify")
 	end,
 })
+packer.use({
+	"folke/noice.nvim",
+	config = function()
+		require("plugins.noice")
+	end,
+	requires = {
+		"MunifTanjim/nui.nvim",
+		"rcarriga/nvim-notify",
+	},
+})
 
 vim.cmd([[
 	augroup packer_user_config

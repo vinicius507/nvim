@@ -29,6 +29,8 @@ opt.listchars:append("tab: ")
 opt.listchars:append("space: ")
 opt.listchars:append("nbsp: ")
 opt.listchars:append("trail:~")
+opt.shortmess:append("s")
+opt.shortmess:append("c")
 
 opt.fillchars:append("eob: ")
 
