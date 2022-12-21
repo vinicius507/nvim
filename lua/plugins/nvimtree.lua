@@ -149,7 +149,7 @@ mappings.add({
 		if nvimtree_view.is_visible() and #windows == 2 then
 			nvimtree.tree.close()
 		end
-		vim.cmd([[quit]])
+		vim.cmd.quit()
 	end,
 	description = "Close window",
 })
