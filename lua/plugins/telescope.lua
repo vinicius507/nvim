@@ -1,5 +1,7 @@
 local telescope = require("telescope")
 local builtin = require("telescope.builtin")
+local telescope_trouble = require("trouble.providers.telescope")
+
 local mappings = require("mappings")
 
 telescope.setup({
@@ -9,7 +11,14 @@ telescope.setup({
 		selection_caret = " ",
 		color_devicons = true,
 		mappings = {
-			i = { ["<C-x>"] = false },
+			i = {
+				["<C-x>"] = false,
+				["<C-q>"] = telescope_trouble.open_with_trouble,
+			},
+			n = {
+				["<C-x>"] = false,
+				["<C-q>"] = telescope_trouble.open_with_trouble,
+			},
 		},
 	},
 	pickers = {
