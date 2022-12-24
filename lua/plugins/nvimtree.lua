@@ -1,18 +1,14 @@
-local nvimtree = require("nvim-tree.api")
-local nvimtree_view = require("nvim-tree.view")
 local mappings = require("mappings")
 
 require("nvim-tree").setup({
-	open_on_setup = true,
+	open_on_setup = false,
 	hijack_cursor = true,
 	hijack_netrw = true,
 	ignore_buffer_on_setup = false,
 	sort_by = "name",
 	root_dirs = {
 		".git",
-		"rc.lua",
-		"Makefile",
-		"README.md",
+		".luarc.json",
 		"pyproject.toml",
 		"compile_commands.json",
 	},
@@ -78,78 +74,4 @@ mappings.add({
 	"<Leader><Tab>",
 	"<CMD>NvimTreeFindFileToggle<CR>",
 	description = "Toggle file explorer",
-})
-
-local function get_next_buf(buf)
-	local buffers = vim.api.nvim_list_bufs()
-	local file_buffers = vim.tbl_filter(function(b)
-		local buflisted = vim.api.nvim_buf_get_option(b, "buflisted")
-		local is_loaded = vim.api.nvim_buf_is_loaded(b)
-		return is_loaded and buflisted
-	end, buffers)
-
-	if not vim.api.nvim_buf_is_loaded(buf) then
-		return file_buffers[#file_buffers]
-	end
-
-	if #file_buffers <= 1 then
-		return nil
-	end
-
-	local buf_idx = -1
-	for idx, file_buf in pairs(file_buffers) do
-		if file_buf == buf then
-			buf_idx = idx
-			break
-		end
-	end
-	if buf_idx == 1 then
-		return file_buffers[buf_idx + 1]
-	end
-	return file_buffers[buf_idx - 1]
-end
-
-local function kill_buffer()
-	local buf = vim.api.nvim_get_current_buf()
-
-	-- If it is NvimTree just close it
-	if vim.api.nvim_buf_get_option(buf, "filetype") == "NvimTree" then
-		nvimtree.tree.close()
-		return
-	end
-
-	local next_buf = get_next_buf(buf)
-	if next_buf == nil then
-		-- Create scratch Buffer
-		next_buf = vim.api.nvim_create_buf(1, 1)
-	end
-	vim.api.nvim_buf_delete(buf, { force = true })
-	vim.api.nvim_set_current_buf(next_buf)
-end
-
-mappings.add({
-	"<Leader>bk",
-	kill_buffer,
-	description = "Kill Buffer",
-})
-mappings.add({
-	"<Leader>fD",
-	function()
-		if vim.fn.confirm(string.format("Delete %s?", vim.fn.expand("%:t")), "&Yes\n&No", 1) == 1 then
-			vim.fn.delete(vim.fn.expand("%"))
-			kill_buffer()
-		end
-	end,
-	description = "Delete file",
-})
-mappings.add({
-	"<Leader>wq",
-	function()
-		local windows = vim.api.nvim_tabpage_list_wins(0)
-		if nvimtree_view.is_visible() and #windows == 2 then
-			nvimtree.tree.close()
-		end
-		vim.cmd.quit()
-	end,
-	description = "Close window",
 })

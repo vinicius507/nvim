@@ -29,6 +29,19 @@ function mappings.add(map)
 	keymap.set(modes, keys, callback, opts)
 end
 
+-- Buffers
+mappings.add({
+	"<Leader>bk",
+	function()
+		local ok, _ = vim.api.nvim_buf_delete(0, { unload = true })
+
+		if not ok then
+			vim.notify("Could not kill current buffer", "ERROR")
+		end
+	end,
+	description = "Kill Buffer",
+})
+
 -- Windows
 local directions = {
 	j = "up",
@@ -57,6 +70,11 @@ mappings.add({
 	"<Leader>wv",
 	"<CMD>vsplit<CR>",
 	description = "Split window vertically",
+})
+mappings.add({
+	"<Leader>wq",
+	vim.cmd.quit,
+	description = "Close window",
 })
 
 -- Packer
@@ -92,6 +110,16 @@ mappings.add({
 })
 
 -- Files
+mappings.add({
+	"<Leader>fD",
+	function()
+		if vim.fn.confirm(string.format("Delete %s?", vim.fn.expand("%:t")), "&Yes\n&No", 1) == 1 then
+			vim.fn.delete(vim.fn.expand("%"))
+			vim.api.nvim_buf_delete(0, { force = true })
+		end
+	end,
+	description = "Delete file",
+})
 mappings.add({
 	"<Leader>fR",
 	function()
