@@ -2,7 +2,8 @@ local neogit = require("neogit")
 local mappings = require("mappings")
 
 neogit.setup({
-	kind = "tab",
+	kind = "floating",
+	commit_popup = { kind = "floating" },
 	signs = {
 		section = { "", "" },
 		item = { "", "" },
