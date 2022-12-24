@@ -22,7 +22,7 @@ require("noice").setup({
 		{
 			filter = {
 				any = {
-					{ find = "written" },
+					{ find = "%d+L, %d+B" },
 				},
 				event = "msg_show",
 			},
