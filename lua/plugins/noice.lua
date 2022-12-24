@@ -87,4 +87,11 @@ require("noice").setup({
 			},
 		},
 	},
+	commands = {
+		all = {
+			view = "split",
+			opts = { enter = true, format = "details" },
+			filter = {},
+		},
+	},
 })
