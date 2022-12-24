@@ -48,6 +48,9 @@ require("noice").setup({
 		},
 	},
 	views = {
+		cmdline_output = {
+			enter = true,
+		},
 		cmdline_popup = {
 			position = {
 				row = 5,
