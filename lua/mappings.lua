@@ -33,7 +33,7 @@ end
 mappings.add({
 	"<Leader>bk",
 	function()
-		local ok, _ = vim.api.nvim_buf_delete(0, { unload = true })
+		local ok, _ = vim.cmd.bdelete()
 
 		if not ok then
 			vim.notify("Could not kill current buffer", "ERROR")
