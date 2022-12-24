@@ -10,7 +10,7 @@ mappings.add({
 			return
 		end
 		if vim.fn.confirm(string.format("Source %s?", vim.fn.expand("%:t")), "&Yes\n&No", 1) then
-			vim.cmd([[source]])
+			vim.cmd.source()
 		end
 	end,
 	buffer = vim.api.nvim_get_current_buf(),
