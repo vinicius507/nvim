@@ -1,2 +1,2 @@
-require("myriad.remap")
 require("myriad.options")
+require("myriad.keymaps")
