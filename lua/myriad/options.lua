@@ -23,6 +23,9 @@ opt.undodir = vim.fn.stdpath("cache") .. "undo"
 
 opt.mouse = "a"
 
+opt.scrolloff = 8
+opt.signcolumn = "yes"
+
 opt.list = true
 opt.listchars:append("eol: ")
 opt.listchars:append("tab: ")
@@ -34,4 +37,5 @@ opt.shortmess:append("c")
 
 opt.fillchars:append("eob: ")
 
+-- NOTE: Neovide
 opt.guifont = "JetBrainsMono Nerd Font Mono"
