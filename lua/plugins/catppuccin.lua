@@ -1,5 +1,6 @@
 return {
 	"catppuccin/nvim",
+	name = "catppuccin",
 	build = ":CatppuccinCompile",
 	config = function()
 		require("catppuccin").setup({
