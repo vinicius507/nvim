@@ -1,5 +1,7 @@
 vim.g.mapleader = " "
 
+local M = {}
+
 ---@alias MapModes
 ---| "n" Normal
 ---| "v" Visual and Select
@@ -33,7 +35,7 @@ local RemapOpts = {
 ---@param keys string
 ---@param cb string|function
 ---@param opts RemapOpts?
-local function remap(keys, cb, opts)
+function M.remap(keys, cb, opts)
 	---@type RemapOpts
 	opts = vim.tbl_extend("force", RemapOpts, opts or {})
 	vim.validate({
@@ -59,12 +61,12 @@ local function remap(keys, cb, opts)
 end
 
 -- Buffer mappings
-remap("<Leader>bk", vim.cmd.bdelete, { desc = "Kill buffer" })
+M.remap("<Leader>bk", vim.cmd.bdelete, { desc = "Kill buffer" })
 
 -- Window mappings
-remap("<Leader>ws", vim.cmd.split, { desc = "Split window" })
-remap("<Leader>wv", vim.cmd.vsplit, { desc = "Split window vertically" })
-remap("<Leader>wq", vim.cmd.quit, { desc = "Close window" })
+M.remap("<Leader>ws", vim.cmd.split, { desc = "Split window" })
+M.remap("<Leader>wv", vim.cmd.vsplit, { desc = "Split window vertically" })
+M.remap("<Leader>wq", vim.cmd.quit, { desc = "Close window" })
 
 local directions = {
 	j = "up",
@@ -77,28 +79,30 @@ for key, direction in pairs(directions) do
 	local goto_desc = string.format("Goto window %s", direction)
 	local move_keys = string.format("<Leader>w%s", key:upper())
 	local move_desc = string.format("Move window %s", direction)
-	remap(goto_keys, function()
+	M.remap(goto_keys, function()
 		vim.cmd.wincmd(key)
 	end, { desc = goto_desc })
-	remap(move_keys, function()
+	M.remap(move_keys, function()
 		vim.cmd.wincmd(key:upper())
 	end, { desc = move_desc })
 end
 
 -- Better Cursor positioning in search
-remap("n", "nzzzv")
-remap("N", "Nzzzv")
+M.remap("n", "nzzzv")
+M.remap("N", "Nzzzv")
 -- Better cursor positioning while joining lines
-remap("J", "mzJ`z")
+M.remap("J", "mzJ`z")
 -- Undo breakpoints
-remap(",", ",<C-g>u", { modes = "i" })
-remap(".", ".<C-g>u", { modes = "i" })
-remap("!", "!<C-g>u", { modes = "i" })
-remap("?", "?<C-g>u", { modes = "i" })
+M.remap(",", ",<C-g>u", { modes = "i" })
+M.remap(".", ".<C-g>u", { modes = "i" })
+M.remap("!", "!<C-g>u", { modes = "i" })
+M.remap("?", "?<C-g>u", { modes = "i" })
 -- Moving Text
-remap(">", ">gv", { modes = "v" })
-remap("<", "<gv", { modes = "v" })
-remap("J", ":m '>+1<CR>gv=gv", { modes = "v" })
-remap("K", ":m '<-2<CR>gv=gv", { modes = "v" })
-remap("<C-j>", "<esc>:m .+1<CR>==a", { modes = "i" })
-remap("<C-k>", "<esc>:m .-2<CR>==a", { modes = "i" })
+M.remap(">", ">gv", { modes = "v" })
+M.remap("<", "<gv", { modes = "v" })
+M.remap("J", ":m '>+1<CR>gv=gv", { modes = "v" })
+M.remap("K", ":m '<-2<CR>gv=gv", { modes = "v" })
+M.remap("<C-j>", "<esc>:m .+1<CR>==a", { modes = "i" })
+M.remap("<C-k>", "<esc>:m .-2<CR>==a", { modes = "i" })
+
+return M
