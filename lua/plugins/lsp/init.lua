@@ -50,6 +50,9 @@ return {
 
 					-- Lua
 					nls.builtins.formatting.stylua,
+
+					-- Gitsigns
+					nls.builtins.code_actions.gitsigns,
 				},
 			})
 		end,
