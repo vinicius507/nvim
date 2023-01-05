@@ -25,6 +25,6 @@
   "nvim-treesitter-refactor": { "branch": "master", "commit": "75f5895cc662d61eb919da8050b7a0124400d589" },
   "nvim-treesitter-textobjects": { "branch": "master", "commit": "d816761ec1ea4a605689bc5f4111088459cf74d4" },
   "nvim-web-devicons": { "branch": "master", "commit": "05e1072f63f6c194ac6e867b567e6b437d3d4622" },
-  "nvim-window-picker": { "branch": "main", "commit": "5902827d0e338890a22849e2f18dc80d1cc1a8db" },
+  "nvim-window-picker": { "branch": "main", "commit": "8c3bdb5ee3200285b1851a18fcf726242b23904f" },
   "plenary.nvim": { "branch": "master", "commit": "bb444796dc5746d969f0718913a31c8075741e36" }
 }

@@ -2,7 +2,7 @@ local remap = require("myriad.keymaps").remap
 
 return {
 	"s1n7ax/nvim-window-picker",
-	tag = "v1.*",
+	tag = "v1.2",
 	config = function()
 		local wp = require("window-picker")
 		local colors = require("catppuccin.palettes").get_palette()
