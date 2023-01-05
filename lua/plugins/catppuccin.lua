@@ -22,11 +22,7 @@ return {
 				barbar = true,
 				gitsigns = true,
 				hop = true,
-				nvimtree = {
-					enabled = true,
-					show_root = true,
-					transparent_panel = false,
-				},
+				neotree = true,
 			},
 		})
 
