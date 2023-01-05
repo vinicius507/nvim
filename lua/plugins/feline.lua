@@ -6,5 +6,5 @@ return {
 			components = require("catppuccin.groups.integrations.feline").get(),
 		})
 	end,
-	dependencies = { "kyazdani42/nvim-web-devicons" },
+	dependencies = { "nvim-tree/nvim-web-devicons" },
 }
