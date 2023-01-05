@@ -20,4 +20,33 @@ return {
 		end,
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 	},
+	{
+		"sindrets/diffview.nvim",
+		config = function()
+			require("diffview").setup({
+				keymaps = {
+					view = { q = vim.cmd.DiffviewClose },
+					file_panel = { q = vim.cmd.DiffviewClose },
+				},
+				hooks = {
+					diff_buf_read = function()
+						vim.opt_local.list = false
+						vim.opt_local.wrap = false
+					end,
+				},
+			})
+
+			remap("<Leader>gd", function()
+				vim.cmd.DiffviewOpen("-uno")
+			end, { desc = "Diff HEAD" })
+			remap("<Leader>gD", function()
+				local rev = vim.fn.input("Git rev: ")
+
+				if rev then
+					vim.cmd.DiffviewOpen(rev, "--cached")
+				end
+			end, { desc = "Diff rev" })
+		end,
+		dependencies = { "nvim-lua/plenary.nvim" },
+	},
 }
