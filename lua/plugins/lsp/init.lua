@@ -37,4 +37,22 @@ return {
 		end,
 		dependencies = { "b0o/SchemaStore.nvim" },
 	},
+	{
+		"jose-elias-alvarez/null-ls.nvim",
+		config = function()
+			local nls = require("null-ls")
+
+			nls.setup({
+				sources = {
+					-- Python
+					nls.builtins.formatting.black,
+					nls.builtins.formatting.isort,
+
+					-- Lua
+					nls.builtins.formatting.stylua,
+				},
+			})
+		end,
+		dependencies = { "nvim-lua/plenary.nvim" },
+	},
 }
