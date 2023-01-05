@@ -49,4 +49,29 @@ return {
 		end,
 		dependencies = { "nvim-lua/plenary.nvim" },
 	},
+	{
+		"TimUntersberger/neogit",
+		config = function()
+			local neogit = require("neogit")
+
+			neogit.setup({
+				kind = "tab",
+				signs = {
+					section = { "", "" },
+					item = { "", "" },
+					hunk = { "", "" },
+				},
+				integrations = {
+					diffview = true,
+				},
+				disable_insert_on_commit = false,
+			})
+
+			remap("<Leader>gg", neogit.open, { desc = "Neogit" })
+			remap("<Leader>gc", function()
+				neogit.open({ "commit" })
+			end, { desc = "Neogit" })
+		end,
+		dependencies = { "nvim-lua/plenary.nvim" },
+	},
 }
