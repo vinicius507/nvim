@@ -1,6 +1,6 @@
 {
   "LuaSnip": { "branch": "master", "commit": "5570fd797eae0790affb54ea669a150cad76db5d" },
-  "SchemaStore.nvim": { "branch": "main", "commit": "0514df1a8b7aa6ef6f565b34f101d913ec753ed0" },
+  "SchemaStore.nvim": { "branch": "main", "commit": "eee175f655e6775e1750a81b89a7471f9dbe8b0e" },
   "catppuccin": { "branch": "main", "commit": "3020af75aae098a77737d91ee37c7147c8450d99" },
   "cmp-buffer": { "branch": "main", "commit": "3022dbc9166796b644a841a02de8dd1cc1d311fa" },
   "cmp-emoji": { "branch": "main", "commit": "19075c36d5820253d32e2478b6aaf3734aeaafa0" },
@@ -8,16 +8,17 @@
   "cmp-path": { "branch": "main", "commit": "91ff86cd9c29299a64f968ebb45846c485725f23" },
   "cmp_luasnip": { "branch": "master", "commit": "18095520391186d634a0045dacaa346291096566" },
   "feline.nvim": { "branch": "master", "commit": "d48b6f92c6ccdd6654c956f437be49ea160b5b0c" },
-  "lazy.nvim": { "branch": "main", "commit": "d5e6bdf90c0eb22f7b4ead039905d8be149a569a" },
+  "lazy.nvim": { "branch": "main", "commit": "d3b0d3e851b5609a2630e0307e18dc852efd0bd0" },
   "lspkind.nvim": { "branch": "master", "commit": "c68b3a003483cf382428a43035079f78474cd11e" },
   "mason-lspconfig.nvim": { "branch": "main", "commit": "aa25b4153d2f2636c3b3a8c8360349d2b29e7ae3" },
-  "mason.nvim": { "branch": "main", "commit": "dac1093be4f833da1696767c5badac9a3665c1df" },
-  "neodev.nvim": { "branch": "main", "commit": "a6cd21560f88b54d8f8ddd1cd145be3ed4a051bc" },
+  "mason.nvim": { "branch": "main", "commit": "38f0d1e467d1d3c22724c467efab8a4671a3b7bb" },
+  "neodev.nvim": { "branch": "main", "commit": "258b83f48405c6b530c09dd96950693664dc6bc0" },
   "null-ls.nvim": { "branch": "main", "commit": "6830a1ed04f89e6d556cb6bcc200433173004307" },
   "nvim-cmp": { "branch": "main", "commit": "c49ad26e894e137e401b1d294948c46327877eaf" },
   "nvim-lspconfig": { "branch": "master", "commit": "e69978a39e4d3262b09ce6a316beff384f443e3b" },
   "nvim-treesitter": { "branch": "master", "commit": "b1569394614804aaad4e994731161f253ff61bcc" },
   "nvim-treesitter-refactor": { "branch": "master", "commit": "75f5895cc662d61eb919da8050b7a0124400d589" },
   "nvim-treesitter-textobjects": { "branch": "master", "commit": "d816761ec1ea4a605689bc5f4111088459cf74d4" },
-  "nvim-web-devicons": { "branch": "master", "commit": "05e1072f63f6c194ac6e867b567e6b437d3d4622" }
+  "nvim-web-devicons": { "branch": "master", "commit": "05e1072f63f6c194ac6e867b567e6b437d3d4622" },
+  "plenary.nvim": { "branch": "master", "commit": "bb444796dc5746d969f0718913a31c8075741e36" }
 }
