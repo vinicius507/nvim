@@ -1,23 +1,14 @@
 return {
 	{
-		"folke/neodev.nvim",
-		config = function()
-			require("neodev").setup()
-		end,
-	},
-	{
-		"williamboman/mason.nvim",
-		config = function()
-			require("mason").setup()
-			require("mason-lspconfig").setup()
-		end,
-		dependencies = { "williamboman/mason-lspconfig.nvim" },
-	},
-	{
 		"neovim/nvim-lspconfig",
 		config = function()
 			local lsp = require("lspconfig")
 			local servers = require("plugins.lsp.servers")
+
+			require("mason").setup()
+			require("mason-lspconfig").setup()
+
+			require("neodev").setup()
 
 			vim.api.nvim_create_autocmd("LspAttach", {
 				callback = function(args)
@@ -35,7 +26,12 @@ return {
 				lsp[server].setup(config)
 			end
 		end,
-		dependencies = { "b0o/SchemaStore.nvim" },
+		dependencies = {
+			"folke/neodev.nvim",
+			"williamboman/mason.nvim",
+			"williamboman/mason-lspconfig.nvim",
+			"b0o/SchemaStore.nvim",
+		},
 	},
 	{
 		"jose-elias-alvarez/null-ls.nvim",
