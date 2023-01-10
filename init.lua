@@ -1,1 +1,1 @@
-require("myriad")
+require("config.lazy")

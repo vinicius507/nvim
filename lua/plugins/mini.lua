@@ -1,23 +1,12 @@
 return {
-	{
-		"echasnovski/mini.surround",
-		branch = "stable",
-		config = function()
-			require("mini.surround").setup()
-		end,
+	"echasnovski/mini.surround",
+	branch = "stable",
+	-- HACK: for now, unable to lazyload plugin with default keys
+	event = "BufReadPost",
+	opts = {
+		mappings = {},
 	},
-	{
-		"echasnovski/mini.pairs",
-		branch = "stable",
-		config = function()
-			require("mini.pairs").setup()
-		end,
-	},
-	{
-		"echasnovski/mini.comment",
-		branch = "stable",
-		config = function()
-			require("mini.comment").setup()
-		end,
-	},
+	config = function()
+		require("mini.surround").setup({})
+	end,
 }

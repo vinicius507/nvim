@@ -1,7 +1,7 @@
 return {
 	{
 		"rcarriga/nvim-notify",
-		config = {
+		opts = {
 			background_colour = "NormalFloat",
 			fps = 30,
 			icons = {
@@ -21,7 +21,7 @@ return {
 	},
 	{
 		"folke/noice.nvim",
-		config = {
+		opts = {
 			presets = {
 				bottom_search = true,
 				command_palette = true,

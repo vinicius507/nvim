@@ -1,5 +1,5 @@
 local opt = vim.opt
-local remap = require("myriad.keymaps").remap
+local remap = require("config.keymaps").remap
 
 remap("<Leader>fS", vim.cmd.source, {
 	buffer = vim.api.nvim_get_current_buf(),

@@ -1,87 +1,59 @@
 return {
 	"hrsh7th/nvim-cmp",
-	config = function()
+	---@param opts cmp.ConfigSchema
+	opts = function(_, opts)
 		local cmp = require("cmp")
 		local luasnip = require("luasnip")
-		local remap = require("myriad.keymaps").remap
+		local remap = require("config.keymaps").remap
 
-		cmp.setup({
-			completion = {
-				completeopt = "menu,menuone,noinsert"
-			},
-			enabled = function()
-				local context = require("cmp.config.context")
-				if vim.api.nvim_get_mode().mode == "c" then
-					return true
+		opts.sources = cmp.config.sources(vim.list_extend(opts.sources, { { name = "emoji" } }, 0, #opts.sources))
+		opts.formatting.fields = { "abbr", "kind" }
+		opts.formatting.format = function(entry, vim_item)
+			local kind = require("lspkind").cmp_format({ mode = "symbol_text", maxwidth = 50 })(entry, vim_item)
+			local strings = vim.split(kind.kind, "%s", { trimempty = true })
+
+			kind.kind = strings[1]
+
+			return kind
+		end
+		opts.mapping = {
+			["<Return>"] = cmp.mapping(function(fallback)
+				if cmp.visible() then
+					cmp.confirm()
 				else
-					local in_comment = context.in_syntax_group("Comment")
-					local in_tscomment = context.in_treesitter_capture("comment")
-					return not (in_comment or in_tscomment)
+					fallback()
 				end
-			end,
-			view = {
-				entries = {
-					name = "custom",
-					selection_order = "near_cursor",
-				},
-			},
-			formatting = {
-				fields = { "kind", "abbr" },
-				format = function(entry, vim_item)
-					local kind = require("lspkind").cmp_format({ mode = "symbol_text", maxwidth = 50 })(entry, vim_item)
-					local strings = vim.split(kind.kind, "%s", { trimempty = true })
-
-					kind.kind = strings[1]
-
-					return kind
-				end,
-			},
-			snippet = {
-				expand = function(args)
-					luasnip.lsp_expand(args.body)
-				end,
-			},
-			mapping = {
-				["<Return>"] = cmp.mapping(function(fallback)
-					if cmp.visible() then
+			end),
+			["<Tab>"] = cmp.mapping(function(fallback)
+				if cmp.visible() then
+					local entry = cmp.get_selected_entry()
+					if not entry then
+						cmp.select_next_item()
+					else
 						cmp.confirm()
-					else
-						fallback()
 					end
-				end),
-				["<Tab>"] = cmp.mapping(function(fallback)
-					if cmp.visible() then
-						local entry = cmp.get_selected_entry()
-						if not entry then
-							cmp.select_next_item()
-						else
-							cmp.confirm()
-						end
-					elseif luasnip.jumpable(1) then
-						luasnip.jump(1)
-					else
-						fallback()
-					end
-				end, { "i", "s" }),
-				["<S-Tab>"] = cmp.mapping(function(fallback)
-					if cmp.visible() then
-						cmp.select_prev_item()
-					elseif luasnip.jumpable(-1) then
-						luasnip.jump(-1)
-					else
-						fallback()
-					end
-				end, { "i", "s" }),
+				elseif luasnip.jumpable(1) then
+					luasnip.jump(1)
+				else
+					fallback()
+				end
+			end, { "i", "s" }),
+			["<S-Tab>"] = cmp.mapping(function(fallback)
+				if cmp.visible() then
+					cmp.select_prev_item()
+				elseif luasnip.jumpable(-1) then
+					luasnip.jump(-1)
+				else
+					fallback()
+				end
+			end, { "i", "s" }),
+		}
+		opts.view = {
+			entries = {
+				name = "custom",
+				selection_order = "near_cursor",
 			},
-			sources = cmp.config.sources({
-				{ name = "path" },
-				{ name = "emoji" },
-				{ name = "buffer" },
-				{ name = "luasnip" },
-				{ name = "nvim_lsp" },
-				{ name = "nvim_lua" },
-			}),
-		})
+		}
 
 		remap("<C-Space>", function()
 			if cmp.visible() then
@@ -95,11 +67,7 @@ return {
 		})
 	end,
 	dependencies = {
-		"hrsh7th/cmp-path",
 		"hrsh7th/cmp-emoji",
-		"hrsh7th/cmp-buffer",
-		"hrsh7th/cmp-nvim-lsp",
 		"onsails/lspkind.nvim",
-		"saadparwaiz1/cmp_luasnip",
 	},
 }
