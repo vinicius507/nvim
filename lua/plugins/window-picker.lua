@@ -1,6 +1,6 @@
 return {
 	"s1n7ax/nvim-window-picker",
-	tag = "v1.2",
+	tag = "v1.5",
 	keys = {
 		{
 			"<Leader>wp",
@@ -31,5 +31,8 @@ return {
 		opts.fg_color = colors.base
 		opts.current_win_hl_color = colors.red
 		opts.other_win_hl_color = colors.green
+		opts.selection_display = function(char)
+			return string.format("[%s] %s", char, "%f")
+		end
 	end,
 }
