@@ -3,7 +3,6 @@ local lazyvim = {
 	opts = {
 		colorscheme = "catppuccin",
 	},
-	dependencies = { "onsails/lspkind.nvim" },
 }
 
 local disabled_plugins = {
