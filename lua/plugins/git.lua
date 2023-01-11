@@ -72,38 +72,4 @@ return {
 		},
 		dependencies = { "nvim-lua/plenary.nvim" },
 	},
-	{
-		"TimUntersberger/neogit",
-		cmd = "Neogit",
-		keys = {
-			{
-				-- FIXME: conflicts with LazyVim LazyGit binding
-				"<Leader>gn",
-				function()
-					require("neogit").open()
-				end,
-				desc = "Neogit",
-			},
-			{
-				"<Leader>gC",
-				function()
-					require("neogit").open({ "commit" })
-				end,
-				desc = "Neogit commit",
-			},
-		},
-		opts = {
-			kind = "tab",
-			signs = {
-				section = { "", "" },
-				item = { "", "" },
-				hunk = { "", "" },
-			},
-			integrations = {
-				diffview = true,
-			},
-			disable_insert_on_commit = false,
-		},
-		dependencies = { "nvim-lua/plenary.nvim" },
-	},
 }
