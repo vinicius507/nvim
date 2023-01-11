@@ -19,7 +19,7 @@ opt.termguicolors = true
 opt.clipboard = "unnamedplus"
 
 opt.undofile = true
-opt.undodir = vim.fn.stdpath("cache") .. "undo"
+opt.undodir:append(vim.fn.stdpath("cache") .. "undo")
 
 opt.mouse = "a"
 
