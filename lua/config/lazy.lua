@@ -20,7 +20,6 @@ require("lazy").setup({
 	spec = {
 		{
 			"LazyVim/LazyVim",
-			dir = vim.fs.normalize("~/Code/LazyVim/"),
 			import = "lazyvim.plugins",
 		},
 		{ import = "plugins" },
