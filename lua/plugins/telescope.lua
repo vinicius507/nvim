@@ -29,6 +29,13 @@ return {
 			end,
 			desc = "Find in path",
 		},
+		{
+			"<Leader>fR",
+			function()
+				require("telescope").extensions.frecency.frecency()
+			end,
+			desc = "Find in .config/nvim",
+		},
 	},
 	opts = {
 		defaults = {
