@@ -56,6 +56,8 @@ return {
 			"python",
 			"comment",
 			"dockerfile",
+			"norg",
+			"norg_meta",
 		},
 		highlight = {
 			enable = true,
