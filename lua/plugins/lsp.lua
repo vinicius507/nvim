@@ -5,7 +5,17 @@ return {
 			---@type lspconfig.options
 			servers = {
 				bashls = {},
-				clangd = {},
+				clangd = {
+					on_new_config = function(config, _)
+						config.capabilities = vim.tbl_deep_extend("force", config.capabilities, {
+							offsetEncoding = "utf-16",
+						})
+					end,
+					on_attach = function(client)
+						client.server_capabilities.documentFormattingProvider = false
+						client.server_capabilities.documentRangeFormattingProvider = false
+					end,
+				},
 				dockerls = {},
 				jsonls = {
 					on_new_config = function(new_config)
@@ -50,6 +60,9 @@ return {
 		opts = function(_, opts)
 			local nls = require("null-ls")
 
+			opts.on_attach = function(client)
+				client.offset_encoding = "utf-16"
+			end
 			opts.sources = vim.list_extend(opts.sources, {
 				nls.builtins.formatting.black,
 				nls.builtins.formatting.stylua,
