@@ -20,6 +20,7 @@ return {
 					},
 				},
 			},
+			["core.export.markdown"] = {},
 			["core.integrations.nvim-cmp"] = {},
 		},
 	},
