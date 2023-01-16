@@ -4,7 +4,10 @@ return {
 	opts = function(_, opts)
 		local cmp = require("cmp")
 
-		opts.sources = cmp.config.sources(vim.list_extend(opts.sources, { { name = "emoji" } }, 0, #opts.sources))
+		opts.sources = cmp.config.sources(vim.list_extend(opts.sources, {
+			{ name = "emoji" },
+			{ name = "neorg" },
+		}, 0, #opts.sources))
 		opts.formatting.fields = { "abbr", "kind" }
 		opts.formatting.format = function(entry, vim_item)
 			local kind = require("lspkind").cmp_format({ mode = "symbol_text", maxwidth = 50 })(entry, vim_item)
