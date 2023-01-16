@@ -1,6 +1,7 @@
 local lazyvim = {
 	"LazyVim/LazyVim",
 	opts = {
+		autoformat = false,
 		colorscheme = "catppuccin",
 	},
 }
