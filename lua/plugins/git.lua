@@ -5,21 +5,20 @@ return {
 			current_line_blame = true,
 			on_attach = function(buffer)
 				local gs = package.loaded.gitsigns
-				local remap = require("config.keymaps").remap
 
-				remap("]h", gs.next_hunk, { buffer = buffer, desc = "Next hunk" })
-				remap("[h", gs.prev_hunk, { buffer = buffer, desc = "Prev hunk" })
-				remap("<Leader>gs", function()
+				vim.keymap.set("n", "]h", gs.next_hunk, { buffer = buffer, desc = "Next hunk" })
+				vim.keymap.set("n", "[h", gs.prev_hunk, { buffer = buffer, desc = "Prev hunk" })
+				vim.keymap.set("n", "<Leader>gs", function()
 					vim.cmd.Gitsigns("stage_hunk")
 				end, { desc = "Stage hunk" })
-				remap("<Leader>gr", function()
+				vim.keymap.set("n", "<Leader>gr", function()
 					vim.cmd.Gitsigns("reset_hunk")
 				end, { desc = "Reset hunk" })
-				remap("<Leader>gS", gs.stage_buffer, { buffer = buffer, desc = "Stage buffer" })
-				remap("<Leader>gu", gs.undo_stage_hunk, { buffer = buffer, desc = "Undo tage hunk" })
-				remap("<Leader>gR", gs.reset_buffer, { buffer = buffer, desc = "Reset buffer" })
-				remap("<Leader>gp", gs.preview_hunk, { buffer = buffer, desc = "Preview hunk" })
-				remap("<Leader>gb", function()
+				vim.keymap.set("n", "<Leader>gS", gs.stage_buffer, { buffer = buffer, desc = "Stage buffer" })
+				vim.keymap.set("n", "<Leader>gu", gs.undo_stage_hunk, { buffer = buffer, desc = "Undo tage hunk" })
+				vim.keymap.set("n", "<Leader>gR", gs.reset_buffer, { buffer = buffer, desc = "Reset buffer" })
+				vim.keymap.set("n", "<Leader>gp", gs.preview_hunk, { buffer = buffer, desc = "Preview hunk" })
+				vim.keymap.set("n", "<Leader>gb", function()
 					gs.blame_line({ full = true })
 				end, { buffer = buffer, desc = "Blame line" })
 			end,
