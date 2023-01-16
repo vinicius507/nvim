@@ -6,6 +6,7 @@ return {
 	opts = {
 		load = {
 			["core.defaults"] = {},
+			["core.export"] = {},
 			["core.norg.concealer"] = {},
 			["core.norg.completion"] = {
 				config = {
@@ -20,7 +21,6 @@ return {
 					},
 				},
 			},
-			["core.export.markdown"] = {},
 			["core.integrations.nvim-cmp"] = {},
 		},
 	},
