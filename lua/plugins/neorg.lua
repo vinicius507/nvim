@@ -7,7 +7,11 @@ return {
 		load = {
 			["core.defaults"] = {},
 			["core.export"] = {},
-			["core.presenter"] = {},
+			["core.presenter"] = {
+				config = {
+					zen_mode = "zen-mode",
+				},
+			},
 			["core.norg.concealer"] = {},
 			["core.norg.completion"] = {
 				config = {
@@ -26,6 +30,7 @@ return {
 		},
 	},
 	dependencies = {
+		"folke/zen-mode.nvim",
 		"nvim-lua/plenary.nvim",
 		"nvim-treesitter/nvim-treesitter",
 	},
