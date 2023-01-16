@@ -7,6 +7,7 @@ return {
 		load = {
 			["core.defaults"] = {},
 			["core.export"] = {},
+			["core.presenter"] = {},
 			["core.norg.concealer"] = {},
 			["core.norg.completion"] = {
 				config = {
