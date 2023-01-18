@@ -21,6 +21,7 @@ for key, direction in pairs(directions) do
 	local goto_desc = string.format("Goto window %s", direction)
 	local move_keys = string.format("<Leader>w%s", key:upper())
 	local move_desc = string.format("Move window %s", direction)
+
 	vim.keymap.set("n", goto_keys, function()
 		vim.cmd.wincmd(key)
 	end, { desc = goto_desc })
@@ -29,22 +30,26 @@ for key, direction in pairs(directions) do
 	end, { desc = move_desc })
 end
 
+-- Thanks to the primeagen for these gems
 -- Better Cursor positioning in search
-vim.keymap.set("n", "n", "nzzzv")
-vim.keymap.set("n", "N", "Nzzzv")
+vim.keymap.set("n", "n", "nzzzv", { silent = true })
+vim.keymap.set("n", "N", "Nzzzv", { silent = true })
+
 -- Better cursor positioning while joining lines
-vim.keymap.set("n", "J", "mzJ`z")
+vim.keymap.set("n", "J", "mzJ`z", { silent = true })
+
 -- Undo breakpoints
-vim.keymap.set("i", ",", ",<C-g>u")
-vim.keymap.set("i", ".", ".<C-g>u")
-vim.keymap.set("i", "!", "!<C-g>u")
-vim.keymap.set("i", "?", "?<C-g>u")
+vim.keymap.set("i", ",", ",<C-g>u", { silent = true })
+vim.keymap.set("i", ".", ".<C-g>u", { silent = true })
+vim.keymap.set("i", "!", "!<C-g>u", { silent = true })
+vim.keymap.set("i", "?", "?<C-g>u", { silent = true })
+
 -- Moving Text
-vim.keymap.set("v", ">", ">gv")
-vim.keymap.set("v", "<", "<gv")
-vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
-vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
-vim.keymap.set("i", "<C-j>", "<esc>:m .+1<CR>==a")
-vim.keymap.set("i", "<C-k>", "<esc>:m .-2<CR>==a")
+vim.keymap.set("v", ">", ">gv", { silent = true })
+vim.keymap.set("v", "<", "<gv", { silent = true })
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { silent = true })
+vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { silent = true })
+vim.keymap.set("i", "<C-j>", "<esc>:m .+1<CR>==a", { silent = true })
+vim.keymap.set("i", "<C-k>", "<esc>:m .-2<CR>==a", { silent = true })
 
 return M
