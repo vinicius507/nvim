@@ -1,5 +1,28 @@
 return {
 	{
+		"anuvyklack/windows.nvim",
+		event = "WinNew",
+		keys = {
+			{
+				"<Leader>wW",
+				vim.cmd.WindowsToggleAutowidth,
+				desc = "Zoom",
+			},
+			{
+				"<Leader>wZ",
+				vim.cmd.WindowsMaximize,
+				desc = "Zoom",
+			},
+			{
+				"<Leader>w=",
+				vim.cmd.WindowsEqualize,
+				desc = "Equalize windows",
+			},
+		},
+		opts = true,
+		dependencies = { "anuvyklack/middleclass" },
+	},
+	{
 		"rcarriga/nvim-notify",
 		opts = {
 			background_colour = "NormalFloat",
