@@ -14,7 +14,10 @@ return {
 			"<Leader>fp",
 			function()
 				vim.ui.input(
-					{ prompt = "Path: " },
+					{
+						prompt = "Path: ",
+						completion = "dir",
+					},
 					---@param path string?
 					function(path)
 						if path == nil then
