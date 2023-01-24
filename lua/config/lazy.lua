@@ -22,6 +22,7 @@ require("lazy").setup({
 			"LazyVim/LazyVim",
 			import = "lazyvim.plugins",
 		},
+		{ import = "lazyvim.plugins.extras.lang.json" },
 		{ import = "plugins" },
 		{
 			"vinicius507/42Lazy",
