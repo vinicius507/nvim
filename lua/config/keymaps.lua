@@ -2,34 +2,6 @@ vim.g.mapleader = " "
 
 local M = {}
 
--- Buffer mappings
-vim.keymap.set("n", "<Leader>bk", vim.cmd.bdelete, { desc = "Kill buffer" })
-
--- Window mappings
-vim.keymap.set("n", "<Leader>ws", vim.cmd.split, { desc = "Split window" })
-vim.keymap.set("n", "<Leader>wv", vim.cmd.vsplit, { desc = "Split window vertically" })
-vim.keymap.set("n", "<Leader>wq", vim.cmd.quit, { desc = "Close window" })
-
-local directions = {
-	j = "up",
-	k = "down",
-	h = "left",
-	l = "right",
-}
-for key, direction in pairs(directions) do
-	local goto_keys = string.format("<Leader>w%s", key)
-	local goto_desc = string.format("Goto window %s", direction)
-	local move_keys = string.format("<Leader>w%s", key:upper())
-	local move_desc = string.format("Move window %s", direction)
-
-	vim.keymap.set("n", goto_keys, function()
-		vim.cmd.wincmd(key)
-	end, { desc = goto_desc })
-	vim.keymap.set("n", move_keys, function()
-		vim.cmd.wincmd(key:upper())
-	end, { desc = move_desc })
-end
-
 -- Thanks to the primeagen for these gems
 -- Better Cursor positioning in search
 vim.keymap.set("n", "n", "nzzzv", { silent = true })
