@@ -37,7 +37,7 @@ return {
 			function()
 				require("telescope").extensions.frecency.frecency()
 			end,
-			desc = "Find in .config/nvim",
+			desc = "Frecency",
 		},
 	},
 	opts = {
