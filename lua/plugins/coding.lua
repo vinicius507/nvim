@@ -1,23 +1,5 @@
 return {
 	{
-		"phaazon/hop.nvim",
-		keys = {
-			{
-				"gs<Space>",
-				function()
-					require("hop").hint_char2()
-				end,
-				desc = "Hop to bigram",
-			},
-		},
-		opts = {
-			case_insensitive = true,
-			create_hl_autocmd = false,
-			uppercase_labels = false,
-			multi_windows = true,
-		},
-	},
-	{
 		"L3MON4D3/LuaSnip",
 		config = function()
 			require("luasnip.loaders.from_vscode").lazy_load()
