@@ -14,6 +14,7 @@ return {
 				gitsigns = true,
 			},
 		},
+		dependencies = { "folke/twilight.nvim" },
 	},
 	{
 		"nvim-neorg/neorg",
