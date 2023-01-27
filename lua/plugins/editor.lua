@@ -1,5 +1,11 @@
 return {
 	{
+		"mateusbraga/vim-spell-pt-br",
+		init = function()
+			vim.opt.spelllang:append("pt_br")
+		end,
+	},
+	{
 		"nvim-neo-tree/neo-tree.nvim",
 		opts = {
 			sort_case_insensitive = true,
@@ -152,49 +158,43 @@ return {
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 	},
 	{
-		"sindrets/diffview.nvim",
+		"s1n7ax/nvim-window-picker",
+		tag = "v1.5",
 		keys = {
 			{
-				"<Leader>gd",
+				"<Leader>wp",
 				function()
-					vim.cmd.DiffviewOpen("-uno")
+					require("window-picker").pick_window()
 				end,
-				desc = "Diff",
+				desc = "Pick window",
 			},
-			{
-				"<Leader>gD",
-				function()
-					vim.ui.input(
-						{
-							prompt = "Git rev: ",
-							completion = function()
-								return { "test" }
-							end,
+		},
+		opts = function()
+			local colors = require("catppuccin.palettes").get_palette()
+
+			return {
+				autoselect_one = true,
+				include_current_win = true,
+				filter_rules = {
+					bo = {
+						filetype = {
+							"neo-tree",
+							"neo-tree-popup",
+							"notify",
 						},
-						---@param rev string?
-						function(rev)
-							if rev == nil or rev == "" then
-								return
-							end
-							vim.cmd.DiffviewOpen(rev, "--cached")
-						end
-					)
+						buftype = {
+							"quickfix",
+							"terminal",
+						},
+					},
+				},
+				fg_color = colors.base,
+				current_win_hl_color = colors.red,
+				other_win_hl_color = colors.green,
+				selection_display = function(char)
+					return string.format("[%s] %s", char, "%f")
 				end,
-				desc = "Diff rev",
-			},
-		},
-		opts = {
-			keymaps = {
-				view = { q = vim.cmd.DiffviewClose },
-				file_panel = { q = vim.cmd.DiffviewClose },
-			},
-			hooks = {
-				diff_buf_read = function()
-					vim.opt_local.list = false
-					vim.opt_local.wrap = false
-				end,
-			},
-		},
-		dependencies = { "nvim-lua/plenary.nvim" },
+			}
+		end,
 	},
 }
