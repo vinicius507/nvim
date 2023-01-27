@@ -14,7 +14,7 @@ return {
 				function()
 					require("neogen").generate({})
 				end,
-				desc = "Comment annotation",
+				desc = "Comment Annotation",
 			},
 		},
 		opts = {
