@@ -1,5 +1,11 @@
 return {
 	{
+		"akinsho/bufferline.nvim",
+		opts = function(_, opts)
+			opts.highlights = require("catppuccin.groups.integrations.bufferline").get()
+		end,
+	},
+	{
 		"b0o/incline.nvim",
 		event = "BufReadPre",
 		opts = function()
