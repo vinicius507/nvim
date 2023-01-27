@@ -28,17 +28,12 @@ return {
 		"ThePrimeagen/refactoring.nvim",
 		keys = {
 			{
-				"<Leader>r",
-				mode = "v",
-				desc = "Refactoring",
-			},
-			{
-				"<Leader>rp",
+				"<Leader>cR",
 				function()
 					require("refactoring").select_refactor()
 				end,
 				mode = "v",
-				desc = "Prompt",
+				desc = "Refactor",
 			},
 		},
 		opts = function()
