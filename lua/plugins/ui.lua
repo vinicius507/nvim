@@ -39,7 +39,7 @@ return {
 			{
 				"<Leader>wW",
 				vim.cmd.WindowsToggleAutowidth,
-				desc = "Zoom",
+				desc = "Toggle auto width",
 			},
 			{
 				"<Leader>wZ",
