@@ -51,6 +51,7 @@ return {
 			"lua",
 			"json",
 			"bash",
+			"fish",
 			"toml",
 			"yaml",
 			"python",
