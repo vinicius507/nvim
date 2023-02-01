@@ -28,7 +28,7 @@ return {
 		"ThePrimeagen/refactoring.nvim",
 		keys = {
 			{
-				"<Leader>cR",
+				"<Leader>cr",
 				function()
 					require("refactoring").select_refactor()
 				end,
