@@ -53,6 +53,7 @@ return {
 			end
 			opts.sources = vim.list_extend(opts.sources, {
 				nls.builtins.formatting.black,
+				nls.builtins.formatting.isort,
 				nls.builtins.formatting.stylua,
 
 				nls.builtins.code_actions.gitsigns,
