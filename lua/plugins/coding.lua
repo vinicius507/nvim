@@ -65,6 +65,13 @@ return {
 			local cmp = require("cmp")
 			local neogen = require("neogen")
 
+			opts.window = {
+				completion = {
+					col_offset = -3,
+					side_padding = 0,
+					winhighlight = "Normal:Pmenu,FloatBorder:Pmenu,Search:None",
+				},
+			}
 			opts.sources = cmp.config.sources(vim.list_extend(opts.sources, {
 				{ name = "emoji" },
 				{ name = "neorg" },
@@ -83,14 +90,22 @@ return {
 					fallback()
 				end
 			end)
-			opts.formatting.fields = { "abbr", "kind" }
+			opts.formatting.fields = {
+				cmp.ItemField.Kind,
+				cmp.ItemField.Abbr,
+				cmp.ItemField.Menu,
+			}
+			---@param entry cmp.Entry
+			---@param vim_item vim.CompletedItem
 			opts.formatting.format = function(entry, vim_item)
-				local kind = require("lspkind").cmp_format({ mode = "symbol_text", maxwidth = 50 })(entry, vim_item)
-				local strings = vim.split(kind.kind, "%s", { trimempty = true })
+				local item = require("lspkind").cmp_format({
+					mode = "symbol_text",
+					maxwidth = 50,
+				})(entry, vim_item)
 
-				kind.kind = strings[1]
+				item.kind = string.format(" %s ", vim.split(item.kind, "%s", { trimempty = true })[1])
 
-				return kind
+				return item
 			end
 			opts.view = {
 				entries = {
