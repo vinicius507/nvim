@@ -30,7 +30,7 @@ return {
 					},
 				},
 				yamlls = {},
-				sumneko_lua = {
+				lua_ls = {
 					settings = {
 						Lua = {
 							workspace = { checkThirdParty = false },
