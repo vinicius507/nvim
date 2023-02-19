@@ -55,6 +55,7 @@ return {
 				nls.builtins.formatting.black,
 				nls.builtins.formatting.isort,
 				nls.builtins.formatting.stylua,
+				nls.builtins.formatting.prettierd,
 
 				nls.builtins.code_actions.gitsigns,
 			}, 0, #opts.sources)
