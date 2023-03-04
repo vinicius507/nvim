@@ -4,6 +4,7 @@ return {
 		opts = {
 			---@type lspconfig.options
 			servers = {
+				astro = {},
 				bashls = {},
 				clangd = {
 					on_new_config = function(config, _)
