@@ -37,5 +37,7 @@ opt.shortmess:append("c")
 
 opt.fillchars:append("eob: ")
 
+opt.conceallevel = 2
+
 -- NOTE: Neovide
 opt.guifont = "JetBrainsMono Nerd Font Mono"

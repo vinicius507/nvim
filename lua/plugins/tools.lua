@@ -1,3 +1,4 @@
+---@type LazySpec[]
 return {
 	{
 		"folke/zen-mode.nvim",
@@ -142,6 +143,92 @@ return {
 				mode = "background",
 				virtualtext = "■",
 			},
+		},
+	},
+	{
+		"epwalsh/obsidian.nvim",
+		ft = "markdown",
+		cmd = {
+			"ObsidianNew",
+			"ObsidianOpen",
+			"ObsidianToday",
+			"ObsidianYesterday",
+			"ObsidianSearch",
+			"ObsidianQuickSwitch",
+		},
+		keys = {
+			{
+				"<Leader>on",
+				vim.cmd.ObsidianNew,
+				desc = "New note",
+			},
+			{
+				"<Leader>ot",
+				vim.cmd.ObsidianToday,
+				desc = "Open today's note",
+			},
+			{
+				"<Leader>oy",
+				vim.cmd.ObsidianYesterday,
+				desc = "Open yesterday's note",
+			},
+			{
+				"<Leader>op",
+				vim.cmd.ObsidianOpen,
+				desc = "View in Obsidian",
+			},
+			{
+				"<Leader>ob",
+				vim.cmd.ObsidianBacklinks,
+				desc = "Backlinks",
+			},
+			{
+				"<Leader>fo",
+				vim.cmd.ObsidianQuickSwitch,
+				desc = "Find Note",
+			},
+			{
+				"<Leader>og",
+				vim.cmd.ObsidianSearch,
+				desc = "Find in Notes",
+			},
+			{
+				"<Leader>ol",
+				vim.cmd.ObsidianLink,
+				desc = "Link to note",
+			},
+			{
+				"<Leader>oL",
+				vim.cmd.ObsidianLink,
+				desc = "Link to new note",
+			},
+		},
+		---@type obsidian.config.ClientOpts
+		opts = {
+			dir = vim.fn.expand("$HOME/Documents/myriad"),
+			daily_notes = {
+				folder = "journal",
+			},
+			---@param title string?
+			---@see https://github.com/epwalsh/obsidian.nvim#customizing-note-paths-and-ids
+			note_id_func = function(title)
+				-- Create note IDs in a Zettelkasten format with a timestamp and a suffix.
+				local suffix = ""
+				if title ~= nil then
+					-- If title is given, transform it into valid file name.
+					suffix = title:gsub(" ", "-"):gsub("[^A-Za-z0-9-]", ""):lower()
+				else
+					-- If title is nil, just add 4 random uppercase letters to the suffix.
+					for _ = 1, 4 do
+						suffix = suffix .. string.char(math.random(65, 90))
+					end
+				end
+				return tostring(os.time()) .. "-" .. suffix
+			end,
+			completion = {
+				nvim_cmp = true,
+			},
+			use_advanced_uri = true,
 		},
 	},
 }
