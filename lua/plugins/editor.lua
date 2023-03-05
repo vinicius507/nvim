@@ -73,15 +73,6 @@ return {
 					},
 				},
 			},
-			pickers = {
-				buffers = {
-					theme = "ivy",
-					previewer = false,
-					layout_config = {
-						height = 15,
-					},
-				},
-			},
 			extensions = {
 				fzy_native = {
 					override_generic_sorter = false,
