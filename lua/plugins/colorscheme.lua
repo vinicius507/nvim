@@ -20,6 +20,7 @@ return {
 				enabled = true,
 				colored_indent_levels = true,
 			},
+			leap = true,
 			lsp_trouble = true,
 			markdown = true,
 			native_lsp = {
