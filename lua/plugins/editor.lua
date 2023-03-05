@@ -64,14 +64,6 @@ return {
 				prompt_prefix = "  ",
 				selection_caret = " ",
 				color_devicons = true,
-				mappings = {
-					i = {
-						["<C-x>"] = false,
-					},
-					n = {
-						["<C-x>"] = false,
-					},
-				},
 			},
 			extensions = {
 				fzy_native = {
