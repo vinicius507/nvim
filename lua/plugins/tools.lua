@@ -112,16 +112,6 @@ return {
 				vim.cmd.ObsidianYesterday,
 			},
 			{
-				"<Leader>op",
-				vim.cmd.ObsidianOpen,
-				desc = "View in Obsidian",
-			},
-			{
-				"<Leader>ob",
-				vim.cmd.ObsidianBacklinks,
-				desc = "Backlinks",
-			},
-			{
 				"<Leader>fo",
 				vim.cmd.ObsidianQuickSwitch,
 				desc = "Find Note",
@@ -130,16 +120,6 @@ return {
 				"<Leader>og",
 				vim.cmd.ObsidianSearch,
 				desc = "Find in Notes",
-			},
-			{
-				"<Leader>ol",
-				vim.cmd.ObsidianLink,
-				desc = "Link to note",
-			},
-			{
-				"<Leader>oL",
-				vim.cmd.ObsidianLink,
-				desc = "Link to new note",
 			},
 		},
 		---@type obsidian.config.ClientOpts
