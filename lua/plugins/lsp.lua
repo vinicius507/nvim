@@ -2,21 +2,14 @@ return {
 	{
 		"neovim/nvim-lspconfig",
 		opts = {
+			diagnostics = {
+				update_in_insert = true,
+			},
 			---@type lspconfig.options
 			servers = {
 				astro = {},
 				bashls = {},
-				clangd = {
-					on_new_config = function(config, _)
-						config.capabilities = vim.tbl_deep_extend("force", config.capabilities, {
-							offsetEncoding = "utf-16",
-						})
-					end,
-					on_attach = function(client)
-						client.server_capabilities.documentFormattingProvider = false
-						client.server_capabilities.documentRangeFormattingProvider = false
-					end,
-				},
+				clangd = {},
 				dockerls = {},
 				pylsp = {},
 				rust_analyzer = {
@@ -41,6 +34,11 @@ return {
 					},
 				},
 				vimls = {},
+			},
+			setup = {
+				clangd = function(_, opts)
+					opts.capabilities.offsetEncoding = { "utf-16" }
+				end,
 			},
 		},
 	},
