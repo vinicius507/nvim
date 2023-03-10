@@ -51,6 +51,8 @@ return {
 				client.offset_encoding = "utf-16"
 			end
 			opts.sources = vim.list_extend(opts.sources, {
+				nls.builtins.diagnostics.eslint,
+
 				nls.builtins.formatting.black,
 				nls.builtins.formatting.isort,
 				nls.builtins.formatting.stylua,
@@ -59,5 +61,16 @@ return {
 				nls.builtins.code_actions.gitsigns,
 			}, 0, #opts.sources)
 		end,
+		dependencies = {
+			"williamboman/mason.nvim",
+			{
+				"jay-babu/mason-null-ls.nvim",
+				opts = {
+					ensure_installed = nil,
+					automatic_installation = true,
+					automatic_setup = false,
+				},
+			},
+		},
 	},
 }
