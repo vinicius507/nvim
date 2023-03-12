@@ -20,6 +20,10 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
 			buffer = event.buf,
 			desc = "Linke to new note",
 		})
+		vim.keymap.set("n", "<Leader>oT", vim.cmd.ObsidianTemplate, {
+			buffer = event.buf,
+			desc = "Insert template",
+		})
 	end,
 	desc = "Obsidian Keymaps",
 })

@@ -85,7 +85,7 @@ return {
 		},
 	},
 	{
-		"epwalsh/obsidian.nvim",
+		"s-cassidy/obsidian.nvim", -- Temporary
 		ft = "markdown",
 		cmd = {
 			"ObsidianNew",
@@ -133,6 +133,9 @@ return {
 			dir = vim.fn.expand("$HOME/Documents/myriad"),
 			daily_notes = {
 				folder = "journal",
+			},
+			templates = {
+				subdir = "templates",
 			},
 			---@param title string?
 			---@see https://github.com/epwalsh/obsidian.nvim#customizing-note-paths-and-ids
