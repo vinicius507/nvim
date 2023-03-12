@@ -16,7 +16,7 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
 			buffer = event.buf,
 			desc = "Linke to note",
 		})
-		vim.keymap.set("x", "<Leader>ol", vim.cmd.ObsidianLinkNew, {
+		vim.keymap.set("x", "<Leader>oL", vim.cmd.ObsidianLinkNew, {
 			buffer = event.buf,
 			desc = "Linke to new note",
 		})
