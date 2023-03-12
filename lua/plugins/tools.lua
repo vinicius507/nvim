@@ -98,7 +98,13 @@ return {
 		keys = {
 			{
 				"<Leader>on",
-				vim.cmd.ObsidianNew,
+				function()
+					vim.ui.input({
+						prompt = "Note title",
+					}, function(input)
+						vim.cmd.ObsidianNew(input)
+					end)
+				end,
 				desc = "New note",
 			},
 			{
