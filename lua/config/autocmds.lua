@@ -2,7 +2,10 @@ local obsidian = vim.api.nvim_create_augroup("obsidian", { clear = true })
 
 vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
 	group = obsidian,
-	pattern = vim.fn.expand("$HOME") .. "/Documents/myriad/**/*.md",
+	pattern = {
+		vim.fn.expand("$HOME") .. "/Documents/myriad/*.md",
+		vim.fn.expand("$HOME") .. "/Documents/myriad/**/*.md",
+	},
 	callback = function(event)
 		vim.keymap.set("n", "<Leader>op", vim.cmd.ObsidianOpen, {
 			buffer = event.buf,
