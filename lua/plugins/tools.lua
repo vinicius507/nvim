@@ -131,6 +131,7 @@ return {
 		---@type obsidian.config.ClientOpts
 		opts = {
 			dir = vim.fn.expand("$HOME/Documents/myriad"),
+			notes_subdir = "Projects",
 			daily_notes = {
 				folder = "journal",
 			},
