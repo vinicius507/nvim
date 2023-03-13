@@ -114,7 +114,7 @@ return {
 						find = ".*Obsidian.*",
 						event = "msg_show",
 					},
-					view = "notify",
+					opts = { skip = true },
 				},
 				{
 					filter = { event = "msg_showmode" },
