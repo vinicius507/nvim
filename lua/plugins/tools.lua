@@ -85,7 +85,7 @@ return {
 		},
 	},
 	{
-		"s-cassidy/obsidian.nvim", -- Temporary
+		"epwalsh/obsidian.nvim",
 		ft = "markdown",
 		cmd = {
 			"ObsidianNew",
