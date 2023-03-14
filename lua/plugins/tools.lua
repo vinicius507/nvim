@@ -133,10 +133,10 @@ return {
 			dir = vim.fn.expand("$HOME/Documents/myriad"),
 			notes_subdir = "Projects",
 			daily_notes = {
-				folder = "journal",
+				folder = "Journal",
 			},
 			templates = {
-				subdir = "templates",
+				subdir = "Templates",
 			},
 			---@param title string?
 			---@see https://github.com/epwalsh/obsidian.nvim#customizing-note-paths-and-ids
