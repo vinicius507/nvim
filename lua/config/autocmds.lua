@@ -1,4 +1,5 @@
 local obsidian = vim.api.nvim_create_augroup("obsidian", { clear = true })
+local no_autoformat = vim.api.nvim_create_augroup("no_autoformat", { clear = true })
 
 vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
 	group = obsidian,
@@ -33,4 +34,15 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
 		})
 	end,
 	desc = "Obsidian Keymaps",
+})
+
+vim.api.nvim_create_autocmd({ "FileType" }, {
+	group = no_autoformat,
+	pattern = {
+		"c",
+		"cpp",
+	},
+	callback = function(_)
+		vim.b.autoformat = false
+	end,
 })
