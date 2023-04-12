@@ -17,8 +17,12 @@ return {
 			"markdown",
 			"markdown_inline",
 		},
+		autotag = {
+			enable = true,
+		},
 		highlight = {
 			enable = true,
 		},
 	},
+	dependencies = { "windwp/nvim-ts-autotag" },
 }
