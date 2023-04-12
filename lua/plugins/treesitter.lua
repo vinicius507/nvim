@@ -1,21 +1,25 @@
 return {
 	"nvim-treesitter/nvim-treesitter",
 	build = ":TSUpdate",
+	---@type TSConfig
 	opts = {
 		ensure_installed = {
-			"c",
-			"lua",
-			"json",
 			"bash",
-			"fish",
-			"toml",
-			"yaml",
-			"python",
+			"c",
+			"cpp",
+			"css",
 			"comment",
 			"dockerfile",
-			"norg",
+			"fish",
+			"go",
+			"json",
+			"lua",
+			"luadoc",
 			"markdown",
 			"markdown_inline",
+			"python",
+			"toml",
+			"yaml",
 		},
 		autotag = {
 			enable = true,
