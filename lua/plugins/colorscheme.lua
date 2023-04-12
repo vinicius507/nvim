@@ -3,7 +3,7 @@ return {
 	name = "catppuccin",
 	build = ":CatppuccinCompile",
 	opts = {
-		flavour = "mocha",
+		flavour = "macchiato",
 		term_colors = true,
 		styles = {
 			comments = { "italic" },
