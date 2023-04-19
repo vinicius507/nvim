@@ -20,6 +20,7 @@ return {
 			"python",
 			"toml",
 			"yaml",
+			"yuck",
 		},
 		autotag = {
 			enable = true,
