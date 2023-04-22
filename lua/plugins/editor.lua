@@ -1,5 +1,6 @@
 return {
 	{ "elkowar/yuck.vim" },
+	{ "LnL7/vim-nix" },
 	{
 		"mateusbraga/vim-spell-pt-br",
 		init = function()
