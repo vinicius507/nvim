@@ -17,6 +17,7 @@ return {
 			"luadoc",
 			"markdown",
 			"markdown_inline",
+			"nix",
 			"python",
 			"toml",
 			"yaml",
