@@ -27,9 +27,7 @@ require("lazy").setup({
 		{ import = "plugins" },
 		{
 			"vinicius507/42Lazy",
-			dir = "~/Code/42Lazy/",
 			import = "ft-lazy.plugins",
-			dev = true,
 			opts = {
 				header = {
 					login = "vgoncalv",
