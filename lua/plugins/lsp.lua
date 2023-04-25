@@ -62,4 +62,5 @@ return {
 			}, 0, #opts.sources)
 		end,
 	},
+	{ "mason-lspconfig.nvim", enabled = false },
 }
