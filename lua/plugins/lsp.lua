@@ -61,16 +61,5 @@ return {
 				nls.builtins.code_actions.gitsigns,
 			}, 0, #opts.sources)
 		end,
-		dependencies = {
-			"williamboman/mason.nvim",
-			{
-				"jay-babu/mason-null-ls.nvim",
-				opts = {
-					ensure_installed = nil,
-					automatic_installation = true,
-					automatic_setup = false,
-				},
-			},
-		},
 	},
 }
