@@ -24,15 +24,6 @@ return {
 					},
 				},
 				yamlls = {},
-				lua_ls = {
-					settings = {
-						Lua = {
-							workspace = { checkThirdParty = false },
-							completion = { callSnippet = "Replace" },
-							format = { enable = false },
-						},
-					},
-				},
 				rnix = {},
 				vimls = {},
 			},
@@ -63,5 +54,6 @@ return {
 			}, 0, #opts.sources)
 		end,
 	},
+	{ "mason.nvim", enabled = false },
 	{ "mason-lspconfig.nvim", enabled = false },
 }
