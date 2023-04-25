@@ -33,6 +33,7 @@ return {
 						},
 					},
 				},
+				rnix = {},
 				vimls = {},
 			},
 			setup = {
