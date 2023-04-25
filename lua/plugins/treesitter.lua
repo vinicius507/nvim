@@ -3,26 +3,7 @@ return {
 	build = ":TSUpdate",
 	---@type TSConfig
 	opts = {
-		ensure_installed = {
-			"bash",
-			"c",
-			"cpp",
-			"css",
-			"comment",
-			"dockerfile",
-			"fish",
-			"go",
-			"json",
-			"lua",
-			"luadoc",
-			"markdown",
-			"markdown_inline",
-			"nix",
-			"python",
-			"toml",
-			"yaml",
-			"yuck",
-		},
+		ensure_installed = {},
 		autotag = {
 			enable = true,
 		},
