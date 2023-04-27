@@ -107,9 +107,18 @@ return {
 
 				vim.keymap.set("n", "]h", gs.next_hunk, { buffer = buffer, desc = "Next hunk" })
 				vim.keymap.set("n", "[h", gs.prev_hunk, { buffer = buffer, desc = "Prev hunk" })
-				vim.keymap.set("n", "<Leader>gs", function()
-					vim.cmd.Gitsigns("stage_hunk")
-				end, { desc = "Stage hunk" })
+				vim.keymap.set({ "n", "v" }, "<Leader>gs", function()
+					local mode = vim.api.nvim_get_mode()
+
+					if mode.mode == "n" then
+						gs.stage_hunk()
+						return
+					end
+
+					local range = { vim.fn.line("."), vim.fn.line("v") }
+
+					gs.stage_hunk(range, { greedy = false })
+				end, { desc = "stage hunk" })
 				vim.keymap.set("n", "<Leader>gr", function()
 					vim.cmd.Gitsigns("reset_hunk")
 				end, { desc = "Reset hunk" })
