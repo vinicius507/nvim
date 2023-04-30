@@ -10,6 +10,7 @@ return {
 				astro = {},
 				bashls = {},
 				clangd = {},
+				cssls = { cmd = { "css-languageserver", "--stdio" } },
 				dockerls = {},
 				pylsp = {},
 				rust_analyzer = {
