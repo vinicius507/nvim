@@ -111,8 +111,8 @@ return {
 				},
 				{
 					filter = {
-						find = ".*Obsidian.*",
-						event = "msg_show",
+						find = "Updated frontmatter",
+						event = "notify",
 					},
 					opts = { skip = true },
 				},
