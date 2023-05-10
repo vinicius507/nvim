@@ -135,12 +135,18 @@ return {
 	},
 	{
 		"s1n7ax/nvim-window-picker",
-		tag = "v1.5",
+		version = "*",
 		keys = {
 			{
 				"<Leader>wp",
 				function()
-					require("window-picker").pick_window()
+					local id = require("window-picker").pick_window()
+
+					if not id then
+						return
+					end
+
+					vim.api.nvim_set_current_win(id)
 				end,
 				desc = "Pick window",
 			},
