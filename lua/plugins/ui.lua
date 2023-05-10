@@ -56,15 +56,6 @@ return {
 				command_palette = true,
 				lsp_doc_border = true,
 			},
-			cmdline = {
-				format = {
-					python = {
-						pattern = "python ",
-						icon = "",
-						lang = "python",
-					},
-				},
-			},
 			lsp = {
 				override = {
 					["vim.lsp.util.convert_input_to_markdown_lines"] = true,
@@ -76,22 +67,11 @@ return {
 				{
 					filter = {
 						any = {
-							{ find = "%d+L, %d+B" },
+							{ find = "%d+L, %d+B", event = "msg_show" },
+							{ find = "Updated frontmatter", event = "notify" },
 						},
-						event = "msg_show",
 					},
 					opts = { skip = true },
-				},
-				{
-					filter = {
-						find = "Updated frontmatter",
-						event = "notify",
-					},
-					opts = { skip = true },
-				},
-				{
-					filter = { event = "msg_showmode" },
-					view = "notify",
 				},
 				{
 					filter = {
