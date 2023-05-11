@@ -1,3 +1,4 @@
+---@type LazyPlugin[]
 return {
 	{ "elkowar/yuck.vim" },
 	{ "LnL7/vim-nix" },
@@ -6,6 +7,13 @@ return {
 		init = function()
 			vim.opt.spelllang:append("pt_br")
 		end,
+	},
+	{
+		"chrisgrieser/nvim-early-retirement",
+		event = "VeryLazy",
+		opts = {
+			retirementAgeMins = 10,
+		},
 	},
 	{
 		"nvim-neo-tree/neo-tree.nvim",
