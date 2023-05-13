@@ -55,8 +55,16 @@ return {
 			routes = {
 				{
 					filter = {
-						find = "Updated frontmatter",
-						event = "notify",
+						any = {
+							{
+								find = "%d+L, %d+B",
+								event = "msg_show",
+							},
+							{
+								find = "Updated frontmatter",
+								event = "notify",
+							},
+						},
 					},
 					view = "mini",
 				},
