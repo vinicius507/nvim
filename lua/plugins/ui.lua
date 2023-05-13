@@ -51,18 +51,7 @@ return {
 	{
 		"folke/noice.nvim",
 		opts = {
-			presets = {
-				bottom_search = true,
-				command_palette = true,
-				lsp_doc_border = true,
-			},
-			lsp = {
-				override = {
-					["vim.lsp.util.convert_input_to_markdown_lines"] = true,
-					["vim.lsp.util.stylize_markdown"] = true,
-					["cmp.entry.get_documentation"] = true,
-				},
-			},
+			presets = { lsp_doc_border = true },
 			routes = {
 				{
 					filter = {
@@ -71,14 +60,7 @@ return {
 							{ find = "Updated frontmatter", event = "notify" },
 						},
 					},
-					opts = { skip = true },
-				},
-				{
-					filter = {
-						min_height = 6,
-						event = "msg_show",
-					},
-					view = "messages",
+					view = "mini",
 				},
 				{
 					filter = {
