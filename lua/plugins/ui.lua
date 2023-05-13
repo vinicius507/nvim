@@ -55,10 +55,8 @@ return {
 			routes = {
 				{
 					filter = {
-						any = {
-							{ find = "%d+L, %d+B", event = "msg_show" },
-							{ find = "Updated frontmatter", event = "notify" },
-						},
+						find = "Updated frontmatter",
+						event = "notify",
 					},
 					view = "mini",
 				},
