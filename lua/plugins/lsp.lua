@@ -50,6 +50,7 @@ return {
 				nls.builtins.formatting.isort,
 				nls.builtins.formatting.stylua,
 				nls.builtins.formatting.prettier,
+				nls.builtins.formatting.alejandra,
 
 				nls.builtins.code_actions.gitsigns,
 			}, 0, #opts.sources)
