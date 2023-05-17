@@ -25,7 +25,7 @@ return {
 					},
 				},
 				yamlls = {},
-				rnix = {},
+				nil_ls = {},
 				vimls = {},
 			},
 			setup = {
