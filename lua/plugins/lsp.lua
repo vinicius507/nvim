@@ -53,7 +53,7 @@ return {
 				nls.builtins.formatting.alejandra,
 
 				nls.builtins.code_actions.gitsigns,
-			}, 0, #opts.sources)
+			})
 		end,
 	},
 	{ "mason.nvim", enabled = false },
