@@ -60,13 +60,6 @@ return {
 				end,
 				desc = "Find in path",
 			},
-			{
-				"<Leader>fR",
-				function()
-					require("telescope").extensions.frecency.frecency()
-				end,
-				desc = "Frecency",
-			},
 		},
 		opts = {
 			defaults = {
@@ -96,13 +89,11 @@ return {
 			local telescope = require("telescope")
 
 			telescope.setup(opts)
-			telescope.load_extension("frecency")
 			telescope.load_extension("fzy_native")
 		end,
 		dependencies = {
 			"tami5/sqlite.lua",
 			"nvim-lua/plenary.nvim",
-			"nvim-telescope/telescope-frecency.nvim",
 			"nvim-telescope/telescope-fzy-native.nvim",
 		},
 	},
