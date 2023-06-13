@@ -1,23 +1,6 @@
 ---@type LazySpec[]
 return {
 	{
-		"folke/zen-mode.nvim",
-		cmd = "ZenMode",
-		keys = {
-			{
-				"<Leader>z",
-				vim.cmd.ZenMode,
-				desc = "Zen mode",
-			},
-		},
-		opts = {
-			plugins = {
-				gitsigns = true,
-			},
-		},
-		dependencies = { "folke/twilight.nvim" },
-	},
-	{
 		"sindrets/diffview.nvim",
 		keys = {
 			{
@@ -82,92 +65,6 @@ return {
 				mode = "background",
 				virtualtext = "■",
 			},
-		},
-	},
-	{
-		"epwalsh/obsidian.nvim",
-		ft = "markdown",
-		cmd = {
-			"ObsidianNew",
-			"ObsidianOpen",
-			"ObsidianToday",
-			"ObsidianYesterday",
-			"ObsidianSearch",
-			"ObsidianQuickSwitch",
-		},
-		keys = function(plugin)
-			return {
-				{
-					"<Leader>on",
-					function()
-						vim.ui.select({ "Note", "Reference", "Project" }, {
-							prompt = "[Obsidian] New",
-							format_item = function(item)
-								return string.format("New %s", item)
-							end,
-						}, function(choice)
-							if choice == nil then
-								return
-							end
-
-							local client = require("obsidian").new(plugin.opts)
-
-							vim.ui.input({ prompt = string.format("%s title", choice) }, function(input)
-								if input == nil then
-									return
-								end
-
-								local title = input
-								local id = choice == "Project" and title or nil
-								local dir = string.format("%s/%ss", plugin.opts.dir, choice)
-
-								---@type obsidian.Note
-								local note = client:new_note(title, id, dir)
-								vim.api.nvim_command("e " .. tostring(note.path))
-							end)
-						end)
-					end,
-					desc = "New",
-				},
-				{
-					"<Leader>ot",
-					vim.cmd.ObsidianToday,
-					desc = "Open today's note",
-				},
-				{
-					"<Leader>oy",
-					desc = "Open yesterday's note",
-					vim.cmd.ObsidianYesterday,
-				},
-				{
-					"<Leader>fo",
-					vim.cmd.ObsidianQuickSwitch,
-					desc = "Find Note",
-				},
-				{
-					"<Leader>og",
-					vim.cmd.ObsidianSearch,
-					desc = "Find in Notes",
-				},
-			}
-		end,
-		---@type obsidian.config.ClientOpts
-		opts = {
-			dir = vim.fn.expand("$HOME/Documents/myriad"),
-			daily_notes = {
-				folder = "Journal",
-			},
-			templates = {
-				subdir = "Templates",
-			},
-			---@param title string?
-			note_id_func = function(title)
-				return title
-			end,
-			completion = {
-				nvim_cmp = true,
-			},
-			use_advanced_uri = true,
 		},
 	},
 }
