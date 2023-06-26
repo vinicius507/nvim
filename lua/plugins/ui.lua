@@ -55,28 +55,13 @@ return {
 			routes = {
 				{
 					filter = {
-						any = {
-							{
-								find = "%d+L, %d+B",
-								event = "msg_show",
-							},
-						},
-					},
-					view = "mini",
-				},
-				{
-					filter = {
 						cmdline = true,
 						event = "msg_show",
 					},
 					view = "cmdline_output",
 				},
 			},
-			views = {
-				cmdline_output = {
-					enter = true,
-				},
-			},
+			views = { cmdline_output = { enter = true } },
 			commands = {
 				all = {
 					view = "split",
@@ -85,6 +70,5 @@ return {
 				},
 			},
 		},
-		dependencies = { "MunifTanjim/nui.nvim" },
 	},
 }
