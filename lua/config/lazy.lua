@@ -27,7 +27,6 @@ require("lazy").setup({
 		{ import = "lazyvim.plugins.extras.editor.mini-files" },
 		{ import = "lazyvim.plugins.extras.ui.edgy" },
 		{ import = "lazyvim.plugins.extras.lang.json" },
-		{ import = "lazyvim.plugins.extras.lang.typescript" },
 		{ import = "plugins" },
 		{
 			"vinicius507/42Lazy",
