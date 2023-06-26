@@ -11,6 +11,8 @@ opt.tabstop = 2
 opt.shiftwidth = 2
 opt.expandtab = true
 
+opt.exrc = true
+
 opt.splitright = true
 opt.splitbelow = true
 
