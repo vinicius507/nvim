@@ -21,6 +21,18 @@ return {
 			sort_case_insensitive = true,
 			window = {
 				width = 32,
+				position = "float",
+				popup = {
+					position = { col = "100%", row = "2" },
+					size = function(state)
+						local root_name = vim.fn.fnamemodify(state.path, ":~")
+						local root_len = string.len(root_name) + 4
+						return {
+							width = math.max(root_len, 32),
+							height = vim.o.lines - 4,
+						}
+					end,
+				},
 			},
 			hijack_netrw_behavior = "open_default",
 			use_libuv_file_watcher = true,

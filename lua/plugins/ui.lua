@@ -75,4 +75,13 @@ return {
 			}
 		end,
 	},
+	{
+		"folke/edgy.nvim",
+		opts = function(_, defaultOpts)
+			local opts = {
+				left = {},
+			}
+			return vim.tbl_deep_extend("force", defaultOpts, opts)
+		end,
+	},
 }
