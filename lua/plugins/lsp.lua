@@ -6,28 +6,7 @@ return {
 				update_in_insert = true,
 			},
 			---@type lspconfig.options
-			servers = {
-				astro = {},
-				bashls = {},
-				clangd = {},
-				cssls = { cmd = { "css-languageserver", "--stdio" } },
-				dockerls = {},
-				pylsp = {},
-				rust_analyzer = {
-					settings = {
-						["rust-analyzer"] = {
-							cargo = { allFeatures = true },
-							checkOnSave = {
-								command = "clippy",
-								extraArgs = { "--no-deps" },
-							},
-						},
-					},
-				},
-				yamlls = {},
-				nil_ls = {},
-				vimls = {},
-			},
+			servers = {},
 			setup = {
 				clangd = function(_, opts)
 					opts.capabilities.offsetEncoding = { "utf-16" }
