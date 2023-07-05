@@ -6,11 +6,10 @@ return {
 				update_in_insert = true,
 			},
 			---@type lspconfig.options
-			servers = {},
-			setup = {
-				clangd = function(_, opts)
-					opts.capabilities.offsetEncoding = { "utf-16" }
-				end,
+			servers = {
+				lua_ls = {},
+				nil_ls = {},
+				vimls = {},
 			},
 		},
 	},
