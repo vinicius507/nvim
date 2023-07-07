@@ -1,12 +1,12 @@
 {
   pkgs,
   lib,
-  appName ? "nvim",
-  viAlias ? false,
-  vimAlias ? false,
-  isolated ? true,
+  appName,
+  config,
+  viAlias,
+  vimAlias,
+  isolated,
 }: let
-  config = pkgs.callPackage ./neovim-config {inherit pkgs appName;};
   plugins = pkgs.callPackage ./plugins.nix {inherit pkgs;};
   nvimConfig = pkgs.neovimUtils.makeNeovimConfig {
     inherit plugins viAlias vimAlias;

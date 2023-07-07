@@ -37,12 +37,16 @@
         neovim = neovim.packages.${prev.system}.neovim;
       };
     };
-    packages = forEachSystem ({pkgs}: rec {
-      default = neovim;
-      neovim = self.lib.${pkgs.system}.makeNeovimBundle {};
+    packages = forEachSystem ({pkgs}: let
+      bundle = self.lib.${pkgs.system}.makeNeovimBundle {};
+    in {
+      default = bundle.neovim;
+      neovim = bundle.neovim;
+      neovim-config = bundle.neovim-config;
     });
     lib = forEachSystem ({pkgs}: {
-      makeNeovimBundle = args: (pkgs.callPackage ./pkgs/neovim.nix args);
+      makeNeovimBundle = args: (pkgs.callPackage ./pkgs/bundle.nix args);
     });
+    homeManagerModules = import ./modules/home-manager.nix self.lib;
   };
 }
