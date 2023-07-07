@@ -17,26 +17,32 @@
       "aarch64-linux"
     ];
 
-    nvimOverlay = final: prev: {
-      neovim = neovim.packages.${final.stdenv.hostPlatform.system}.neovim;
-      nvim = import ./nix/pkgs/neovim.nix {pkgs = final;};
-    };
-
     forEachSystem = f:
       nixpkgs.lib.genAttrs allSystems (system:
         f {
           pkgs = import nixpkgs {
             inherit system;
-            overlays = [nvimOverlay];
+            overlays = [self.overlays.neovim];
           };
         });
   in {
     apps = forEachSystem ({pkgs}: {
       default = {
         type = "app";
-        program = "${pkgs.nvim}/bin/nvim";
+        program = "${self.packages.${pkgs.system}.neovim}/bin/nvim";
       };
     });
-    packages = forEachSystem ({pkgs}: {default = pkgs.nvim;});
+    overlays = {
+      neovim = final: prev: {
+        neovim = neovim.packages.${prev.system}.neovim;
+      };
+    };
+    packages = forEachSystem ({pkgs}: rec {
+      default = neovim;
+      neovim = self.lib.${pkgs.system}.makeNeovimBundle {};
+    });
+    lib = forEachSystem ({pkgs}: {
+      makeNeovimBundle = args: (pkgs.callPackage ./pkgs/neovim.nix args);
+    });
   };
 }

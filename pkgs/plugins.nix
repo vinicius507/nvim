@@ -1,5 +1,5 @@
-{pkgs}:
-pkgs.vimPlugins.nvim-treesitter.withPlugins (p:
+{pkgs}: let
+  treesitterParsers = p:
     with p; [
       tree-sitter-bash
       tree-sitter-cpp
@@ -18,4 +18,8 @@ pkgs.vimPlugins.nvim-treesitter.withPlugins (p:
       tree-sitter-toml
       tree-sitter-yaml
       tree-sitter-yuck
-    ])
+    ];
+in
+  with pkgs.vimPlugins; [
+    (nvim-treesitter.withPlugins treesitterParsers)
+  ]
