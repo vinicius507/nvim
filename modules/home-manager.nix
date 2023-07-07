@@ -12,35 +12,37 @@ in {
   disabledModules = ["programs/neovim.nix"];
 
   options = {
-    enable = mkEnableOption "Neovim";
-    appName = mkOption {
-      type = types.str;
-      default = "nvim";
-      description = ''
-        Neovim NVIM_APPNAME setting to use.
-      '';
-    };
-    viAlias = mkOption {
-      type = types.bool;
-      default = false;
-      description = ''
-        Symlink <command>vi</command> to <command>nvim</command> binary.
-      '';
-    };
-    vimAlias = mkOption {
-      type = types.bool;
-      default = false;
-      description = ''
-        Symlink <command>vim</command> to <command>nvim</command> binary.
-      '';
-    };
-    isolated = mkOption {
-      type = types.bool;
-      default = false;
-      description = ''
-        Executes Neovim with its config isolated into a nix store.
-        It replaces XDG_{CONFIG,CACHE}_HOME for Neovim.
-      '';
+    programs.neovim = {
+      enable = mkEnableOption "Neovim";
+      appName = mkOption {
+        type = types.str;
+        default = "nvim";
+        description = ''
+          Neovim NVIM_APPNAME setting to use.
+        '';
+      };
+      viAlias = mkOption {
+        type = types.bool;
+        default = false;
+        description = ''
+          Symlink <command>vi</command> to <command>nvim</command> binary.
+        '';
+      };
+      vimAlias = mkOption {
+        type = types.bool;
+        default = false;
+        description = ''
+          Symlink <command>vim</command> to <command>nvim</command> binary.
+        '';
+      };
+      isolated = mkOption {
+        type = types.bool;
+        default = false;
+        description = ''
+          Executes Neovim with its config isolated into a nix store.
+          It replaces XDG_{CONFIG,CACHE}_HOME for Neovim.
+        '';
+      };
     };
   };
 
