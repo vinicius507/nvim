@@ -30,10 +30,7 @@ in
         ++ lib.optionals hasExtraPackages ["--suffix" "PATH" ":" "${lib.makeBinPath extraPackages}"]
         ++ lib.optionals isolated [
           "--set"
-          "NVIM_FROM_STORE"
-          "true"
-          "--set"
-          "XDG_CONFIG_HOME"
+          "XDG_CONFIG_DIRS"
           "${stdpath.config}"
           "--set"
           "XDG_CACHE_HOME"

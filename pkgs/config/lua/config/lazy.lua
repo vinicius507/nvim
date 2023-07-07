@@ -19,8 +19,12 @@ bootstrap()
 
 local lazy = require("lazy")
 local lockfile = vim.fn.stdpath("config") .. "/lazy-lock.json"
-if vim.env.NVIM_FROM_STORE then
+local NVIM_FROM_STORE = vim.fn.stdpath("state") == "/tmp/nvim-state/"
+
+if NVIM_FROM_STORE then
 	lockfile = vim.fn.stdpath("state") .. "/lazy-lock.json"
+	vim.opt.runtimepath:remove(vim.fn.expand("~/.config/nvim"))
+	vim.opt.packpath:remove(vim.fn.expand("~/.local/share/nvim/site"))
 end
 
 lazy.setup({
@@ -52,6 +56,7 @@ lazy.setup({
 	performance = {
 		reset_packpath = false,
 		rtp = {
+			reset = false,
 			disabled_plugins = {
 				"gzip",
 				"matchit",
@@ -65,4 +70,3 @@ lazy.setup({
 		},
 	},
 })
-lazy.restore()
