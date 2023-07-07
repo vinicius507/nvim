@@ -41,12 +41,30 @@ in {
           It replaces XDG_{CONFIG,CACHE}_HOME for Neovim.
         '';
       };
+      extraPackages = mkOption {
+        type = types.list;
+        default = with pkgs;[
+          alejandra
+          lua-language-server
+          nil
+          shfmt
+          stylua
+        ] ++ (with pkgs.nodePackages; [
+          bash-language-server
+          eslint
+          prettier
+        ]);
+        description = ''
+          Extra packages to be used in Neovim.
+          Useful for common LSP servers and formatters.
+        '';
+      };
     };
   };
 
   config = let
     bundle = makeNeovimBundle {
-      inherit (cfg) appName isolated viAlias vimAlias;
+      inherit (cfg) appName isolated viAlias vimAlias extraPackages;
     };
   in
     mkIf cfg.enable {

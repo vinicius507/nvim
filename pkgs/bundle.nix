@@ -5,9 +5,10 @@
   viAlias ? false,
   vimAlias ? false,
   isolated ? true,
+  extraPackages ? [],
 }: rec {
-  neovim = pkgs.callPackage ./neovim.nix {
-    inherit pkgs lib appName viAlias vimAlias isolated;
+  neovim = pkgs.callPackage ./neovim {
+    inherit pkgs lib appName viAlias vimAlias isolated extraPackages;
     config = neovim-config;
   };
   neovim-config = pkgs.callPackage ./neovim-config {inherit pkgs appName;};
