@@ -7,12 +7,10 @@ self: {
   inherit (lib) mkEnableOption mkIf mkOption types;
   inherit (self.lib.${pkgs.system}) makeNeovimBundle;
 
-  cfg = config.programs.neovim;
+  cfg = config.programs.nvim;
 in {
-  disabledModules = ["programs/neovim.nix"];
-
   options = {
-    programs.neovim = {
+    programs.nvim = {
       enable = mkEnableOption "Neovim";
       appName = mkOption {
         type = types.str;
