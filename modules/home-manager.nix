@@ -43,17 +43,7 @@ in {
       };
       extraPackages = mkOption {
         type = with types; listOf package;
-        default = with pkgs;[
-          alejandra
-          lua-language-server
-          nil
-          shfmt
-          stylua
-        ] ++ (with pkgs.nodePackages; [
-          bash-language-server
-          eslint
-          prettier
-        ]);
+        default = [];
         description = ''
           Extra packages to be used in Neovim.
           Useful for common LSP servers and formatters.
@@ -64,7 +54,21 @@ in {
 
   config = let
     bundle = makeNeovimBundle {
-      inherit (cfg) appName isolated viAlias vimAlias extraPackages;
+      inherit (cfg) appName isolated viAlias vimAlias;
+      extraPackages =
+        cfg.extraPackages
+        ++ (with pkgs; [
+          alejandra
+          lua-language-server
+          nil
+          shfmt
+          stylua
+        ])
+        ++ (with pkgs.nodePackages; [
+          bash-language-server
+          eslint
+          prettier
+        ]);
     };
   in
     mkIf cfg.enable {
