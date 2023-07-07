@@ -47,6 +47,6 @@
     lib = forEachSystem ({pkgs}: {
       makeNeovimBundle = args: (pkgs.callPackage ./pkgs/bundle.nix args);
     });
-    homemanagermodules = import ./modules/home-manager.nix self.lib;
+    homeManagerModules = import ./modules/home-manager.nix self.lib;
   };
 }
