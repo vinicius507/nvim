@@ -1,10 +1,12 @@
-{makeNeovimBundle}: {
+self: {
   config,
   lib,
   pkgs,
   ...
 }: let
   inherit (lib) mkEnableOption mkIf mkOption types;
+  inherit (self.lib.${pkgs.system}) makeNeovimBundle;
+
   cfg = config.programs.neovim;
 in {
   disabledModules = ["programs/neovim.nix"];
