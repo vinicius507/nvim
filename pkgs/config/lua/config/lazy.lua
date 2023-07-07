@@ -16,7 +16,18 @@ local function bootstrap()
 end
 
 bootstrap()
-require("lazy").setup({
+
+local lazy = require("lazy")
+local lockfile = vim.fn.stdpath("config") .. "/lazy-lock.json"
+local NVIM_FROM_STORE = vim.fn.stdpath("state") == "/tmp/nvim-state/"
+
+if NVIM_FROM_STORE then
+	lockfile = vim.fn.stdpath("state") .. "/lazy-lock.json"
+	vim.opt.runtimepath:remove(vim.fn.expand("~/.config/nvim"))
+	vim.opt.packpath:remove(vim.fn.expand("~/.local/share/nvim/site"))
+end
+
+lazy.setup({
 	spec = {
 		{
 			"LazyVim/LazyVim",
@@ -39,13 +50,13 @@ require("lazy").setup({
 			},
 		},
 	},
-	defaults = {
-		lazy = false,
-	},
+	defaults = { lazy = false },
 	checker = { enabled = true },
+	lockfile = lockfile,
 	performance = {
 		reset_packpath = false,
 		rtp = {
+			reset = false,
 			disabled_plugins = {
 				"gzip",
 				"matchit",
