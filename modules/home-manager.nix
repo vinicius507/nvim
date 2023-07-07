@@ -42,7 +42,7 @@ in {
         '';
       };
       extraPackages = mkOption {
-        type = types.list;
+        type = with types; listOf package;
         default = with pkgs;[
           alejandra
           lua-language-server
