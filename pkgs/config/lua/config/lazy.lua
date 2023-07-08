@@ -23,8 +23,6 @@ local NVIM_FROM_STORE = vim.fn.stdpath("state") == "/tmp/nvim-state/"
 
 if NVIM_FROM_STORE then
 	lockfile = vim.fn.stdpath("state") .. "/lazy-lock.json"
-	vim.opt.runtimepath:remove(vim.fn.expand("~/.config/nvim"))
-	vim.opt.packpath:remove(vim.fn.expand("~/.local/share/nvim/site"))
 end
 
 lazy.setup({
@@ -33,7 +31,6 @@ lazy.setup({
 			"LazyVim/LazyVim",
 			import = "lazyvim.plugins",
 		},
-
 		{ import = "lazyvim.plugins.extras.dap.core" },
 		{ import = "lazyvim.plugins.extras.editor.mini-files" },
 		{ import = "lazyvim.plugins.extras.ui.edgy" },
