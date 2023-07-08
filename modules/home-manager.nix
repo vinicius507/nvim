@@ -75,7 +75,7 @@ in {
       home.packages = [bundle.neovim];
       xdg.configFile.${cfg.appName} = {
         enable = !cfg.isolated;
-        source = "${bundle.neovim-config}/nvim";
+        source = "${bundle.config}/nvim";
         recursive = true;
         onChange = ''
           rm -rf ${config.xdg.cacheHome}/${cfg.appName}
