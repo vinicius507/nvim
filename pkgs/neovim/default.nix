@@ -30,7 +30,7 @@ in
         ++ lib.optionals hasExtraPackages ["--suffix" "PATH" ":" "${lib.makeBinPath extraPackages}"]
         ++ lib.optionals isolated [
           "--set"
-          "XDG_CONFIG_DIRS"
+          "XDG_CONFIG_HOME"
           "${stdpath.config}"
           "--set"
           "XDG_CACHE_HOME"
