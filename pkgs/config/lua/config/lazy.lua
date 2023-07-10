@@ -19,10 +19,27 @@ bootstrap()
 
 local lazy = require("lazy")
 local lockfile = vim.fn.stdpath("config") .. "/lazy-lock.json"
-local NVIM_FROM_STORE = vim.fn.stdpath("state") == "/tmp/nvim-state/"
 
-if NVIM_FROM_STORE then
-	lockfile = vim.fn.stdpath("state") .. "/lazy-lock.json"
+local function running_from_nix_store()
+	local stdpath_config = vim.fn.stdpath("config")
+	local root_dir = vim.fn.fnamemodify(stdpath_config, ":h")
+
+	return string.match(root_dir, "/nix/store.*") ~= nil
+end
+
+local function update_lockfile_path()
+	local new_path = vim.fn.stdpath("state") .. "/lazy-lock.json"
+
+	vim.loop.fs_copyfile(lockfile, new_path, {
+		ficlone = true,
+		ficlone_force = true,
+	})
+	vim.loop.fs_chmod(new_path, tonumber("0644", 8))
+	lockfile = new_path
+end
+
+if running_from_nix_store() then
+	update_lockfile_path()
 end
 
 lazy.setup({
