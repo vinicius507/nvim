@@ -43,7 +43,6 @@ lazy.setup({
 	},
 	defaults = { lazy = false },
 	checker = { enabled = true },
-	lockfile = vim.fn.stdpath("state") .. "/lazy/lazy-lock.json",
 	performance = {
 		reset_packpath = false,
 		rtp = {
