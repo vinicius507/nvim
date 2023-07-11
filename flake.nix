@@ -29,7 +29,7 @@
     apps = forEachSystem ({pkgs}: {
       default = {
         type = "app";
-        program = "${self.packages.${pkgs.system}.neovim}/bin/nvim";
+        program = "${self.packages.${pkgs.system}.default}/bin/nvim";
       };
     });
     overlays = {
@@ -37,7 +37,7 @@
         neovim = neovim.packages.${prev.system}.default;
       };
     };
-    packages = forEachSystem ({pkgs}: {default = self.lib.${pkgs.system}.makeNeovimBundle {};});
+    packages = forEachSystem ({pkgs}: {default = (self.lib.${pkgs.system}.makeNeovimBundle {}).neovim;});
     lib = forEachSystem ({pkgs}: {
       makeNeovimBundle = args: (pkgs.callPackage ./pkgs/bundle.nix args);
     });
