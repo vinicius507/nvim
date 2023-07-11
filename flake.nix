@@ -34,16 +34,10 @@
     });
     overlays = {
       neovim = final: prev: {
-        neovim = neovim.packages.${prev.system}.neovim;
+        neovim = neovim.packages.${prev.system}.default;
       };
     };
-    packages = forEachSystem ({pkgs}: let
-      bundle = self.lib.${pkgs.system}.makeNeovimBundle {};
-    in {
-      default = bundle.neovim;
-      neovim = bundle.neovim;
-      neovim-config = bundle.neovim-config;
-    });
+    packages = forEachSystem ({pkgs}: {default = self.lib.${pkgs.system}.makeNeovimBundle {};});
     lib = forEachSystem ({pkgs}: {
       makeNeovimBundle = args: (pkgs.callPackage ./pkgs/bundle.nix args);
     });
