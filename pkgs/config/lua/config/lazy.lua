@@ -18,29 +18,6 @@ end
 bootstrap()
 
 local lazy = require("lazy")
-local lockfile = vim.fn.stdpath("config") .. "/lazy-lock.json"
-
-local function running_from_nix_store()
-	local stdpath_config = vim.fn.stdpath("config")
-	local root_dir = vim.fn.fnamemodify(stdpath_config, ":h")
-
-	return string.match(root_dir, "/nix/store.*") ~= nil
-end
-
-local function update_lockfile_path()
-	local new_path = vim.fn.stdpath("state") .. "/lazy-lock.json"
-
-	vim.loop.fs_copyfile(lockfile, new_path, {
-		ficlone = true,
-		ficlone_force = true,
-	})
-	vim.loop.fs_chmod(new_path, tonumber("0644", 8))
-	lockfile = new_path
-end
-
-if running_from_nix_store() then
-	update_lockfile_path()
-end
 
 lazy.setup({
 	spec = {
@@ -66,7 +43,7 @@ lazy.setup({
 	},
 	defaults = { lazy = false },
 	checker = { enabled = true },
-	lockfile = lockfile,
+	lockfile = vim.fn.stdpath("state") .. "/lazy/lazy-lock.json",
 	performance = {
 		reset_packpath = false,
 		rtp = {
