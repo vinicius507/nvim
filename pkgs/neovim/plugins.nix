@@ -10,7 +10,6 @@
       tree-sitter-luadoc
       tree-sitter-markdown
       tree-sitter-markdown-inline
-      tree-sitter-nix
       tree-sitter-python
       tree-sitter-query
       tree-sitter-regex
